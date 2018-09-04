@@ -14,980 +14,131 @@ animation(animation, duration = 1s, delay = 0s)
 	-webkit-transition-delay delay ease-in-out
 	transition-delay delay ease-in-out
 
-.md-tooltip
-	opacity 1 !important
-	padding 2px 4px
-	max-width 100px
-
-.slick-slide
-	height inherit !important
-	min-height 100px !important
-
-.boxshadow
-	box-shadow 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12)
-
-rojo1 = #cc0000
-rojo2 = #b20000
-rojo3 = #720000
-rojo4 = #8e0202
-
-azul = #0b2347
-
-azul1 = #003143
-azul2 = #01303d
-azul3 = #00252d
-azul4 = #011a1e
-
-verde = #9c3
-
-h1
-	font-family Poopins
-
-*
-	&.ng-enter
-		transition 0.5s linear all
-		opacity 0
-		&.ng-enter-active
-			opacity 1
-	// &.ng-leave
-	// 	transition 0.5s linear all
-	// 	opacity 1
-	// 	&.ng-leave-active
-	// 		opacity 0
-
-
-.lineas
-	width 100%
-	position absolute
-	height 40px
-	background-color rojo1
+naranja = #ff6400
+negro = #343434
+.nav
 	display flex
-	.linea
-		z-index 1
-		height 40px
-		width 100%
-		transform skew(-20deg)
-		&:first-child
-			background-color rojo1
-		&:nth-child(2)
-			background-color rojo2
-		&:nth-child(3)
-			background-color rojo3
-		&:last-child
-			background-color rojo4
-
-.portada, .imagen
-	.spinner
-		width 100%
-		height 100%
+	justify-content center
+	align-items center
+	.nav-content
 		display flex
-		justify-content center
+		flex-direction row
+		justify-content space-between
 		align-items center
-
-md-virtual-repeat-container
-	.item
-		display flex
-		justify-content flex-start
-		align-items center
-		portada
-			margin-right 10px
-		portada, img
-			width 40px !important
-			height 40px !important
-
-header
-	height 86px !important
-	.nav, .subnav
-		display flex
-		justify-content space-around
-	.nav
-		background-color azul1
+		width 60%
 		.logo
+			width 70px
+			height 70px
+			margin-top 15px
 			cursor pointer
-			display flex
-			justify-content center
-			align-items center
+			&:focus
+				outline 0px
 			img
-				height 35px
-				margin 0 10px
-		span
-			color white
-			display flex
-			align-items center
-		.md-button
-			transform skew(20deg)
-			height 50px
-			border-radius 0px
-			md-icon
-				transform skew(-20deg)
-				color white
-		.md-button:nth-child(2), .md-button:nth-child(4)
-			background-color azul3
-		.md-button:nth-child(3)
-			background-color azul4
-
-	.subnav
-		background-color rojo1
+				width 100%
+				height 100%
 		.busqueda
 			display flex
 			flex-direction row
 			justify-content center
 			align-items center
-			md-autocomplete, md-autocomplete-wrap, input
-				height 33px
-				min-width 600px
-
+			width 50%
+			md-icon
+				color naranja
+			md-autocomplete
+				margin-left 10px
 		.botones
-			.md-button
-				transform skew(-20deg)
-				height 20px
-				border-radius 0px
-				span
-					transform skew(20deg)
-			.md-button:nth-child(1), .md-button:nth-child(3)
-				background-color rojo2
-			.md-button:nth-child(2)
-				background-color rojo3
-	.md-button
-		margin 0px
-		padding 0 10px
-		md-icon
-			color white
-		span
-			color white
-
-.md-panel
-	width 100%
-	h1
-		width 100%
-		text-align center
-		font-size 15px
-	.items
-		padding 10px
-		display grid
-		grid-template-rows repeat(11, 1fr)
-		grid-template-columns repeat(5, 1fr)
-		grid-auto-flow column
-		grid-gap 5px
-		.item
-			grid-row span 1
-			max-height 20px
-			span
-				font-family Poopins
-				font-size 11px
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			.sesion
+				width 65px
+				height 40px
+				margin-right 15px
+				margin-left 10px
+				cursor pointer
+				&:focus
+					outline 0px
+				p
+					font-size 11px
+					text-align justify
+			.linea
+				height 30px
+				border 0.5px solid gray
+			.carrito
+				background-color naranja
+				width 36px
+				height 30px
+				display flex
+				justify-content center
+				align-items center
+				min-width inherit
+				min-height inherit
+				margin 2px
+				margin-left 15px
+				img
+					height 25px
+			.contador
+				background-color negro
+				width 30px
+				height 30px
+				display flex
+				justify-content center
+				align-items center
+				h3
+					color white
+footer
+	background-color naranja
+	.contenedor-abajo
+		display flex
+		flex-direction  row
+		justify-content space-around
+		align-items center
+		.copyrigth
+			display flex
+			flex-direction column
+			p
+				color white
+				font-size 10px
+				margin 5px
+			.aviso
+				display flex
+				flex-direction row
+				justify-content flex-start
 				.md-button
-					margin 0px
-					padding 0px
 					min-height inherit
 					min-width inherit
 					line-height inherit
-					height inherit
-					width inherit
-					&.normal
-						margin-left 16px
-					md-icon
-						height 16px
-						width 16px
-						min-width 16px
-						min-height 16px
-						font-size 16px
-			.principal
-				margin-left 5px
-				span
-					font-size 16px !important
-					font-weight 800 !important
-					color rojo1
-			.subcategoria
-				margin-left 15px
-				span
-					font-size 11px !important
-					font-weight 600 !important
-					color azul1
-			.subsubcategoria
-				margin-left 30px
-				span
-					font-size 10px !important
-					font-weight 400 !important
-			.subsubsubcategoria
-				margin-left 45px
-				span
-					font-size 9px !important
-					font-weight 400 !important
-			// .subcategoria, .subsubcategoria, .subsubsubcategoria
-			// 	&:before
-			// 		font-family "Material Icons"
-			// 		font-size 11px
-			// 		color black
-			// 		content "subdirectory_arrow_right"
-
-
-.slick-slider
-	.slick-arrow
-		height 100px
-		width 50px
-		z-index 1
-		background-color white
-		@extends .boxshadow
-		&:before
-			color azul1
-		&.slick-prev
-			left 25px
-			&:before
-				font-family "Material Icons"
-				content "keyboard_arrow_left"
-		&.slick-next
-			right 25px
-			&:before
-				font-family "Material Icons"
-				content "keyboard_arrow_right"
-
-.home
-	.home-container
-		display flex
-		flex-direction row
-		justify-content center
-		.home-content
-			display flex
-			flex-direction row
-			justify-content center
-			width 90%
-			padding 10px
-			.modulos
-				width 80%
-				display flex
-				flex-direction column
-				.slick-slider
-					.slick-track
-						height 270px !important
-				.modulo
-					margin 30px 0
-					&:first-child
-						margin-top 0px
-						.slick-slider
-							.slick-track
-								min-height 350px !important
-					.nombre
-						width 100%
-						display flex
-						flex-direction row
-						justify-content center
-						align-items center
-						position relative
-						margin 10
-						overflow hidden
-						.nombre-content
-							z-index 2
-							width 80%
-							height 40px
-							display flex
-							flex-direction row
-							justify-content flex-start
-							align-items center
-							p
-								font-family Poopins
-								color white
-							.md-button
-								background-color white
-								color black
-								margin 0 15px
-								min-height 20px
-								height 20px
-								min-width 20px
-								width 50px
-								line-height 20px
-								span
-									font-size 9px
-
-					.item-container
-						display flex
-						flex-direction row
-						.item
-							width 200px !important
-							.imagen
-								background-size cover
-								background-position center
-								width 200px
-								height 200px
-								position relative
-								portada
-									img
-										width 100%
-								.categoria
-									position absolute
-									bottom 0px
-									background-color rgba(255, 255 , 255, .5)
-									&:after
-										height 0px
-										width 0px
-										border-right 20px solid transparent
-										border-top 0px solid transparent
-										border-left 0px solid transparent
-										border-bottom 28px solid rgba(255, 255 , 255, .5)
-										content ''
-										display block
-										position absolute
-										top 0px
-										right -20px
-									p
-										margin 5px
-
-							p
-								margin 5px
-								font-size 12px
-								font-family Poopins
-							.boton
-								.md-button
-									background-color azul1
-									color white
-									margin 0px
-									min-height 20px
-									height 20px
-									line-height 20px
-									span
-										font-size 9px
-
-
-producto
-	.producto-content
-		border 1px solid rgba(0, 49, 67, .1)
-		.bandera
-			width 100px
-			height 100px
-			position absolute
-			z-index 5
-			img
-				width 100%
-				height 100%
-		&:hover
-			box-shadow 0 -1px 0 #e5e5e5, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.24)
-			img
-				transform scale(.9)
-		portada
-			.portada
-				img
-					width 100%
-		.titulo
-			font-family Poopins
-			font-size 13px
-			line-height 13px
-			margin 3px 5px
-		.versiones
-			padding 0 10px
-			.version
-				display flex
-				flex-direction row
-				margin 3px 0
-				min-height 30px
-				.version-content
-					display flex
-					flex-direction column
-					width 100%
-					.detalles
-						display flex
-						width 100%
-						flex-direction row
-						.md-button
-							margin 0px
-							padding 0px
-							line-height 20px
-							height 20px
-							margin 0 2px
-						.opciones
-							.md-button.opcion
-								font-size 12px
-								font-family Calibri
-								font-weight 800
-								min-width 15px
-								min-height 15px
-								height 15px
-								border-radius 0px
-						.colores
-							.md-button.color
-								border 1px solid rgba(0,0,0 .1)
-								min-width 15px
-								min-height 15px
-								height 15px !important
-								border-radius 4px
-					.existencia
-						width 100%
-						display flex
-
-						strong
-							margin-left 2px
-							font-size 9px
-						span
-							font-size 7px
-							line-height 12px
-				.precio-container
-					width 100%
-					display flex
-					justify-content flex-end
-					&>div
-						width 100%
-						text-align end
-					&.oferta
-						.precio
-							text-decoration line-through
-							font-size 11px
-							color azul1
-						.descuento
-							font-size 15px
-							color rojo1
-					&.normal
-						.precio
-							color azul1
-						.descuento
-							display none
-		.boton
-			padding 0 10px
-			.md-button
-				background-color azul1
-				color white
-				margin 0px
-				min-height 20px
-				height 20px
-				line-height 20px
-				span
-					font-size 9px
-
-
-.productos
-	.productos-content
-		display flex
-		flex-direction row
-		.filtro
-			width 350px
-			padding 0 10px
-			background-color white
-			border-right 1px solid rgba(0, 0 , 0, .1)
-			.search
-				display flex
-				margin 10px 0px
-				md-autocomplete
-					margin 0px 0px
-				.md-button
-					background-color azul1
-					margin 0px
-					border-radius 0px
-					min-width 40px
-					md-icon
-						color white
-				// input
-				// 	padding-left 32px !important
-				// 	background-image url('/img/search.svg') !important
-				// 	background-repeat no-repeat !important
-				// 	background-position 5px 10px !important
-				// 	background-size 20px !important
-			md-expansion-panel-group
-				md-expansion-panel-collapsed, md-expansion-panel-header, .md-expansion-panel-header-container
-					height 30px
-					min-height 30px
-				md-expansion-panel
-					box-shadow inherit
-					margin 0px
-					md-expansion-panel-header
-						width 100%
-						.md-expansion-panel-header-container
-							padding 0px
-							md-icon
-								margin 0px 5px
-							.md-title
-								font-size 11px
-					md-expansion-panel-collapsed
-						padding 0px
-						md-expansion-panel-header
-							.md-expansion-panel-header-container
-								background-color azul1
-								.md-title
-									color white
-					md-expansion-panel-expanded
-						md-expansion-panel-header
-							.md-expansion-panel-header-container
-								border none
-								.md-title
-									padding-left 20px
-						md-expansion-panel-content
-							padding 0px
-							md-list
-								md-list-item, .md-list-item-inner
-									height 20px
-									min-height 20px
-									.md-list-item-text
-										display flex
-										align-items center
-										line-height 20px
-										md-checkbox
-											margin 0 5px
-										md-checkbox, .md-container, .md-icon
-											min-height 13px
-											min-width 13px
-											height 13px
-											width 13px
-											.md-icon
-												&:after
-													left 2.66667px
-													top .22222px
-													height 8.33333px
-													width 4.66667px
-										md-checkbox.md-checked .md-icon
-											background-color rojo1
-										.color
-											height 15px
-											width 15px
-											margin 0 3px
-											border 1px solid rgba(0, 0, 0 .1)
-										span
-											font-size 12px
-											// font-family Poopins
-									md-checkbox
-										margin 0px
-						md-expansion-panel-footer
-							.md-expansion-panel-footer-container
-								border none
-								display flex
-								justify-content center
-								.md-button
-									margin 0px
-									min-width 0px
-									width 100%
-									height 20px
-									md-icon
-										color azul1
-										transform scale(1.3)
-		.grid-container
-			display flex
-			flex-direction column
-			width 100%
-			margin-bottom 50px
-			.categorias
-				margin 10px 20px
-				display flex
-				flex-direction row
-				.categoria
-					padding 0 10px
-					md-input-container
-						width 100%
-						margin 10px 0
-						overflow hidden
-						md-select
-							font-family Poopins
-							md-select-value
-								font-size 15px
-								border inherit
-							md-option
-								font-size 13px
-			.ad
-				img
-					width 100%
-			.grid-content
-				margin 30px
-				margin-bottom 100px
-				md-grid-list
-					width 100%
-					md-grid-tile
-						transition(250ms, 0)
-						overflow hidden
-						cursor pointer
-						.producto-container
-							padding 10px
-							width 100%
-							height 100%
-
-						// 	.producto
-						// 		width 100%
-						// 		height 100%
-						// 		position relative
-						// 		portada, .portada, img
-						// 			width 100%
-						// 			transition(100ms, 0)
-						// 		.producto-content
-						// 			padding 0 3px
-							// 		h1
-							// 			font-size 20px
-							// 		.spinner
-							// 			width 100%
-							// 			height 100%
-							// 		.version
-							// 			display flex
-							// 			flex-direction column
-							// 			margin 3px 0
-							// 			.nombre
-							// 				font-size 12px
-							// 				font-family Calibri
-							// 				font-weight 800
-							// 			.detalles
-							// 				display flex
-							// 				flex-direction row
-							// 				.md-button
-							// 					margin 0px
-							// 					padding 0px
-							// 					line-height 20px
-							// 					height 20px
-							// 					margin 0 2px
-							// 				.opcion
-							// 					font-size 12px
-							// 					font-family Calibri
-							// 					font-weight 800
-							// 					min-width 15px
-							// 					min-height 15px
-							// 					height 15px
-							// 					border-radius 0px
-							// 				.color
-							// 					border 1px solid rgba(0,0,0 .1)
-							// 					min-width 15px
-							// 					min-height 15px
-							// 					border-radius 0px
-							// 			.precio-container
-							// 				width 100%
-							// 				display flex
-							// 				justify-content flex-end
-							// 				&>div
-							// 					width 100%
-							// 					text-align end
-							// 				&.oferta
-							// 					.precio
-							// 						text-decoration line-through
-							// 						font-size 11px
-							// 						color azul1
-							// 					.descuento
-							// 						font-size 15px
-							// 						color rojo1
-							// 				&.normal
-							// 					.precio
-							// 						color azul1
-							// 					.descuento
-							// 						display none
-							//
-							//
-							//
-							// .botones
-							// 	bottom 0px
-							// 	width 100%
-							// 	display flex
-							// 	flex-direction row
-							// 	.md-button
-							// 		margin 0px
-							// 		background-color azul1
-							// 		border-radius 0px
-							// 		width 100%
-							// 		md-icon
-							// 			color white
-				cl-paging
-					width 100%
-					display flex
-					justify-content center
-					.paginacion
-						width 80%
-						display flex
-						justify-content center
-						.md-button
-							max-width 40px
-							color white
-							md-icon
-								color white
-							&.previous, &.next
-								background-color azul3
-							&.first, &.last
-								background-color azul4 !important
-							&.active
-								background-color rojo1 !important
-							&.page
-								background-color azul2
-.producto
-	.slick-slider
-		.slick-arrow
-			height 40px
-			width 40px
-	section
-		&.producto-content
-			display flex
-			flex-direction row
-			margin-top 100px
-			.imagenes
-				width 30%
-				min-width 300px
-				display flex
-				flex-direction row
-				.portada, .imagen
-					cursor pointer
-					&:focus
-						outline 0px
-					&:hover
-						img
-							transform scale(.9)
-					img
-						transition(500ms , 0)
-
-				#central
-					width calc(100% - 100px)
-					height 200px
-					//
-					// .slick-arrow
-					// 	z-index 10
-					// 	background-color naranja
-					// 	box-shadow 0 2px 5px 0 rgba(0,0,0,.26)
-					// 	border-radius 50px
-					// 	&:before
-					// 		color white
-					// 		height 19px
-					// 		width 19px
-					// 		line-height 19px
-					// 		opacity 1
-					// 	&.slick-prev
-					// 		left 15px
-					// 	&.slick-next
-					// 		right 15px
-
-					.slick-slide, .portada, .imagen
-						display flex
-						justify-content center
-						img
-							height 100%
-							width auto
-
-				#slider
-					width 80px !important
+					margin 0 !important
 					margin-top 5px
-					.slick-dots
-						padding 0px
-						bottom 0px
-						li button:before
-							content none
-					.slick-slide, .portada, .imagen
-						max-height 80px
-
-			.informacion
-				width 33%
-				display flex
-				flex-direction row
-				.informacion-content
-					width 100%
-					.titulo
-						margin-bottom 20px
-						h1
-							margin 0px
-					.gama
-						.productos
-							display flex
-							.md-button.producto
-								min-width inherit
-								border-radius 0px
-								padding 0px
-								width 50px
-								height 50px
-								margin 5px
-								position relative
-								portada, img
-									width 100%
-									height 100%
-					md-list
-						max-width 400px
-						md-list-item
-							height inherit
-							min-height inherit
-							padding 10px 0px
-							display flex
-							flex-direction column
-							border 1px solid rgba(0 , 0 , 0, .1)
-							border-left 0px
-							border-right 0px
-							&:first-child
-								border-top inherit
-							&:last-child
-								border-bottom inherit
-							&:before
-								min-height inherit
-							.version
-								width 100%
-								.md-list-item-text
-									width 100%
-									height 13px
-									display flex
-									flex-direction row
-									span
-										width 100%
-										font-size 12px
-										font-family Calibri
-										font-weight 800
-									.opciones
-										display flex
-										flex-direction row
-										.opcion
-											margin 0 10px
-											font-size 12px
-											font-family Calibri
-											font-weight 800
-										.color
-											height 15px
-											width 15px
-								.precio-container
-									width 100%
-									&>div
-										width 100%
-										text-align end
-
-									.precio
-										text-decoration line-through
-										font-size 14px
-										color azul1
-									.descuento
-										font-size 1.714em
-										color rojo1
-							.oferta
-								div
-									margin 5px 0
-								p
-									margin 0px
-
-
-				.botones
-					margin-left 10px
-					display flex
-					flex-direction column
-					justify-content center
-					align-items center
-					background-color azul1
-					.md-button
-						margin 0px
-						min-width 0px
-						width 50px
-						height 70px
-						transform skew(0 , 40deg)
-						md-icon
-							color white
-							transform skew(0 , -40deg)
-					.md-button:nth-child(1)
-						background-color azul3
-					.md-button:nth-child(2)
-						background-color azul4
-			.interaccion
-				width 33%
-				display flex
-				justify-content center
-				flex-direction column
-				align-items center
-				position relative
-				.ambientes
-					width 80%
-					margin-top 10px
-					.ambiente
-						display flex
-						justify-content center
-						position relative
-						img
-							height 160px
-							width auto
-						.md-button
-							bottom 40px
-							transition(200ms, 0)
-							position absolute
-							background-color rojo1
-							color white
-							margin 0px
-							opacity 0
-						&.ambiente:hover
-							.md-button
-								opacity 1
-
-		&.alternativas
-			margin-top 100px
-			.alternativa
-				width 100%
-				height 100%
-				position relative
-
-
-main
-	min-height calc(100vh)
-
-footer
-	display flex
-	flex-direction column
-	div
-		width 100%
-	.marcas
-		height 90px
-		background-color white
-		display flex
-		justify-content center
-		.marcas-content
-			width 90%
+					span
+						font-size 10px
+						color white
+						text-transform capitalize
+				.linea-abajo
+					margin-top 1px
+					height 8px
+					border 0.5px solid white
+		.contactos
 			display flex
-			flex-direccion row
+			flex-direction row
 			justify-content space-between
 			align-items center
-			img
-				max-width 90px
-				max-height 45px
-				height auto
-				filter grayscale(100%)
-				opacity .8
-	.siguenos
-		height 80px
-		background-color azul2
-		display flex
-		flex-direccion flex-end
-		.md-button
-			height 80px
-			width 80px
-			margin 0px
-			border-left 1px solid rgba(255, 255, 255, .1)
-			md-icon
-				height 40px
-				width 40px
-				svg
-					color white
-	.copyrigth
-		height 120px
-		background-color white
-		display flex
-		justify-content center
-		.copy-content
-			display flex
-			flex-direction row
-			div
-				padding 10px
-			.botones
-				display flex
-				.md-button
-					color azul4
-
-.md-panel.ficha
-	position absolute
-	width 150px
-
-.ambientes
-	display flex
-	justify-content center
-	.ambientes-content
-		width 90%
-		.cuartos-container
-			display flex
-			flex-direction row
-			justify-content center
-			.cuartos
+			width 25%
+			margin-right 10vw
+			.correo, .telefono
 				display flex
 				flex-direction row
-				.cuarto
-					margin 0 10px
-		.espacio
-			width 100%
-			height 100%
-			background-size cover
-			background-position center
-			background-repeat no-repeat
-
-.ambiente
-	section
-		&.ambiente-content
+				justify-content center
+				align-items center
+				p
+					margin 0px
+					color white
+					font-size 10px
+					font-weight bolder
+		.imagen
+			background-color white
+			width 10%
 			display flex
 			justify-content center
 			align-items center
-			width 100vw
-			.espacio
-				canvas
-					position absolute
-				#coordenadas
-					z-index 2
-				#background
-					z-index 1

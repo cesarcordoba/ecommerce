@@ -1,45 +1,53 @@
 .nav
-    .logo(ui-sref="home")
-        img(src="img/No_Foto.png")
-        span El gigante de los azulejos y marmoles
-    .botones
-        md-button
-            md-icon location_on
-        md-button
-            md-icon search
-        md-button(ng-if="logueado" ng-click="mandarPerfil()")
-            md-icon account_circle
-        md-button(ng-click="mandarCarrito()")
-            md-icon shopping_cart
-        md-button(ng-click="mandarLogin()" ng-if="!logueado")
-            md-icon vpn_key
-        md-button(ng-click="logout()" ng-if="logueado")
-            md-icon exit_to_app
-.subnav
-    .busqueda
-        md-button(ng-click="ctrl.abrir()")
-            md-icon arrow_drop_down
-            span Categorias
-        md-autocomplete(
-            flex
-            md-selected-item="ctrl.productos.item"
-            md-selected-item-change="ctrl.productos.seleccion()"
-            md-search-text="ctrl.productos.busqueda"
-            md-search-text-change="ctrl.productos.buscar()" 
-            md-items="item in ctrl.productos.filtrar()" 
-            md-item-text="item.nombre"
-            md-delay="1000"
-            md-require-match="true"
-            md-dropdown-items="10"
-            placeholder="Busca por nombre")
-            md-item-template
-                .item
-                    portada(id="item.id" style="width : 100px")
-                    span {{item.nombre}}
-            p hola
-            md-not-found Lo sentimos, ningún producto con ese nombre encontrado.
-            
-    .botones
-        md-button(ui-sref="productos") productos
-        md-button(ui-sref="espacios") Espacio
-        md-button Catalogo
+    .nav-content
+        .logo(ui-sref="home")
+            img(src="img/ferremar_logo.png")
+        .busqueda
+            .lupa
+                img(src="img/ferremar_lupa.png")
+            md-autocomplete(
+                flex
+                md-selected-item="ctrl.productos.item"
+                md-selected-item-change="ctrl.productos.seleccion()"
+                md-search-text="ctrl.productos.busqueda"
+                md-search-text-change="ctrl.productos.buscar()" 
+                md-items="item in ctrl.productos.filtrar()" 
+                md-item-text="item.nombre"
+                md-delay="1000"
+                md-require-match="true"
+                md-dropdown-items="10"
+                placeholder="¿Que estas buscando?")
+        .botones
+            .usuario
+                img(src="img/ferremar_usuario.png")
+            .sesion
+                p Inicia sesion  o registrate
+            .linea
+            md-button.carrito
+                img(src="img/ferremar_carrito.png")
+            .contador
+                h3 0
+//-     md-icon location_on
+//- md-button
+//-     md-icon search
+//- md-button(ng-if="logueado" ng-click="mandarPerfil()")
+//-     md-icon account_circle
+//- md-button(ng-click="mandarCarrito()")
+//-     md-icon shopping_cart
+//- md-button(ng-click="mandarLogin()" ng-if="!logueado")
+//-     md-icon vpn_key
+//- md-button(ng-click="logout()" ng-if="logueado")
+//-     md-icon exit_to_app
+//- .subnav
+//- 
+//-             md-item-template
+//-                 .item
+//-                     portada(id="item.id" style="width : 100px")
+//-                     span {{item.nombre}}
+//-             p hola
+//-             md-not-found Lo sentimos, ningún producto con ese nombre encontrado.
+//- 
+//-     .botones
+//-         md-button(ui-sref="productos") productos
+//-         md-button(ui-sref="espacios") Espacio
+//-         md-button Catalogo
