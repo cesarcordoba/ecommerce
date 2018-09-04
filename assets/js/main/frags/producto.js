@@ -1,10 +1,10 @@
 angular.module('myapp')
-.controller('productoCtrl', function($scope, $stateParams, $window,  Marca, Producto, Version, Gama, Ambiente, Oferta ) {
+.controller('productoCtrl', function($scope, $stateParams, $localStorage, $window,  Marca, Producto, Version, Gama, Ambiente, Oferta ) {
 
     const
         self = this,
         id = $stateParams.id
-
+        bolsita = [];
     class producto_ {
         constructor(arg) {
             Object.entries(arg).forEach(n => this[n[0]] = n[1])
@@ -80,6 +80,10 @@ angular.module('myapp')
         agregaACarrito(producto){
 
             console.log(producto)
+
+            bolsita.push(producto)
+            $localStorage.bolsa = bolsita
+            console.log($localStorage.bolsa)
 
         }
 

@@ -4,34 +4,38 @@ angular.module('myapp')
     const self = this
 
     self.subtotal = 0;
+    var bolsa = $localStorage.bolsa;
 
 	class carrito_{
 		constructor(){
 			this.cargarObjetos();
-		
+
 		}
 
 		cargarObjetos(){
 
-			this.objetos =  [
-				{
-					descripcion: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quia, autem laboriosam totam et amet deleniti quisquam eius quae, blanditiis ad natus omnis nam placeat exercitationem repellat. Perferendis, soluta, quaerat",
-					precio: 100,
-					cantidad: 1
-				},{
-					descripcion: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quia, autem laboriosam totam et amet deleniti quisquam eius quae, blanditiis ad natus omnis nam placeat exercitationem repellat. Perferendis, soluta, quaerat",
-					precio: 200,
-					cantidad: 2
-				},{
-					descripcion: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quia, autem laboriosam totam et amet deleniti quisquam eius quae, blanditiis ad natus omnis nam placeat exercitationem repellat. Perferendis, soluta, quaerat",
-					precio: 300,
-					cantidad: 3
-				},{
-					descripcion: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quia, autem laboriosam totam et amet deleniti quisquam eius quae, blanditiis ad natus omnis nam placeat exercitationem repellat. Perferendis, soluta, quaerat",
-					precio: 400,
-					cantidad: 4
-				}
-			].map(n => new item(n));
+            this.objetos = bolsa;
+             console.log(this.objetos)
+
+			// this.objetos =  [
+			// 	{
+			// 		descripcion: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quia, autem laboriosam totam et amet deleniti quisquam eius quae, blanditiis ad natus omnis nam placeat exercitationem repellat. Perferendis, soluta, quaerat",
+			// 		precio: 100,
+			// 		cantidad: 1
+			// 	},{
+			// 		descripcion: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quia, autem laboriosam totam et amet deleniti quisquam eius quae, blanditiis ad natus omnis nam placeat exercitationem repellat. Perferendis, soluta, quaerat",
+			// 		precio: 200,
+			// 		cantidad: 2
+			// 	},{
+			// 		descripcion: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quia, autem laboriosam totam et amet deleniti quisquam eius quae, blanditiis ad natus omnis nam placeat exercitationem repellat. Perferendis, soluta, quaerat",
+			// 		precio: 300,
+			// 		cantidad: 3
+			// 	},{
+			// 		descripcion: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quia, autem laboriosam totam et amet deleniti quisquam eius quae, blanditiis ad natus omnis nam placeat exercitationem repellat. Perferendis, soluta, quaerat",
+			// 		precio: 400,
+			// 		cantidad: 4
+			// 	}
+			// ].map(n => new item(n));
 
 			this.objetos.forEach(n => self.subtotal = n.precio + self.subtotal)
 		}
@@ -59,7 +63,7 @@ angular.module('myapp')
 			self.carrito.objetos.splice(this, 1)
 			$scope.$digest()
 
-			
+
 
 		}
 	}
