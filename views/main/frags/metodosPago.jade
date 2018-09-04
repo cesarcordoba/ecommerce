@@ -1,0 +1,16 @@
+.metodosPago(layout="row" layout-align="center" style="height: 100vh; width : 80vw")
+	.metodoPago-container(flex="50")
+		.tarjetas
+			.encabezado(layout="row")
+				.imagen(style="height: 150px; width: 150px; display: flex;")
+					md-icon credit_card
+				.infoTarjeta
+					h2 Matercard*********1234
+					p Fecha de caducidad: 12/14
+			.opciones(layout="row" style="display: flex; justify-content: flex-end")
+				md-button Eliminar
+				md-button Editar
+
+		.agregar-nuevo(layout="row" style="border-style: dashed;")
+			md-icon credit_card
+			md-button(ng-click="ctrl.metodos.agregarTarjeta()") Añadir metodo de pago

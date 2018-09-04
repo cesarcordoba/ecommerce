@@ -1,0 +1,28 @@
+md-dialog
+	md-toolbar
+		.md-toolbar-tools
+			h4 Nuevo método de pago
+			span(flex)
+			md-button(ng-click="close()")
+				md-icon clear
+	form.md-padding(layout="column" ng-submit="submit(tarjeta)")
+		md-input-container(flex)
+			label Número de tarjeta
+			input(ng-model="tarjeta.numero" required)
+		md-select(ng-model="tarjeta.tipo" placeholder="Tipo de tarjeta" class="md-no-underline")
+			md-option(value="credito") Credito
+			md-option(value="debito") Debito
+		md-input-container(flex)
+			label Nombre del Tarjetahabiente
+			input(ng-model="tarjeta.nombre" required)
+		.vencimiento
+			p fecha de vencimiento
+			md-input-container(flex)
+				label MM
+				input(ng-model="tarjeta.mes" required)
+			md-input-container(flex)
+				label YYYY
+				input(ng-model="tarjeta.anio" required)
+		md-button.md-raised(type="submit")
+			md-icon save
+

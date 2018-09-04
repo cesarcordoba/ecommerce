@@ -1,0 +1,28 @@
+div
+    md-card
+        md-subheader Estadisticas
+        md-card-container(layout="row")
+            .numero(flex="40")
+                strong 40
+                p Cantidad de carteles
+            .info(flex)
+                md-button(ng-click="crearCartel($event)") Crear nuevo cartel
+div(layout="row")
+    md-card(flex)
+        md-subheader Pendientes por terminar
+        md-list
+            md-list-item
+                .md-list-item-text
+                    h4 Titulo de uno
+                .md-secondary
+                    md-button
+                        md-icon arrow_forward
+    md-card(flex)
+        md-subheader Pendientes por comprobar
+        md-list
+            md-list-item
+                .md-list-item-text
+                    h4 Titulo de uno
+                .md-secondary
+                    md-button
+                        md-icon arrow_forward

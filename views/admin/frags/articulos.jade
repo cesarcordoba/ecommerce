@@ -1,0 +1,4 @@
+md-nav-bar(md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links")
+    md-nav-item(md-nav-sref="articulos.{{boton.state}}" name="{{botones.nombre}}" ng-class="{active: $state.current.name === 'home'}"  ng-repeat="boton in secciones") {{boton.nombre}}
+
+main(ui-view="main")

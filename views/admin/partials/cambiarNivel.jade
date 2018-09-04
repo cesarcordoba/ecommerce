@@ -1,0 +1,15 @@
+form(ng-submit="ctrl.aceptar()")
+    strong ¿Quieres asignar {{ item.nombre }} a otra categoría?
+    p Selecciona la nueva categoría a la que va a pertenecer el y todos sus hijos
+    md-autocomplete(
+        md-selected-item="ctrl.categorias.item"
+        md-selected-item-change="ctrl.categorias.seleccion(item)"
+        md-search-text="ctrl.categorias.busqueda"
+        md-search-text-change="ctrl.categorias.buscar(ctrl.categorias.busqueda)" 
+        md-items="item in ctrl.categorias.filtrar(ctrl.categorias.busqueda)" 
+        md-item-text="item.nombre"
+        placeholder="categorias")
+        md-item-template
+            span {{item.nivel}} - {{item.nombre}}
+    md-button(type="submit")
+        md-icon done

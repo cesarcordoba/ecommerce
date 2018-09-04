@@ -1,0 +1,22 @@
+.inventario
+    md-card
+        .busqueda(layout="row")
+            md-autocomplete(
+                flex
+                md-selected-item="ctrl.productos.item"
+                md-selected-item-change="ctrl.productos.seleccion(item)"
+                md-search-text="ctrl.productos.busqueda"
+                md-search-text-change="ctrl.productos.buscar(ctrl.productos.busqueda)" 
+                md-items="item in ctrl.productos.filtrar(ctrl.productos.busqueda)" 
+                md-item-text="item.nombre"
+                placeholder="Nombre")
+                md-item-template
+                    span {{item.nombre}}
+            md-button(ng-click="ctrl.productos.ligar()"  md-whiteframe="1" )
+                md-icon add
+        md-list
+            md-list-item(ng-repeat="producto in ctrl.inventario.items" ui-sref="producto({id : producto.id})")
+                p {{producto.id}}
+                .versiones
+                    .version(ng-repeat="version in producto.versiones") {{version.nombre}}
+        

@@ -1,0 +1,18 @@
+md-autocomplete(
+    flex
+    md-selected-item="ctrl.productos.item"
+    md-selected-item-change="ctrl.productos.seleccion(item)"
+    md-search-text="ctrl.productos.busqueda"
+    md-search-text-change="ctrl.productos.buscar(ctrl.productos.busqueda)" 
+    md-items="item in ctrl.productos.filtrar(ctrl.productos.busqueda)" 
+    md-item-text="item.nombre"
+    md-dropdown-items="10"
+    md-delay="1000"
+    placeholder="Selecciona un producto")
+    md-item-template
+        span {{item.nombre}}
+md-list
+    md-list-item(ng-repeat="version in ctrl.productos.versiones")
+        md-checkbox(ng-model="version.check" ng-change="ctrl.productos.listo()")
+        .md-list-item-text
+            span {{version.nombre}}

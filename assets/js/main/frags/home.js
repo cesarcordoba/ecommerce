@@ -1,0 +1,95 @@
+var app = angular.module('myapp');
+
+app.controller('homeCtrl', function(Categoria, $scope, $rootScope, $mdDialog, $window, Producto, Version) {
+
+	const self = this
+
+	class ofertas_ {
+		constructor(arg) {
+			this.filtros = {
+                pagina : 1,
+				promo : true,
+                limite : (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))  ?  9 :  3,
+                order : ['createdAt'],
+                where : [
+                    { status : 1 }
+                ],
+                include : []
+            }
+		}
+		obtener(){
+
+            Producto.filtro(this.filtros)
+            .then(response => {
+                this.items = response.data.items ? response.data.items.map(n => new producto_(n)) : null
+                this.filtros.paginas = response.data.paginas
+            })
+            .then(() => $scope.$digest())
+			.then(() => $( '#4').slick({
+
+				dots: true,
+				infinite: true,
+				speed: 300,
+				slidesToShow: 3,
+				slidesToScroll: 3,
+				variableWidth: true,
+				// autoplay: true,
+				// autoplaySpeed: 2000
+			}))
+        }
+	}
+
+	class producto_ {
+		constructor(arg) {
+			Object.entries(arg).forEach(n => this[n[0]] = n[1])
+		}
+	}
+
+
+
+	self.ofertas = new ofertas_()
+	self.ofertas.obtener()
+
+	class categorias_ {
+		constructor(item, key) {
+			this.nombre = item.nombre
+			this.key = key
+			this.items = item.datos.data.map(n => new categoria_(n))
+		}
+		slider(){
+			$( '#' + this.key ).slick({
+				dots: true,
+				infinite: true,
+				speed: 300,
+				slidesToShow: 1,
+				variableWidth: true
+			})
+		}
+	}
+
+	class categoria_ {
+		constructor(arg) {
+			Object.entries(arg).forEach(n => this[n[0]] = n[1])
+			this.ultimoproducto()
+		}
+		ultimoproducto(){
+			Categoria.ultimoproducto(this.id)
+			.then(async (response) => new Object( { producto : response.data , portada :  !_.isNull(response.data) ? await Producto.portada(response.data.id).then(response => response.data) : null } ))
+			.then(response => this.item = response)
+			.then(() => $scope.$digest())
+		}
+	}
+
+	const modulos = [ { nombre: 'Pisos y Azulejos',  numero : 1 }, { nombre :  'Muebles de Baño'  ,numero : 2 }]
+
+	Promise.all(
+		modulos.map(async (n) => Object.assign(n, { datos : await Categoria.subcategorias(n.numero)}))
+	)
+	.then(response => self.modulos = response.map((n, key) => new categorias_(n, key)))
+	.then(() => $scope.$digest())
+	.then(() => self.modulos.forEach(n => n.slider()))
+
+
+	console.log(self)
+
+});

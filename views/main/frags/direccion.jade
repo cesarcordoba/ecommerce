@@ -1,0 +1,81 @@
+.direccion-container
+	.direccion-content(style="padding: 10px")
+		p ¿Aparece a continuación la dirección que deseas utilizar? Si es así , haz click en el boton "Enviar a esta dirección"
+		.encabezado(layout="row")
+			md-button Punto entrega 
+			h3 Recoge tu pedido en tu tienda mas cercana
+		p Puedes enviar tus productos a tu tienda mas cercana y recogerlos cundo tu quieras.
+		md-divider
+		.direcciones(layout="row")
+			.vista-previa
+				h4 Juan perez
+				p Ruiz Cortinez #3 Fracc. costa verde
+				p Boca del Rio, veracruz 94290
+				p Telefono: 990392
+				.botones(layout="row")
+					md-button Editar
+					md-button Eliminar
+			.direccion-agregada
+				h4 Juan perez
+				p Ruiz Cortinez #3 Fracc. costa verde
+				p Boca del Rio, veracruz 94290
+				p Telefono: 990392
+				md-button(ui-sref="compras.envio") Enviar a esta direccion
+				.botones(layout="row")
+					md-button Editar
+					md-button Eliminar
+		.secciones(layout="row")
+			.agregar-direccion(style="width: 60%")
+				h2 Agregar otra dirección
+				p Puedes enviar tus productos a tu tienda mas cercana y recogerlos cuando quieras.
+				.formulario
+					form(ng-submit="enviar()")
+						md-card-content(layout="column")
+							md-input-container
+								label Nombre/Quien recibe:
+								input(ng-model="correo")
+							md-input-container
+								label Direccion(calle,numero de casa o interior, torre, empresa)
+								input(ng-model="correo")
+							md-input-container
+								label Codigo postal:
+								input(ng-model="correo")
+							md-button Validar codigo postal
+							md-input-container
+								label Estado:
+								input(ng-model="correo")
+							md-input-container
+								label Ciudad:
+								input(ng-model="correo")
+							md-input-container
+								label Teléfono celular( 10 digito,LADA y número)
+								input(ng-model="correo")
+							h2 Información Adicional
+							md-input-container
+								p Tipo de dirección:
+								md-select(ng-model="" placeholder="Seleccione un tipo de dirección")
+									md-option(value="axe") valor 1
+									md-option(value="axe") valor 2
+							p Entre calles:
+							.entre-calles(layout="row")
+								md-input-container
+									label calle 1
+									input(ng-model="correo")
+								md-input-container
+									label calle 2
+									input(ng-model="correo")
+							md-input-container
+								label Referencia:
+								input(placeholder="Referencia nos ayuda a ubicar tu dirección mejor|")
+						md-button(type="submit" ui-sref="compras.envio") Entregar a esta dirección
+			.mapa-container(style="width:40%")
+				md-input-container
+					p Tienda:
+					md-select(ng-model="")
+						md-option(value="axe") Sucursal 1
+						md-option(value="axe") Sucursal 2
+				.mapa
+					h1 *ingrese mapa aqui por favar
+					//-ui-gmap-google-map(center='map.center' zoom='map.zoom' options="options" flex)
+						ui-gmap-marker(coords="marker.coordenadas" idkey="$index" ng-repeat="marker in markers")
+

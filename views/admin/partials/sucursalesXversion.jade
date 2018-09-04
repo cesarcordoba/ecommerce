@@ -1,0 +1,6 @@
+md-dialog
+    md-list
+        md-list-item.md-2-line(ng-repeat="item in ctrl.items")
+            .md-list-item-text
+                strong {{item.nombre}}
+                p {{item.inventarios.clave}}

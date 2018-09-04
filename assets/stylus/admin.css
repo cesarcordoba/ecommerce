@@ -1,0 +1,854 @@
+.md-tooltip {
+  opacity: 1 !important;
+  padding: 2px 4px;
+  background-color: #011a1e;
+}
+header {
+  height: 50px;
+}
+header md-toolbar {
+  background-color: #003143 !important;
+  color: #fff !important;
+  height: 50px;
+  min-height: 50px;
+}
+header md-toolbar md-icon {
+  color: #fff !important;
+}
+header md-toolbar p {
+  margin: 0px;
+}
+md-virtual-repeat-container .item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+md-virtual-repeat-container .item portada {
+  margin-right: 10px;
+  overflow: hidden;
+}
+md-virtual-repeat-container .item portada,
+md-virtual-repeat-container .item img {
+  width: 40px !important;
+  height: 40px !important;
+}
+main {
+  min-height: 100vh;
+}
+.busqueda {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
+}
+.busqueda md-input-container {
+  padding: 0px;
+  margin: 0px;
+}
+.busqueda md-input-container md-select {
+  height: 40px;
+}
+.busqueda .md-button {
+  background-color: #9c3;
+  margin: 0px;
+  border-radius: 0px;
+}
+.categorias,
+.marcas,
+.ambientes,
+.lineas,
+.gamas,
+.sucursales,
+.productos {
+  margin-top: 10px;
+}
+.categorias md-card,
+.marcas md-card,
+.ambientes md-card,
+.lineas md-card,
+.gamas md-card,
+.sucursales md-card,
+.productos md-card {
+  margin: 0px;
+}
+.categorias md-card md-table-container tbody tr,
+.marcas md-card md-table-container tbody tr,
+.ambientes md-card md-table-container tbody tr,
+.lineas md-card md-table-container tbody tr,
+.gamas md-card md-table-container tbody tr,
+.sucursales md-card md-table-container tbody tr,
+.productos md-card md-table-container tbody tr {
+  height: 36px !important;
+}
+.categorias md-card md-table-container tbody tr td,
+.marcas md-card md-table-container tbody tr td,
+.ambientes md-card md-table-container tbody tr td,
+.lineas md-card md-table-container tbody tr td,
+.gamas md-card md-table-container tbody tr td,
+.sucursales md-card md-table-container tbody tr td,
+.productos md-card md-table-container tbody tr td {
+  padding: 0px !important;
+}
+.categorias md-card md-table-container tbody tr td .portada-button,
+.marcas md-card md-table-container tbody tr td .portada-button,
+.ambientes md-card md-table-container tbody tr td .portada-button,
+.lineas md-card md-table-container tbody tr td .portada-button,
+.gamas md-card md-table-container tbody tr td .portada-button,
+.sucursales md-card md-table-container tbody tr td .portada-button,
+.productos md-card md-table-container tbody tr td .portada-button {
+  min-width: 0px;
+  margin: 0px;
+}
+.categorias md-card md-table-container tbody tr td .portada-button portada,
+.marcas md-card md-table-container tbody tr td .portada-button portada,
+.ambientes md-card md-table-container tbody tr td .portada-button portada,
+.lineas md-card md-table-container tbody tr td .portada-button portada,
+.gamas md-card md-table-container tbody tr td .portada-button portada,
+.sucursales md-card md-table-container tbody tr td .portada-button portada,
+.productos md-card md-table-container tbody tr td .portada-button portada,
+.categorias md-card md-table-container tbody tr td .portada-button .portada,
+.marcas md-card md-table-container tbody tr td .portada-button .portada,
+.ambientes md-card md-table-container tbody tr td .portada-button .portada,
+.lineas md-card md-table-container tbody tr td .portada-button .portada,
+.gamas md-card md-table-container tbody tr td .portada-button .portada,
+.sucursales md-card md-table-container tbody tr td .portada-button .portada,
+.productos md-card md-table-container tbody tr td .portada-button .portada,
+.categorias md-card md-table-container tbody tr td .portada-button img,
+.marcas md-card md-table-container tbody tr td .portada-button img,
+.ambientes md-card md-table-container tbody tr td .portada-button img,
+.lineas md-card md-table-container tbody tr td .portada-button img,
+.gamas md-card md-table-container tbody tr td .portada-button img,
+.sucursales md-card md-table-container tbody tr td .portada-button img,
+.productos md-card md-table-container tbody tr td .portada-button img {
+  height: 30px;
+  width: 30px;
+}
+.categorias md-card md-table-container tbody tr td:last-child,
+.marcas md-card md-table-container tbody tr td:last-child,
+.ambientes md-card md-table-container tbody tr td:last-child,
+.lineas md-card md-table-container tbody tr td:last-child,
+.gamas md-card md-table-container tbody tr td:last-child,
+.sucursales md-card md-table-container tbody tr td:last-child,
+.productos md-card md-table-container tbody tr td:last-child {
+  padding: 0px !important;
+  display: flex;
+}
+.categorias md-card md-table-container tbody tr td:last-child md-fab-toolbar md-toolbar,
+.marcas md-card md-table-container tbody tr td:last-child md-fab-toolbar md-toolbar,
+.ambientes md-card md-table-container tbody tr td:last-child md-fab-toolbar md-toolbar,
+.lineas md-card md-table-container tbody tr td:last-child md-fab-toolbar md-toolbar,
+.gamas md-card md-table-container tbody tr td:last-child md-fab-toolbar md-toolbar,
+.sucursales md-card md-table-container tbody tr td:last-child md-fab-toolbar md-toolbar,
+.productos md-card md-table-container tbody tr td:last-child md-fab-toolbar md-toolbar {
+  min-height: 36px;
+}
+.categorias md-card md-table-container tbody tr td:last-child .md-button,
+.marcas md-card md-table-container tbody tr td:last-child .md-button,
+.ambientes md-card md-table-container tbody tr td:last-child .md-button,
+.lineas md-card md-table-container tbody tr td:last-child .md-button,
+.gamas md-card md-table-container tbody tr td:last-child .md-button,
+.sucursales md-card md-table-container tbody tr td:last-child .md-button,
+.productos md-card md-table-container tbody tr td:last-child .md-button {
+  margin: 0px;
+  background-color: #9c3;
+  border-radius: 0px;
+  border-right: 1px solid #8fbf30;
+  min-width: 30px;
+}
+.categorias md-card md-fab-toolbar,
+.marcas md-card md-fab-toolbar,
+.ambientes md-card md-fab-toolbar,
+.lineas md-card md-fab-toolbar,
+.gamas md-card md-fab-toolbar,
+.sucursales md-card md-fab-toolbar,
+.productos md-card md-fab-toolbar {
+  width: 100%;
+}
+.categorias md-card md-fab-toolbar .md-fab-toolbar-wrapper,
+.marcas md-card md-fab-toolbar .md-fab-toolbar-wrapper,
+.ambientes md-card md-fab-toolbar .md-fab-toolbar-wrapper,
+.lineas md-card md-fab-toolbar .md-fab-toolbar-wrapper,
+.gamas md-card md-fab-toolbar .md-fab-toolbar-wrapper,
+.sucursales md-card md-fab-toolbar .md-fab-toolbar-wrapper,
+.productos md-card md-fab-toolbar .md-fab-toolbar-wrapper {
+  height: 36px;
+}
+.categorias .paginacion-container,
+.marcas .paginacion-container,
+.ambientes .paginacion-container,
+.lineas .paginacion-container,
+.gamas .paginacion-container,
+.sucursales .paginacion-container,
+.productos .paginacion-container {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: row;
+}
+.categorias .paginacion-container cl-paging,
+.marcas .paginacion-container cl-paging,
+.ambientes .paginacion-container cl-paging,
+.lineas .paginacion-container cl-paging,
+.gamas .paginacion-container cl-paging,
+.sucursales .paginacion-container cl-paging,
+.productos .paginacion-container cl-paging {
+  width: 100%;
+}
+.categorias .paginacion-container md-input-container,
+.marcas .paginacion-container md-input-container,
+.ambientes .paginacion-container md-input-container,
+.lineas .paginacion-container md-input-container,
+.gamas .paginacion-container md-input-container,
+.sucursales .paginacion-container md-input-container,
+.productos .paginacion-container md-input-container {
+  margin: 0px;
+}
+.categorias .paginacion-container md-input-container input,
+.marcas .paginacion-container md-input-container input,
+.ambientes .paginacion-container md-input-container input,
+.lineas .paginacion-container md-input-container input,
+.gamas .paginacion-container md-input-container input,
+.sucursales .paginacion-container md-input-container input,
+.productos .paginacion-container md-input-container input {
+  height: 36px;
+}
+.categorias .paginacion-container md-input-container .md-errors-spacer,
+.marcas .paginacion-container md-input-container .md-errors-spacer,
+.ambientes .paginacion-container md-input-container .md-errors-spacer,
+.lineas .paginacion-container md-input-container .md-errors-spacer,
+.gamas .paginacion-container md-input-container .md-errors-spacer,
+.sucursales .paginacion-container md-input-container .md-errors-spacer,
+.productos .paginacion-container md-input-container .md-errors-spacer {
+  min-height: 0px;
+}
+.productos .procesos {
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.productos .procesos span {
+  font-size: 11px;
+  width: 175px;
+  line-height: 20px;
+}
+.productos .procesos .md-button {
+  height: 20px;
+  min-height: 20px;
+  margin: 0px;
+  border-radius: 0px;
+}
+.productos .procesos .md-button span {
+  width: 100px;
+  line-height: 20px;
+  text-align: center;
+}
+.productos .procesos md-switch {
+  margin: 0px;
+  height: 19px;
+}
+.productos .procesos .procesos-content {
+  height: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.productos .procesos .procesos-content div {
+  height: 20px;
+  display: flex;
+  justify-content: center;
+}
+.productos md-table-container table thead tr {
+  height: 30px;
+  background-color: #01303d;
+}
+.productos md-table-container table thead tr th {
+  border-left: 1px solid #011a1e;
+  width: 20px;
+  color: #fff !important;
+}
+.productos md-table-container table thead tr th:first-child,
+.productos md-table-container table thead tr th:nth-child(2),
+.productos md-table-container table thead tr th:nth-child(3),
+.productos md-table-container table thead tr th:nth-child(4) {
+  padding: 3px !important;
+}
+.productos md-table-container table tbody tr td {
+  text-align: center;
+}
+.productos md-table-container table tbody tr td .nombre {
+  display: flex;
+  flex-direction: column;
+}
+.productos md-table-container table tbody tr td .nombre span:nth-child(1) {
+  font-size: 14px;
+  font-family: Poopins;
+}
+.productos md-table-container table tbody tr td .nombre span:nth-child(2) {
+  font-size: 13px;
+}
+.productos md-table-container table tbody tr td .nombre span:nth-child(3) {
+  font-size: 12px;
+}
+.productos md-table-container table tbody tr td .nombre span:nth-child(4) {
+  font-size: 14px;
+}
+.productos md-table-container table tbody tr td md-list {
+  margin: 0px;
+  padding: 0px;
+}
+.productos md-table-container table tbody tr td md-list md-list-item {
+  border-bottom: 1px solid rgba(150,150,150,0.1);
+  height: 20px;
+  min-height: 20px;
+}
+.productos md-table-container table tbody tr td md-list md-list-item md-icon {
+  height: 15px;
+  width: 15px;
+  min-height: 15px;
+  min-width: 15px;
+  font-size: 15px;
+}
+.productos md-table-container table tbody tr td md-list md-list-item .version {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-height: 20px;
+}
+.productos md-table-container table tbody tr td md-list md-list-item .version span {
+  font-size: 11px;
+  line-height: 16px;
+}
+.productos md-table-container table tbody tr td md-list md-list-item .version span:first-child,
+.productos md-table-container table tbody tr td md-list md-list-item .version span:last-child,
+.productos md-table-container table tbody tr td md-list md-list-item .version span:nth-child(3) {
+  width: 50px;
+}
+.productos md-table-container table tbody tr td md-list md-list-item .version span:nth-child(2) {
+  width: calc(100% - 150px);
+  display: flex;
+}
+.productos md-table-container table tbody tr td md-list md-list-item .version span .marca {
+  font-size: 9px;
+  margin: 0 5px;
+  line-height: 15px;
+  color: #808080;
+}
+.productos md-table-container table tbody tr td md-list md-list-item .version span .opciones,
+.productos md-table-container table tbody tr td md-list md-list-item .version span .colores {
+  display: flex;
+  flex-direction: row;
+  height: 12px;
+}
+.productos md-table-container table tbody tr td md-list md-list-item .version span .opciones div,
+.productos md-table-container table tbody tr td md-list md-list-item .version span .colores div {
+  color: #fff;
+  padding: 1px 5px;
+  border-radius: 4px;
+  margin: 0px 5px;
+  font-size: 10px;
+  line-height: 12px;
+  height: 12px;
+}
+.productos md-table-container table tbody tr td md-list md-list-item .version span .opciones .opcion,
+.productos md-table-container table tbody tr td md-list md-list-item .version span .colores .opcion {
+  background-color: #003143;
+}
+.productos md-table-container table tbody tr td md-list md-list-item .version span .opciones .color,
+.productos md-table-container table tbody tr td md-list md-list-item .version span .colores .color {
+  border: 1px solid #003143;
+  color: #003143;
+}
+.productos md-table-container table tbody tr td md-list md-list-item .md-secondary-container .md-button {
+  height: 19px;
+  margin: 0px;
+  min-height: 19px;
+  min-width: 19px;
+  width: 19px;
+  padding: 0px;
+  background-color: #9c3;
+  border-radius: 20px;
+}
+.productos md-table-container table tbody tr td md-list md-list-item:last-child {
+  border: inherit;
+}
+.productos md-table-container table tbody tr td:nth-child(5) {
+  padding: 0px !important;
+}
+.categorias .niveles {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.categorias .niveles .nivel {
+  width: 100%;
+}
+.categorias .niveles .nivel .busqueda .md-button {
+  min-width: 30px;
+}
+.image-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-center: center;
+  margin-bottom: 50px;
+}
+.image-container .dropify-container,
+.image-container .croppie-container {
+  height: 400px;
+  width: 400px;
+}
+.image-container .dropify-container .dropify-wrapper,
+.image-container .croppie-container .dropify-wrapper {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  height: 400px;
+}
+.producto .nombre md-input-container {
+  margin: 0px;
+}
+.producto .nombre md-input-container input {
+  height: 44px;
+}
+.producto .nombre md-input-container .md-errors-spacer {
+  min-height: 0px;
+}
+.producto .imagenes-container {
+  display: flex;
+  flex-direction: column;
+}
+.producto .imagenes-container .imagenes md-grid-list md-grid-tile.ng-enter {
+  -webkit-animation: fadeInLeft 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation: fadeInLeft 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  -webkit-transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 1s ease-in-out;
+  transition-delay: 1s ease-in-out;
+  -webkit-transition-delay: 0s ease-in-out;
+  transition-delay: 0s ease-in-out;
+}
+.producto .imagenes-container .imagenes md-grid-list md-grid-tile.ng-leave {
+  -webkit-animation: fadeOutLeft 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation: fadeOutLeft 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  -webkit-transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 1s ease-in-out;
+  transition-delay: 1s ease-in-out;
+  -webkit-transition-delay: 0s ease-in-out;
+  transition-delay: 0s ease-in-out;
+}
+.producto .imagenes-container .imagenes .portada {
+  border: 2px solid #c00;
+}
+.producto .imagenes-container .imagenes .imagen .botones {
+  position: absolute !important;
+}
+.producto .imagenes-container .imagenes img {
+  height: 100%;
+  width: 100%;
+}
+.producto .informacion-container .informacion .nombre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 11px;
+}
+.producto .informacion-container .informacion .nombre md-input-container,
+.producto .informacion-container .informacion .nombre md-switch {
+  margin: 0px;
+}
+.producto .informacion-container .informacion .nombre md-input-container input,
+.producto .informacion-container .informacion .nombre md-switch input,
+.producto .informacion-container .informacion .nombre md-input-container md-select,
+.producto .informacion-container .informacion .nombre md-switch md-select {
+  height: 50px;
+}
+.producto .informacion-container .informacion .nombre md-input-container .md-errors-spacer,
+.producto .informacion-container .informacion .nombre md-switch .md-errors-spacer {
+  min-height: 0px;
+}
+.producto .informacion-container .informacion .modulo .autocomplete {
+  display: flex;
+  flex-direction: row;
+}
+.producto .informacion-container .informacion .modulo .autocomplete span,
+.producto .informacion-container .informacion .modulo .autocomplete .md-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5px;
+  background-color: #003143;
+  min-width: 40px;
+  max-height: 40px;
+  min-height: 40px;
+  color: #fff;
+  margin: 0px;
+  border-radius: 0px;
+}
+.producto .informacion-container .informacion .modulo .autocomplete md-autocomplete {
+  width: 100%;
+}
+.producto .informacion-container .informacion .modulo .slider {
+  width: 100%;
+  height: 50px;
+}
+.producto .informacion-container .informacion .modulo .slider md-virtual-repeat-container {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
+}
+.producto .informacion-container .informacion .modulo .slider md-virtual-repeat-container .md-virtual-repeat-offsetter {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+}
+.producto .informacion-container .informacion .modulo .slider md-virtual-repeat-container .md-button {
+  margin: 0 20px;
+  height: 40px;
+  width: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 40px;
+  padding: 0px;
+  border: 1px solid #003143;
+}
+.producto .informacion-container .informacion .modulo .slider md-virtual-repeat-container .md-button .portada {
+  border: 0px;
+}
+.producto .informacion-container .informacion md-expansion-panel-group .observaciones .botones {
+  display: flex;
+  justify-content: flex-end;
+}
+.producto .informacion-container .informacion md-expansion-panel-group .observaciones form {
+  display: flex;
+  margin: 0px;
+}
+.producto .informacion-container .informacion md-expansion-panel-group .observaciones form md-input-container {
+  width: 100%;
+  margin: 0px;
+}
+.producto .informacion-container .informacion md-expansion-panel-group .observaciones form md-input-container textarea {
+  height: 100px !important;
+}
+.producto .informacion-container .informacion md-expansion-panel-group .observaciones form md-input-container .md-errors-spacer {
+  min-height: 0px;
+}
+.producto .informacion-container .informacion md-expansion-panel-group .observaciones form .md-button {
+  background-color: #9c3;
+}
+.producto .informacion-container .informacion md-expansion-panel-group .observaciones md-list md-list-item .md-list-item-text strong {
+  font-size: 11px;
+}
+.producto .informacion-container .informacion md-expansion-panel-group .ambientes .ambiente {
+  width: 200px;
+  height: 150px;
+}
+.producto .informacion-container .informacion md-expansion-panel-group .ambientes .ambiente img {
+  width: 100%;
+  height: auto;
+}
+.producto .versiones .botones {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.producto .versiones md-tabs md-tabs-wrapper md-tabs-canvas,
+.producto .versiones md-tabs md-tabs-wrapper md-pagination-wrapper {
+  height: 34px;
+}
+.producto .versiones md-tabs md-tabs-wrapper md-tab-item {
+  background-color: #003143;
+  color: #fff;
+  min-height: 30px;
+  padding: 5px 24px;
+}
+.producto .versiones md-tabs md-tabs-wrapper md-tab-item span {
+  text-transform: inherit;
+}
+.producto .versiones md-tabs md-tab-content {
+  padding: 10px;
+}
+.producto .versiones md-tabs md-tab-content h4 {
+  font-size: 11px;
+}
+.producto .versiones md-tabs md-tab-content md-input-container {
+  width: 100%;
+  margin: 0px;
+}
+.producto .versiones md-tabs md-tab-content md-input-container .md-errors-spacer {
+  min-height: 0px;
+}
+.producto .versiones md-tabs md-tab-content form {
+  margin: 0px;
+}
+.producto .versiones md-tabs md-tab-content form .md-button {
+  margin: 0px;
+  border-radius: 0px;
+  background-color: #9c3;
+}
+.producto .versiones md-tabs md-tab-content form.info md-switch {
+  margin: 0px;
+}
+.producto .versiones md-tabs md-tab-content form.info md-input-container {
+  padding: 0px;
+}
+.producto .versiones md-tabs md-tab-content form.info md-input-container input {
+  height: 36px;
+}
+.producto .versiones md-tabs md-tab-content form.info span {
+  margin-right: 5px;
+  padding: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #9c3;
+}
+.producto .versiones md-tabs md-tab-content form.atributos {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.producto .versiones md-tabs md-tab-content form.atributos .atributos-content {
+  width: 100%;
+}
+.producto .versiones md-tabs md-tab-content form.atributos .md-button {
+  margin-top: 10px;
+}
+.producto .versiones md-tabs md-tab-content .opciones {
+  display: flex;
+}
+.producto .versiones md-tabs md-tab-content .opciones .colores,
+.producto .versiones md-tabs md-tab-content .opciones .atributos {
+  padding: 0px;
+}
+portada .portada {
+  border: 1px solid #003143;
+  border-radius: 40px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+portada .portada img {
+  height: 40px;
+  width: 40px;
+}
+.paginacion .md-button {
+  margin: 0px;
+  border-radius: 0px;
+}
+.paginacion .md-button.first,
+.paginacion .md-button.last {
+  background-color: #9c3 !important;
+}
+.paginacion .md-button.active {
+  background-color: #011a1e;
+  color: #fff;
+}
+.ambiente form {
+  margin: 0px;
+}
+.ambiente form md-input-container {
+  margin: 0px;
+}
+.ambiente form md-input-container input,
+.ambiente form md-input-container md-select {
+  height: 48px;
+}
+.ambiente form md-input-container .md-errors-spacer {
+  min-height: 0px;
+}
+.ambiente form .md-button {
+  margin: 0px;
+  border-radius: 0px;
+}
+.ambiente .espacio {
+  max-width: 1000px;
+}
+.ambiente .imagen-container .tamano {
+  position: absolute;
+  width: 100px;
+  right: 0px;
+  top: 0px;
+  background-color: rgba(0,0,0,0.3);
+  z-index: 10;
+  padding: 5px;
+  color: #fff;
+}
+.ambiente .imagen-container .md-button {
+  width: 100%;
+  background-color: #9c3;
+}
+.ambiente .imagen-content {
+  position: relative;
+}
+.ambiente .imagen-content .imagen {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+}
+.ambiente .imagen-content .imagen #canvas,
+.ambiente .imagen-content .imagen #background {
+  width: 1000px;
+  height: 600px;
+  max-height: 600px;
+  max-width: 1000px;
+  position: absolute;
+}
+.ambiente .image-container .croppie-container {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 700px;
+}
+.ambiente md-list-item portada {
+  margin-right: 10px;
+}
+.ambiente md-list-item portada .portada {
+  overflow: hidden;
+}
+.ambiente md-list-item portada .portada img {
+  height: 40px;
+  width: 40px;
+}
+.ambiente md-list-item .md-button {
+  margin: 0px;
+  border-radius: 0px;
+  min-width: 36px;
+}
+.ambiente .alternativas {
+  margin-top: 20px;
+}
+.ambiente .alternativas md-list md-list-item .md-list-item-text {
+  width: 100%;
+}
+.ambiente .alternativas md-list md-list-item .md-list-item-text .producto {
+  display: flex;
+  justify-content: row;
+}
+.ambiente .alternativas img {
+  max-height: 150px;
+}
+.externo md-virtual-repeat-container {
+  height: calc(100vh - 200px);
+}
+.externo md-card {
+  margin: 0px;
+}
+.externo .botones .md-button {
+  min-height: 40px;
+  max-height: 40px;
+  width: 40px;
+  min-width: 40px;
+}
+.externo .tabla .tabla-container {
+  min-height: calc(100vh - 100px);
+  padding: 5px;
+}
+.externo .tabla .tabla-container .searching {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.externo .tabla .tabla-container .searching md-input-container {
+  margin: 0px;
+}
+.externo .tabla .tabla-container .searching md-input-container .md-errors-spacer {
+  min-height: 0px;
+}
+.externo .tabla .tabla-container md-table-container tr {
+  height: 40px !important;
+}
+md-dialog.modificarVersiones {
+  width: 80vw;
+  padding: 0 20px;
+}
+md-dialog.modificarVersiones .instruccion {
+  padding: 5px 20px;
+  text-align: center;
+}
+md-dialog.modificarVersiones form {
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+md-dialog.modificarVersiones form .checks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+md-dialog.modificarVersiones form .checks md-checkbox {
+  margin: 0px;
+  margin-right: 16px;
+}
+md-dialog.modificarVersiones form .md-button {
+  background-color: #9c3;
+}
+md-dialog.modificarVersiones form md-input-container {
+  margin: 0px;
+}
+md-dialog.modificarVersiones form md-input-container .md-errors-spacer {
+  min-height: 0px;
+}
+md-dialog.modificarVersiones md-virtual-repeat-container {
+  height: 80vh;
+}
+md-dialog.modificarVersiones md-virtual-repeat-container md-table-container table tbody td {
+  padding: 0px !important;
+}
+md-dialog.modificarVersiones md-virtual-repeat-container md-table-container table tbody td .palabra {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+md-dialog.modificarVersiones md-virtual-repeat-container md-table-container table tbody td .palabra md-input-container {
+  margin: 0px;
+}
+md-dialog.modificarVersiones md-virtual-repeat-container md-table-container table tbody td .palabra md-input-container .md-errors-spacer {
+  min-height: 0px;
+}
+md-dialog.modificarVersiones md-virtual-repeat-container md-table-container table tbody td .palabra .label-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+md-dialog.modificarVersiones md-virtual-repeat-container md-table-container table tbody td .palabra .label-container .label {
+  background-color: #003143;
+  border-radius: 50px;
+  padding: 0px 6px;
+  cursor: pointer;
+}
+md-dialog.modificarVersiones md-virtual-repeat-container md-table-container table tbody td .palabra .label-container .label:focus {
+  outline: none;
+}
+md-dialog.modificarVersiones md-virtual-repeat-container md-table-container table tbody td .palabra .label-container .label:hover {
+  background: #c00;
+}
+md-dialog.modificarVersiones md-virtual-repeat-container md-table-container table tbody td .palabra .label-container .label span {
+  text-align: center;
+  color: #fff;
+  font-size: 11px;
+}
+md-dialog.modificarVersiones .md-button {
+  background-color: #9c3;
+}
+footer {
+  margin-top: 20px;
+  height: 30vh;
+  background-color: #003143;
+}

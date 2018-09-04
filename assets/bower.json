@@ -1,0 +1,41 @@
+{
+  "name": "Starnode",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.5",
+    "angular-animate": "1.5.5",
+    "angular-aria": "1.5.5",
+    "angular-messages": "1.5.5",
+    "svg-assets-cache.js": "svg-assets-cache#*",
+    "angular-material": "1.1.4",
+    "gsap": "1.19.1",
+    "react": "15.4.1",
+    "scrollmagic": "ScrollMagic#^2.0.5",
+    "ngReact": "0.4.0",
+    "angular-ui-router": "1.0.3",
+    "dropify": "^0.2.2",
+    "ngstorage": "^0.3.11",
+    "oclazyload": "^1.1.0",
+    "angular-google-maps": "^2.4.1",
+    "axios": "^0.16.2",
+    "Croppie": "croppie#^2.5.0",
+    "ngCroppie": "^1.0.3",
+    "angular-material-icons": "^0.7.1",
+    "svg-morpheus": "^0.3.2",
+    "angular-material-data-table": "^0.10.10",
+    "textAngular": "^1.5.16",
+    "paper": "^0.11.5",
+    "slick-carousel": "^1.8.1",
+    "rx-angular": "angular-rx#^1.1.3"
+  }
+}

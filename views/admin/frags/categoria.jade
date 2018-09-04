@@ -1,0 +1,67 @@
+.categoria
+    .categoria-content
+        section
+            md-card
+                md-card-content(layout="row")
+                    md-input-container(flex)
+                        lable Nombre
+                        input(ng-model="ctrl.categoria.nombre")
+                    md-button(ng-click="ctrl.categoria.editar()")
+                        md-icon edit        
+        section(layout="row")
+            .atributos(flex)
+                .busqueda
+                    md-autocomplete(
+                        flex
+                        md-selected-item="ctrl.atributos.item"
+                        md-selected-item-change="ctrl.atributos.seleccion(item)"
+                        md-search-text="ctrl.atributos.busqueda"
+                        md-search-text-change="ctrl.atributos.buscar(ctrl.atributos.busqueda)" 
+                        md-items="item in ctrl.atributos.filtrar(ctrl.atributos.busqueda)" 
+                        md-item-text="item.nombre"
+                        placeholder="Nombre")
+                        md-item-template
+                            span {{item.nombre}}
+                        md-not-found No se encontraron resultados con {{ctrl.busquedaAgente}}
+                            md-button(ng-click="ctrl.atributos.crear()" md-colors="{background : 'green'}")
+                                md-icon add
+                    md-button(ng-click="ctrl.atributos.ligar()"  md-whiteframe="1" )
+                        md-icon add
+                md-list
+                    md-list-item(ng-repeat="atributo in ctrl.categoria.atributos")
+                        .md-item-text
+                            md-input-container
+                                label 
+                                input(ng-model="atributo.nombre")
+                        .md-secondary
+                            md-button(ng-click="atributo.editar()")
+                                md-icon edit
+                            md-button(ng-click="atributo.opciones()")
+                                md-icon keyboard_tab
+            .opciones(flex)
+                .busqueda
+                    md-input-container(flex)
+                        label Item
+                        input(ng-model="ctrl.opciones.item.nombre")
+                    //- md-autocomplete(
+                    //-     flex
+                    //-     md-selected-item="ctrl.opciones.item"
+                    //-     md-selected-item-change="ctrl.opciones.seleccion(item)"
+                    //-     md-search-text="ctrl.opciones.busqueda"
+                    //-     md-search-text-change="ctrl.opciones.buscar(ctrl.opciones.busqueda)" 
+                    //-     md-items="item in ctrl.opciones.filtrar(ctrl.opciones.busqueda)" 
+                    //-     md-item-text="item.nombre"
+                    //-     placeholder="Nombre")
+                    //-     md-item-template
+                    //-         span {{item.nombre}}
+                    md-button(ng-click="ctrl.opciones.crear()"  md-whiteframe="1" )
+                        md-icon add
+                md-list
+                    md-list-item(ng-repeat="opcion in ctrl.opciones.items")
+                        .md-list-item-text {{opcion.nombre}}
+                        .md-secondary
+                            md-button(ng-click="opcion.editar()")
+                                md-icon edit
+                            md-button(ng-click="opcion.eliminar($index)")
+                                md-icon edit
+                                

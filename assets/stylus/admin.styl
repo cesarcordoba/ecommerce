@@ -1,0 +1,654 @@
+transition(duracion, delay)
+	-webkit-transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+	transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+	-webkit-transition-delay delay ease-in-out
+	transition-delay delay ease-in-out
+
+animation(animation, duration = 1s, delay = 0s)
+	-webkit-animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950)
+	animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950)
+	-webkit-transition all duration ease-in-out
+	-moz-transition all duration ease-in-out
+	-o-transition all duration ease-in-out
+	transition all duration ease-in-out
+	-webkit-transition-delay delay ease-in-out
+	transition-delay delay ease-in-out
+
+rojo1 = #cc0000
+rojo2 = #b20000
+rojo3 = #720000
+rojo4 = #8e0202
+
+azul = #0b2347
+
+azul1 = #003143
+azul2 = #01303d
+azul3 = #00252d
+azul4 = #011a1e
+
+verde = #9c3
+
+verdeObscuro = #8fbf30
+
+.md-tooltip
+	opacity 1 !important
+	padding 2px 4px
+	background-color azul4
+
+header
+	height 50px
+	md-toolbar
+		background-color azul1 !important
+		color white !important
+		height 50px
+		min-height 50px
+		md-icon
+			color white !important
+		p
+			margin 0px
+
+md-virtual-repeat-container
+	.item
+		display flex
+		justify-content flex-start
+		align-items center
+		portada
+			margin-right 10px
+			overflow hidden
+		portada, img
+			width 40px !important
+			height 40px !important
+
+main
+	min-height 100vh
+
+.busqueda
+	display flex
+	flex-direction row
+	margin 10px 0
+	md-input-container
+		padding 0px
+		margin 0px
+		md-select
+			height 40px
+	.md-button
+		background-color verde
+		margin 0px
+		border-radius 0px
+
+.categorias, .marcas, .ambientes, .lineas, .gamas, .sucursales, .productos
+	margin-top 10px
+	md-card
+		margin 0px
+		md-table-container
+			tbody
+				tr
+					height 36px !important
+					td
+						padding 0px !important
+						.portada-button
+							min-width 0px
+							margin 0px
+							portada, .portada, img
+									height 30px
+									width 30px
+
+					td:last-child
+						padding 0px !important
+						display flex
+						md-fab-toolbar
+							md-toolbar
+								min-height 36px
+						.md-button
+							margin 0px
+							background-color verde
+							border-radius 0px
+							border-right 1px solid verdeObscuro
+							min-width 30px
+
+
+		md-fab-toolbar
+			width 100%
+			.md-fab-toolbar-wrapper
+				height 36px
+	.paginacion-container
+		display flex
+		margin-top 10px
+		flex-direction row
+		cl-paging
+			width 100%
+		md-input-container
+			margin 0px
+			input
+				height 36px
+			.md-errors-spacer
+				min-height 0px
+
+.productos
+	.procesos
+		height 20px
+		display flex
+		flex-direction row
+		span
+			font-size 11px
+			width 175px
+			line-height 20px
+		.md-button
+			height 20px
+			min-height 20px
+			margin 0px
+			border-radius 0px
+			span
+				width 100px
+				line-height 20px
+				text-align center
+		md-switch
+			margin 0px
+			height 19px
+		.procesos-content
+			height 20px
+			width 100%
+			display flex
+			flex-direction row
+			div
+				height 20px
+				display flex
+				justify-content center
+	md-table-container
+		table
+			thead
+				tr
+					height 30px
+					background-color azul2
+					th
+						border-left 1px solid azul4
+						width 20px
+						color white !important
+						&:first-child, &:nth-child(2), &:nth-child(3), &:nth-child(4)
+							padding 3px !important
+			tbody
+				tr
+					td
+						text-align center
+						.nombre
+							display flex
+							flex-direction column
+							span
+								&:nth-child(1)
+									font-size 14px
+									font-family Poopins
+								&:nth-child(2)
+									font-size 13px
+								&:nth-child(3)
+									font-size 12px
+								&:nth-child(4)
+									font-size 14px
+
+						md-list
+							margin 0px
+							padding 0px
+							md-list-item
+								border-bottom 1px solid rgba( 150, 150, 150, .1)
+								height 20px
+								min-height 20px
+								md-icon
+									height 15px
+									width 15px
+									min-height 15px
+									min-width 15px
+									font-size 15px
+								.version
+									width 100%
+									display flex
+									flex-direction row
+									justify-content space-between
+									max-height 20px
+									span
+										font-size 11px
+										line-height 16px
+										&:first-child, &:last-child, &:nth-child(3)
+											width 50px
+										&:nth-child(2)
+											width calc(100% - 150px)
+											display flex
+										.marca
+											font-size 9px
+											margin 0 5px
+											line-height 15px
+											color grey
+										.opciones, .colores
+											display flex
+											flex-direction row
+											height 12px
+											div
+												color white
+												padding 1px 5px
+												border-radius 4px
+												margin 0px 5px
+												font-size 10px
+												line-height 12px
+												height 12px
+											.opcion
+												background-color azul1
+											.color
+												border 1px solid azul1
+												color azul1
+
+
+
+								.md-secondary-container
+									.md-button
+										height 19px
+										margin 0px
+										min-height 19px
+										min-width 19px
+										width 19px
+										padding 0px
+										background-color verde
+										border-radius 20px
+
+
+								&:last-child
+									border inherit
+						&:nth-child(5)
+							padding 0px !important
+
+
+.categorias
+	.niveles
+		display flex
+		justify-content center
+		flex-direction row
+		.nivel
+			width 100%
+			.busqueda
+				.md-button
+					min-width 30px
+
+
+.image-container
+	display flex
+	flex-direction row
+	justify-content center
+	align-center center
+	margin-bottom 50px
+	.dropify-container, .croppie-container
+		height 400px
+		width 400px
+		.dropify-wrapper
+			padding 0px
+			margin 0px
+			border 0px
+			height 400px
+
+.producto
+	.nombre
+		md-input-container
+			margin 0px
+			input
+				height 44px
+			.md-errors-spacer
+				min-height 0px
+
+	.imagenes-container
+		display flex
+		flex-direction column
+		.imagenes
+			md-grid-list
+				md-grid-tile
+					&.ng-enter
+						animation(fadeInLeft) 1s
+					&.ng-leave
+						animation(fadeOutLeft) 1s
+			.portada
+					border 2px solid rojo1
+			.imagen
+				.botones
+					position absolute !important
+			img
+				height 100%
+				width 100%
+	.informacion-container
+		.informacion
+			.nombre
+				display flex
+				justify-content center
+				align-items center
+				margin-top 11px
+				md-input-container, md-switch
+					margin 0px
+
+					input, md-select
+						height 50px
+
+					.md-errors-spacer
+						min-height 0px
+			.modulo
+				.autocomplete
+					display flex
+					flex-direction row
+					span, .md-button
+						display flex
+						justify-content center
+						align-items center
+						padding 0 5px
+						background-color azul1
+						min-width 40px
+						max-height 40px
+						min-height 40px
+						color white
+						margin 0px
+						border-radius 0px
+					md-autocomplete
+						width 100%
+				.slider
+					width 100%
+					height 50px
+					md-virtual-repeat-container
+						height 50px
+						.md-virtual-repeat-offsetter
+							height 50px
+							display flex
+							flex-direction row
+						display flex
+						flex-direction row
+						margin 10px 0
+						.md-button
+							margin 0 20px
+							height 40px
+							width 40px
+							min-width 40px
+							min-height 40px
+							border-radius 40px
+							padding 0px
+							border 1px solid azul1
+							.portada
+								border 0px
+
+			md-expansion-panel-group
+				.observaciones
+					.botones
+						display flex
+						justify-content flex-end
+					form
+						display flex
+						margin 0px
+						md-input-container
+							width 100%
+							margin 0px
+							textarea
+								height 100px !important
+							.md-errors-spacer
+								min-height 0px
+						.md-button
+							background-color verde
+					md-list
+						md-list-item
+							.md-list-item-text
+								strong
+									font-size 11px
+				.ambientes
+					.ambiente
+						width 200px
+						height 150px
+						img
+							width 100%
+							height auto
+
+	.versiones
+		.botones
+			display flex
+			flex-direction row
+			justify-content space-between
+		md-tabs
+			md-tabs-wrapper
+
+				md-tabs-canvas, md-pagination-wrapper
+					height 34px
+				md-tab-item
+					background-color azul1
+					color white
+					min-height 30px
+					padding 5px 24px
+					span
+						text-transform inherit
+			md-tab-content
+				padding 10px
+				h4
+					font-size 11px
+				md-input-container
+					width 100%
+					margin 0px
+					.md-errors-spacer
+						min-height 0px
+				form
+					margin 0px
+					.md-button
+						margin 0px
+						border-radius 0px
+						background-color verde
+					&.info
+						md-switch
+							margin 0px
+						md-input-container
+							padding 0px
+							input
+								height 36px
+						span
+							margin-right 5px
+							padding 0 5px
+							display flex
+							justify-content center
+							align-items center
+							background-color verde
+					&.atributos
+						margin-top 10px
+						display flex
+						flex-direction column
+						.atributos-content
+							width 100%
+						.md-button
+							margin-top 10px
+				.opciones
+					display flex
+					.colores, .atributos
+						padding 0px
+
+
+
+
+
+
+portada
+	.portada
+		border 1px solid azul1
+		border-radius 40px
+		height 40px
+		width 40px
+		display flex
+		justify-content center
+		align-items center
+		overflow hidden
+		img
+			height 40px
+			width 40px
+
+.paginacion
+	.md-button
+		margin 0px
+		border-radius 0px
+		&.first, &.last
+			background-color verde !important
+		&.active
+			background-color azul4
+			color white
+
+.ambiente
+	form
+		margin 0px
+		md-input-container
+			margin 0px
+			input, md-select
+				height 48px
+			.md-errors-spacer
+				min-height 0px
+		.md-button
+			margin 0px
+			border-radius 0px
+
+	.espacio
+		max-width 1000px
+	.imagen-container
+		.tamano
+			position absolute
+			width 100px
+			right 0px
+			top 0px
+			background-color rgba(0 , 0 , 0 .3)
+			z-index 10
+			padding 5px
+			color white
+		.md-button
+			width 100%
+			background-color verde
+	.imagen-content
+		position relative
+		.imagen
+			width 100%
+			height 600px
+			display flex
+			justify-content center
+			#canvas, #background
+				width 1000px
+				height 600px
+				max-height 600px
+				max-width 1000px
+				position absolute
+	.image-container
+		.croppie-container
+			width 100% !important
+			height 100%	!important
+			max-height 700px
+	md-list-item
+		portada
+			margin-right 10px
+			.portada
+				overflow hidden
+				img
+					height 40px
+					width 40px
+		.md-button
+			margin 0px
+			border-radius 0px
+			min-width 36px
+	.alternativas
+		margin-top 20px
+		md-list
+			md-list-item
+				.md-list-item-text
+					width 100%
+					.producto
+						display flex
+						justify-content row
+
+		img
+			max-height 150px
+
+.externo
+	md-virtual-repeat-container
+		height calc(100vh - 200px)
+	md-card
+		margin 0px
+
+	.botones
+		.md-button
+			min-height 40px
+			max-height 40px
+			width 40px
+			min-width 40px
+	.tabla
+		.tabla-container
+			min-height calc(100vh - 100px)
+			padding 5px
+			.searching
+				display flex
+				justify-content center
+				align-items center
+				md-input-container
+					margin 0px
+					.md-errors-spacer
+						min-height 0px
+			md-table-container
+				tr
+					height 40px !important
+
+md-dialog.modificarVersiones
+	width 80vw
+	padding 0 20px
+	.instruccion
+		padding 5px 20px
+		text-align center
+	form
+		margin 0px
+		display flex
+		justify-content center
+		align-items center
+		flex-direction row
+		.checks
+			display flex
+			justify-content space-between
+			align-items center
+			flex-direction row
+			width 100%
+			md-checkbox
+				margin 0px
+				margin-right 16px
+		.md-button
+			background-color verde
+		md-input-container
+			margin 0px
+			.md-errors-spacer
+				min-height 0px
+	md-virtual-repeat-container
+		height 80vh
+		md-table-container
+			table
+				tbody
+					td
+						padding 0px !important
+						.palabra
+							width 100%
+							height 50px
+							display flex
+							flex-direction column
+							align-items flex-start
+							md-input-container
+								margin 0px
+								.md-errors-spacer
+									min-height 0px
+							.label-container
+								width 100%
+								display flex
+								justify-content center
+								align-items center
+								.label
+									background-color azul1
+									border-radius 50px
+									padding 0px 6px
+									cursor pointer
+									&:focus
+										outline none
+									&:hover
+										background rojo1
+									span
+										text-align center
+										color white
+										font-size 11px
+	.md-button
+		background-color verde
+
+
+footer
+	margin-top 20px
+	height 30vh
+	background-color azul1

@@ -1,0 +1,20 @@
+md-card
+    md-table-container
+        table(md-table md-row-select multiple)
+            thead(md-head)
+                tr(md-row)
+                    th(md-column) Fecha:
+                    th(md-column) Estado:
+                    th(md-column) No. de pedido:
+                    th(md-column) total:
+                    th(md-column) ver detalle ^
+            tbody(md-body)
+                tr(md-row md-select="dato" md-select-id="name" md-auto-select ng-repeat="orden in ctrl.ordenes.items")
+                    td(md-cell)
+                        p {{orden.createdAt}}
+                    td(md-cell)
+                        p {{orden.IdStatus}}
+                    td(md-cell)
+                        p {{orden.idTransaccionOpenpay}}
+                    td(md-cell)
+                        p $12,000

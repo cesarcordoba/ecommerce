@@ -1,0 +1,9 @@
+md-dialog
+    md-card
+        h1 {{ctrl.nombre}}
+        md-list
+            md-list-item(ng-repeat="version in ctrl.versiones")
+                p {{ version.nombre }}
+                .md-secondary
+                    md-button(ng-click="version.ligar()")
+                        md-icon add

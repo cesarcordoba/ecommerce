@@ -1,0 +1,8 @@
+md-card
+	.items
+		.item(ng-repeat="item in ctrl.categorias" ng-if="item.status === true" )
+			span(ng-class=" {  1 : 'principal' , 2 : 'subcategoria', 3 : 'subsubcategoria', 4 : 'subsubsubcategoria'  } [ item.nivel ]")
+				md-button(ng-show="item.cantidad" ng-click="item.enter(1)" aria-label )
+					md-icon(ng-if="item.open") arrow_drop_up
+					md-icon(ng-if="!item.open") arrow_drop_down
+				md-button(ng-class="item.cantidad > 0 ? 'panel' :  'normal'" aria-label ) {{item.nombre}} 

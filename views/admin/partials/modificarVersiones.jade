@@ -1,0 +1,35 @@
+md-dialog.modificarVersiones
+    .instruccion(layout="row" layout-align="space-between")
+        p Aqui puedes manipular las versiones en conjunto, sólo tienes que determinar la acción para cada palabra
+        md-button(ng-click="ctrl.versiones.seleccionar()") Seleccionar todos
+    form(ng-submit="ctrl.accion.agregar()" layout="row")
+        .checks(ng-if="!ctrl.accion.item.nombre")
+            md-checkbox(ng-model="ctrl.accion.item.nombre" ng-true-value="'atributo'" ng-change="ctrl.accion.switch()") Atributo
+            md-checkbox(ng-model="ctrl.accion.item.nombre" ng-true-value="'color'" ng-change="ctrl.accion.switch()") Color
+            md-checkbox(ng-model="ctrl.accion.item.nombre" ng-true-value="'nada'" ng-change="ctrl.accion.switch()") Nada
+            md-checkbox(ng-model="ctrl.accion.item.nombre" ng-true-value="'eliminar'" ng-change="ctrl.accion.switch()") Eliminar
+        md-input-container(flex ng-if="ctrl.accion.item.nombre === 'atributo'")
+            label Atributos
+            md-select(ng-model="ctrl.accion.item.atributo")
+                md-option(ng-value="atributo" ng-repeat="atributo in ctrl.atributos") {{atributo.nombre}}
+        md-button(type="submit")
+            md-icon add
+    md-virtual-repeat-container
+        md-table-container
+            table(md-table md-row-select multiple)
+                tbody(md-body)
+                    tr(md-row md-select="dato" md-select-id="name" md-auto-select ng-repeat="version in ctrl.versiones.items")
+                        td(md-cell)
+                            md-switch(ng-model="version.check")
+                        td(md-cell ng-repeat="palabra in version.palabras  track by $index")
+                            .palabras-container
+                                .palabra
+                                    md-input-container
+                                        label
+                                        input(ng-model="palabra")
+                                    .label-container
+                                        .label(ng-click="ctrl.accion.eliminar($index)")
+                                            span {{ ctrl.accion.items[$index].nombre }}
+                                            span(ng-if="ctrl.accion.items[$index].atributo") : {{ ctrl.accion.items[$index].atributo }}
+    md-button(ng-click="ctrl.versiones.aceptar()")
+        md-icon done

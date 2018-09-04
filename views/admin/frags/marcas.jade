@@ -1,0 +1,52 @@
+.marcas(layout="row" layout-align="center center")
+    .marcas-content(flex="90")
+        .busqueda
+            md-autocomplete(
+                flex
+                md-selected-item="ctrl.marcas.item"
+                md-selected-item-change="ctrl.marcas.seleccion(item)"
+                md-search-text="ctrl.marcas.busqueda"
+                md-search-text-change="ctrl.marcas.buscar(ctrl.marcas.busqueda)" 
+                md-items="item in ctrl.marcas.filtrar(ctrl.marcas.busqueda)" 
+                md-item-text="item.nombre"
+                placeholder="Nombre")
+                md-item-template
+                    span {{item.nombre}}
+            md-button(ng-click="ctrl.marcas.obtener()" md-whiteframe="1" )
+                md-icon search
+            md-button(ng-click="ctrl.marcas.crear()"  md-whiteframe="1" )
+                md-icon add
+        md-card
+            md-table-container
+                table(md-table md-row-select multiple)
+                    thead(md-head)
+                        tr(md-row)
+                            th(md-column md-numeric) Clave
+                            th(md-column md-numeric) Nombre
+                            th(md-column) Terminados
+                            th(md-column) Incompletos
+                            th(md-column) Total
+                            th(md-column) 
+                    tbody(md-body)
+                        tr(md-row md-select="dato" md-select-id="name" md-auto-select ng-repeat="item in ctrl.marcas.items")
+                            td(md-cell) {{item.clave}}
+                            td(md-cell) {{item.nombre}}
+                            td(md-cell) {{item.terminados}}
+                            td(md-cell) {{item.incompletos}}
+                            td(md-cell) {{item.terminados + item.incompletos }}
+                            td(md-cell)
+                                md-fab-toolbar(md-open="false" count="0"  md-direction="left" flex)
+                                    md-fab-trigger
+                                        md-button
+                                            md-icon more_vert
+                                    md-toolbar
+                                        md-fab-actions(layout="row")
+                                            md-button(ng-click="item.ir()")
+                                                md-icon edit
+                                                span Editar
+            .paginacion-container                                
+                md-input-container
+                    label limite
+                    input(ng-model="ctrl.marcas.filtros.limite" type="number" min="10" max="50")
+
+                cl-paging(cl-pages="ctrl.marcas.filtros.paginas" cl-steps="6" cl-page-changed="ctrl.marcas.obtener()" cl-align="start start" cl-current-page="ctrl.marcas.filtros.pagina")

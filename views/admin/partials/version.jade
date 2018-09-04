@@ -1,0 +1,16 @@
+md-dialog
+    md-card-content(layout="column")
+        md-input-container
+            label Selecciona la Sucursal
+            md-select(ng-model="ctrl.inventarios.seleccion" ng-change="ctrl.inventarios.obtenerPrecios()")
+                md-option(ng-repeat="inventario in ctrl.inventarios.items" ng-value="inventario.id") ( {{inventario.clave}} ) {{inventario.sucursal.nombre}}
+        md-chips(ng-model="ctrl.inventarios.precios.items"
+            md-transform-chip="ctrl.inventarios.precios.transformar($chip)"
+            md-on-remove="ctrl.inventarios.precios.remover($chip, $index)"
+            md-require-match="true"
+            placeholder="Precios")
+            md-chip-template
+                span
+                    strong {{$chip.cantidad}}
+        md-button(ng-click="ctrl.cerrar()")
+            p Cerrar

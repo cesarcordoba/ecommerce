@@ -1,0 +1,83 @@
+.pago-container(style="display: flex; flex-direction: column; justify-content: center; align-items: center")
+	.pago-content(style="width: 80%")
+		.titulo
+			h1 Selecciona un método de pago
+		.pagos
+			form#formulario-pagos(ng-submit="ctrl.pagos.mandarPago(tarjeta)")
+				input#token_id(type='hidden' name="token_id")
+				.pagos-container
+					h2 Tarjeta de crédito o débito
+					.pagos-conetendor
+						.tarjetas(layout="row")
+							.credito
+								h4 Tarjetas de crédito
+								img(src="img/iconosPagos/cards1.png")
+							md-divider
+							.debito
+								h4 Tarjetas de débito
+								img(src="img/iconosPagos/cards2.png")
+						.info-arriba(layout="row")
+							.nombre(layout="column")
+								label Nombre del titular
+								input(type="text" placeholder="Como aparece en la tarjeta" autocomplete="off" data-openpay-card="holder_name" ng-model="tarjeta.holder_name")
+							.numero-tarjeta(layout="column")
+								label Número de tarjeta
+								input(type="text" autocomplete="off" data-openpay-card="card_number" ng-model="tarjeta.card_number")
+						.info-abajo(layout="row")
+							.fecha(layout="column")
+								label Fecha de expiración
+								input(type="text" placeholder="Mes" data-openpay-card="expiration_month" ng-model="tarjeta.expiration_month")
+								input(type="text" placeholder="Año" data-openpay-card="expiration_year" ng-model="tarjeta.expiration_year")
+							.codigo(layout="column")
+								label Código de seguridad
+								input(type="text" placeholder="3 dígitos" autocomplete="off" data-openpay-card="cvv2" ng-model="tarjeta.cvv2")
+								img(src="img/iconosPagos/cvv.png")
+						.openpay(layout="row")
+							.logo
+								p Transacciones realizadas vía:
+								img(src="img/iconosPagos/openpay.png")
+							md-divider
+							.shield
+								p Tus pagos se realizan de forma segura con encriptación de 256 bits
+								img(src="img/iconosPagos/security.png")
+						.botonPagar
+							md-button(type="submit" style="border: solid 1px black") Pagar
+
+
+							
+
+					
+					
+				
+
+			
+				
+			
+		//- .contenedor(style="display: flex; flex-direction: row;")
+		//- 	.tabla
+		//- 		md-table-container
+		//- 			table(md-table md-row-select multiple style="border: 1px solid black;")
+		//- 				thead(md-head)
+		//- 					tr(md-row)
+		//- 						th(md-column) 
+		//- 						th(md-column) Nombre del Tarjetahabiente:
+		//- 						th(md-column) Vencimiento:
+		//- 				tbody(md-body)
+		//- 					tr(md-row md-select="dato" md-select-id="name" md-auto-select ng-repeat="tarjeta in ctrl.pagos.tarjetas")
+		//- 						td(md-cell)
+		//- 							.contendor(layout="row" style="display: flex")
+		//- 								md-radio-group
+		//- 									md-radio-button#radio(ng-click="ctrl.pagos.seleccionar(tarjeta)")
+		//- 										md-icon photo
+		//- 								p {{tarjeta.numero}}
+		//- 						td(md-cell)
+		//- 							p {{tarjeta.nombre}}
+		//- 						td(md-cell)
+		//- 							p {{tarjeta.expiracion}}
+		//- 	.continuar(style="margin: 10px; border: 1px solid black")
+		//- 		md-button(ui-sref="compras.confirmacion" ng-click="ctrl.pagos.terminarCompra()") Continuar
+		//- 		p Puedes revisar el pedido antes de finalizarlo 
+		//- .agregar-nueva
+		//- 	h1 Mas opciones de pago
+		//- 	md-divider
+		//- 	h3(style="color: darkturquoise; cursor: pointer" ng-click="ctrl.pagos.nuevoMetodo()") Agregar tarjeta de credito o debito +

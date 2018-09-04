@@ -1,0 +1,7 @@
+.promociones-content(layout="row" layout-align="center center")
+	.promociones(flex="80")
+		h1 Promociones
+		md-card
+			md-list
+				md-list-item(ng-repeat="item in ctrl.promociones.items" ui-sref="promocion({ id : item.id })")
+					.md-list-item-text {{item.nombre}}

@@ -1,0 +1,32 @@
+.busqueda
+    .buscar
+        md-card(layout="row")    
+            md-autocomplete(flex
+                md-selected-item="ctrl.nombreSeleccionado" 
+                md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                md-search-text="ctrl.busquedaNombre" 
+                md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                md-items="item in nombres" 
+                md-item-text="item.nombre" 
+                md-min-length="0" 
+                placeholder="Nombre del Cartel")
+                md-item-template
+                    span {{item.nombre}}
+            md-button(ng-click="mostrarfiltro($event)")
+                ng-md-icon(icon="{{iconofiltro}}" size="30" options='{"duration": 375, "rotation": "counterclock"}')
+    .carteles
+        md-chips(md-removable="true" placeholder="Enter a tag")
+            md-chip
+                md-chip-template
+                    strong Filtro aplicado
+                button.md-chip-remove
+                    md-icon clear
+        md-grid-list(md-cols="6" md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-lg="6" md-row-height="3:4" md-row-height-xs="200px" md-row-height-sm="250px" md-gutter="2em")
+            md-grid-tile(md-colspan="1" md-col md-rowspan="1" ng-repeat="cartel in carteles" ng-init="hover = false"  ng-mouseover="hover = true" ng-mouseleave="hover = false"  ng-class="hover ? 'conHover' : 'sinHover'" ui-sref="cartel")
+                md-card
+                    img.md-card-image(src="http://www.bienalcartel.org/img/portfolio/mascara.jpg")
+                    md-card-title-text
+                        .md-headline Titulo
+                        .md-subhead Pieza
+        md-card
+            cl-paging(cl-pages="paging.total" cl-steps="6" cl-page-changed="paging.onPageChanged()" cl-align="start start" cl-current-page="paging.current")

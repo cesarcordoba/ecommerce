@@ -1,0 +1,14 @@
+extends ../index
+
+block moreHead
+	script(type="text/javascript" src="js/sucursal/sucursal.states.js")
+	script(type="text/javascript" src="js/sucursal/sucursal.controller.js")
+	link(type="text/css" rel="stylesheet", href="stylus/sucursal.css")
+
+block content
+
+	.sucursal(ng-controller="sucursalCtrl as ctrl")
+		header
+			include partials/nav
+		
+		main(ui-view="main" class="page" flex)

@@ -1,0 +1,44 @@
+.ambientes(layout="row" layout-align="center center")
+    .ambientes-content(flex="90")
+        .busqueda
+            md-autocomplete(
+                flex
+                md-selected-item="ctrl.ambientes.item"
+                md-selected-item-change="ctrl.ambientes.seleccion(item)"
+                md-search-text="ctrl.ambientes.busqueda"
+                md-search-text-change="ctrl.ambientes.buscar(ctrl.ambientes.busqueda)" 
+                md-items="item in ctrl.ambientes.filtrar(ctrl.ambientes.busqueda)" 
+                md-item-text="item.nombre"
+                placeholder="Nombre")
+                md-item-template
+                    span {{item.nombre}}
+            md-button(ng-click="ctrl.ambientes.crear()"  md-whiteframe="1" )
+                md-icon add
+        md-card
+            md-table-container
+                table(md-table md-row-select multiple)
+                    thead(md-head)
+                        tr(md-row)
+                            th(md-column md-numeric) Espacio
+                            th(md-column md-numeric) # Productos
+                            th(md-column md-numeric) Productos
+                            th(md-column)
+                    tbody(md-body)
+                        tr(md-row md-select="dato" md-select-id="name" md-auto-select ng-repeat="item in ctrl.ambientes.items")
+                            td(md-cell) {{ item.espacio }}
+                            td(md-cell) {{ item.productos.length }}
+                            td(md-cell)
+                                span(ng-repeat="producto in item.productos") {{producto.nombre}}, 
+                            td(md-cell)
+                                md-fab-toolbar(md-open="false" count="0"  md-direction="left")
+                                    md-fab-trigger
+                                        md-button
+                                            md-icon more_vert
+                                    md-toolbar
+                                        md-fab-actions(layout="row")
+                                            md-button(ng-click="item.ir()")
+                                                md-icon edit
+                                                span Editar
+            cl-paging(cl-pages="ctrl.ambientes.filtros.paginas" cl-steps="6" cl-page-changed="ctrl.ambientes.obtener()" cl-align="start start" cl-current-page="ctrl.ambientes.filtros.pagina")
+
+                                                

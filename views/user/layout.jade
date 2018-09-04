@@ -1,0 +1,29 @@
+extends ../index
+
+block moreHead
+	script(type="text/javascript" src="js/user/user.states.js")
+	script(type="text/javascript" src="js/user/user.controller.js")
+	link(type="text/css" rel="stylesheet", href="stylus/usuario.css")
+
+block content
+
+	.user(ng-controller="userCtrl as userctrl" ng-init="obtenerUsuario();")
+		md-toolbar(ng-init="sectionsMenu('user')")
+			.md-toolbar-tools(layout="row" layout-align="space-around center")
+				
+				span(flex)
+				p Bienvenido Usuario
+				div(flex layout="row" layout-align="end center")
+					md-button(ng-click="menu()")				
+						ng-md-icon(icon="{{icono}}" size="48" options='{"duration": 375, "rotation": "counterclock"}')
+		md-sidenav.md-sidenav-left(md-component-id="left" md-whiteframe="4" style="position: fixed")
+			md-toolbar
+				.md-toolbar-tools Opciones
+			md-list
+				md-list-item(ui-sref="{{seccion.state}}" ng-click="toggleLeft()" ng-repeat="seccion in secciones")
+					md-icon {{seccion.icon}}
+					.md-list-item-text
+						h4 {{seccion.nombre}}
+		main.centro.page(ui-view="main")
+		footer(layout="row" layout-align="center center")
+			include ../partials/footer

@@ -1,0 +1,25 @@
+md-dialog
+    md-card-content
+        form(ng-submit="ctrl.producto.editar()" layout="column")
+            div(layout="row" layout-align="center center")
+                portada(id="ctrl.producto.id")
+                md-input-container(flex)
+                    label nombre
+                    input(ng-model="ctrl.producto.nombre")
+                md-slider-container
+                    span Status
+                    md-slider(ng-model="ctrl.producto.status" md-discrete min="0" max="6" aria-label)
+            .modulo(ng-repeat="modulo in ctrl.modulos")
+                md-autocomplete(
+                    md-selected-item="modulo.item"
+                    md-selected-item-change="modulo.selecionar($index)"
+                    md-dropdown-items="10"
+                    md-search-text="modulo.busqueda"
+                    md-items="item in modulo.filtrar(modulo.busqueda)" 
+                    md-item-text="item.nombre"
+                    md-require-match="true"
+                    placeholder="{{modulo.nombre}}")
+                    md-item-template
+                        span {{item.nombre}}
+            md-button(type="submit")
+                md-icon done

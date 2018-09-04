@@ -1,0 +1,196 @@
+@font-face
+    font-family Poopins
+    font-weight 400
+    src url('../fonts/Poppins-Bold.ttf')
+
+
+@font-face
+    font-family Poopins
+    font-weight 100
+    src url('../fonts/Poppins-Light.ttf')
+
+
+@font-face
+    font-family Poopins
+    font-weight 200
+    src url('../fonts/Poppins-Medium.ttf')
+
+@font-face
+    font-family Poopins
+    font-weight 300
+    src url('../fonts/Poppins-SemiBold.ttf')
+
+amarillo = #ffbf00
+
+transition(duracion, delay)
+    -webkit-transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    -webkit-transition-delay delay ease-in-out
+    transition-delay delay ease-in-out
+
+animation(animation, duration = 1s)
+    -webkit-animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    -webkit-transition all duration ease-in-out
+    -moz-transition all duration ease-in-out
+    -o-transition all duration ease-in-out
+    transition all duration ease-in-out
+
+
+
+.page
+    &.ng-enter
+        animation(fadeInUp)
+    &.ng-leave
+        animation(fadeOutDown)
+
+md-sidenav, md-backdrop
+    position fixed
+
+
+md-autocomplete
+    input
+        font-weight 400
+
+md-dialog.filtro
+    width 100vw
+    height 100vh
+    max-height inherit
+    max-width inherit
+    md-toolbar
+        background-color white
+        color black
+        md-icon
+            color black
+
+    .filtro-content
+        min-height calc(100vh - 120px)
+        overflow: auto;
+    .opciones
+        width 100%
+        .md-button
+            &.cancelar
+                border 1px solid amarillo
+            &.aplicar
+                background-color amarillo
+
+*
+    font-family Poopins
+    font-weight 200
+
+md-toolbar
+    background-color black !important
+    color white !important
+    ng-md-icon
+        color white
+        path
+            fill white
+
+.busqueda
+    .buscar
+        md-card
+            .md-button
+                margin 0px
+    .carteles
+        md-chips
+            strong
+                margin-right 10px
+            .md-button
+                border-radius 50px
+                padding 2px
+                margin 2px
+                border 0px
+                height 27px
+                min-height 27px
+                width 27px
+                min-width 27px
+                md-icon
+                    color white
+        md-grid-list
+            md-grid-tile
+                md-card
+                    width 100%
+                    height 100%
+                    cursor pointer
+                &.sinHover
+                    md-card
+                        transform scale(1)
+                &.conHover
+                    md-card
+                        transition(100ms, 0)
+                        transform scale(.9)
+
+    .paginacion
+        .active
+            background-color azulObscuro
+            color white !important
+        md-icon
+            color white !important
+
+.cartel
+    .info
+        .apartados
+            margin 10px 0
+    .image-container
+        position relative
+        height 100%
+        max-height 450px
+        .dropify-container
+            position absolute
+            width 100%
+            height 600px
+            .dropify-wrapper
+                height 100%
+                padding 0px
+                margin 0px
+                border 0px
+        .croppie-container
+            position absolute
+            display flex
+            max-height 450px
+            ng-croppie
+                max-height 450px
+                // height calc(100% - 66px)
+                margin 0px
+                display inline-block
+    .opciones
+        .md-button
+            &.cancelar
+                border 1px solid amarillo
+            &.aplicar
+                background-color amarillo
+                color black
+
+
+.ta-toolbar
+    display flex
+    flex-direction row
+    flex-wrap wrap
+    .ta-button-group
+        display flex
+        flex-direction row
+        flex-wrap wrap
+        button
+            min-width 0
+            min-height 0
+            line-height normal
+            margin-left 0
+            color black
+            md-icon
+                color amarillo
+        &.active
+            background-color amarillo
+
+.ta-text-editor
+    .ta-bind
+        border-bottom 1px solid amarillo
+        &:focus
+            border-bottom 2px solid amarillo
+            outline none
+
+footer
+    background-color black
+    color white
+    md-icon
+        width 200px
+        margin 50px 0

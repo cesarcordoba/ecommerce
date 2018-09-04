@@ -1,0 +1,16 @@
+extends ../index
+
+block moreHead
+	script(type="text/javascript" src="js/admin/admin.states.js")
+	script(type="text/javascript" src="js/admin/admin.controller.js")
+	link(type="text/css" rel="stylesheet", href="stylus/admin.css")
+
+block content
+
+	.admin(ng-controller="adminCtrl as adminctrl")
+		header
+			include partials/nav
+		
+		main(ui-view="main" class="page" flex)
+		footer(layout="row" layout-align="space-around center")
+			include ../partials/footer

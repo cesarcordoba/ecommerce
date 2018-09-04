@@ -1,0 +1,42 @@
+.home
+	img(src="img/slider1.png" style="width: 100%; height : auto")
+	.home-container
+		.home-content
+			.modulos
+				.modulo
+					.nombre
+						.nombre-content
+							p Ofertas Gigantes
+							md-button ver más
+						.lineas
+							.linea(ng-repeat="n in [1,2,3,4]")
+					.item-container(id="4")
+						.item(ng-repeat="item in ctrl.ofertas.items")
+							producto(producto="item")
+							//- .bandera
+							//- 	img(src="img/tag.png")
+							//- .imagen
+							//- 	portada(id="item.id")
+							//- .producto
+							//- 	p {{ item.nombre }}
+							//- 	.boton
+							//- 		md-button(ui-sref="producto({ id : item.id })") ver detalle
+				.modulo( ng-repeat="modulo in ctrl.modulos")
+					.nombre
+						.nombre-content
+							p {{modulo.nombre}}
+							md-button ver más
+						.lineas
+							.linea(ng-repeat="n in [1,2,3,4]")
+					.item-container(id="{{modulo.key}}")
+						.item(ng-repeat="item in modulo.items")
+							.imagen(style=" background-image : url( {{item.item.portada.link}} )" ng-if="item.item")
+								.categoria
+									p {{item.nombre}}
+							
+							p {{item.item.producto.nombre}}
+							.boton
+								md-button ver detalle
+			.side(flex)
+				div(style="width: 100%; height : 200px; background-color : black; margin : 20px")
+				div(style="width: 100%; height : 600px; background-color : black; margin : 20px")

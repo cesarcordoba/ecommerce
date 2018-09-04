@@ -1,0 +1,38 @@
+.login(layout="row" layout-align="center center" style="height: 100vh; width : 100vw")
+    .login-content(flex="50")
+        md-card
+            md-tabs(md-dynamic-height)
+                md-tab
+                    md-tab-label Iniciar sesion
+                    md-tab-body
+                        form(ng-submit="ctrl.login.enviar(login)" )
+                            md-card-content(layout="column")
+                                md-input-container
+                                    label correo
+                                    input(ng-model="login.correo")
+                                md-input-container
+                                    label password
+                                    input(ng-model="login.password")
+                            md-divider
+                            .boton(layout="row")
+                                md-button(type="submit" md-colors="{background : 'green'}") Enviar
+                            .social(layout="row")
+                                md-button(href="/login/facebook") Facebook
+                                md-button(href="/login/google") Google
+                md-tab
+                    md-tab-label Registrarme
+                    md-tab-body
+                        form(ng-submit="ctrl.login.registrar(registro)" )
+                            md-card-content(layout="column")
+                                md-input-container
+                                    label Nombre
+                                    input(ng-model="registro.nombre")
+                                md-input-container
+                                    label correo
+                                    input(ng-model="registro.correo")
+                                md-input-container
+                                    label password
+                                    input(ng-model="registro.password" type="password")
+                            md-divider
+                            .boton(layout="row")
+                                md-button(type="submit" md-colors="{background : 'green'}") Enviar

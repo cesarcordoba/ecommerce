@@ -1,0 +1,11 @@
+.perfil(layout="row")
+	.menu-izquierdo
+		md-list
+			md-list-item
+				md-button(ui-sref=".infobasica") Información básica
+			md-list-item
+				md-button(ui-sref=".historial") Historial
+			md-list-item
+				md-button(ui-sref=".metodosPago") Métodos de pago
+	.contenido
+		main(ui-view="main")

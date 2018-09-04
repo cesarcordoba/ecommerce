@@ -1,0 +1,148 @@
+.productos(layout="row" layout-align="center center")
+    .productos-content(flex="90")
+        md-card.procesos
+            span Mostrar versiones : 
+            md-switch(ng-model="ctrl.versiones.status")
+            span Conteo por procesos : 
+            md-button(ng-click="ctrl.info($event)")
+                span {{ctrl.productos.todos}}
+            .procesos-content()
+                div(style="background-color : rgb(76, 175, 80); width : {{  (ctrl.productos.completos / (ctrl.productos.todos) ) * 100 }}%" ) {{ctrl.productos.completos}}
+                div(style="background-color : rgb(0, 188, 212); width : {{  (ctrl.productos.sinrevision / (ctrl.productos.todos ) ) * 100 }}%" ) {{ctrl.productos.sinrevision}}
+                div(style="background-color : rgb(255, 193, 7); width : {{  (ctrl.productos.sinversiones / (ctrl.productos.todos ) ) * 100 }}%" ) {{ctrl.productos.sinversiones}}
+                div(style="background-color : rgb(255, 152, 0); width : {{  (ctrl.productos.sinatributos / (ctrl.productos.todos ) ) * 100 }}%" ) {{ctrl.productos.sinatributos}}
+                div(style="background-color : rgb(244, 67, 54); width : {{  (ctrl.productos.incompletos / (ctrl.productos.todos ) ) * 100 }}%" ) {{ctrl.productos.incompletos}}
+                div(style="background-color : black; color : white ; width : {{  (ctrl.productos.descontiniuados / (ctrl.productos.todos ) ) * 100 }}%" ) {{ctrl.productos.descontiniuados}}
+                
+        form.busqueda(ng-submit="ctrl.productos.obtener()")
+            md-autocomplete(
+                flex="10"
+                md-selected-item="status.item"
+                md-selected-item-change="status.cambiar()"
+                md-items="item in status.items" 
+                md-item-text="item"
+                placeholder="Status")
+                md-item-template
+                    span {{item}}
+            //- md-input-container
+            //-     label 
+            //-     md-select(ng-model="status.item" ng-change="")
+            //-         md-option(ng-value="null") ninguno
+            //-         md-option(ng-repeat="item in " ng-value="item") {{item}}
+            md-autocomplete(
+                flex
+                md-selected-item="ctrl.productos.item"
+                md-selected-item-change="ctrl.productos.seleccion(item)"
+                md-search-text="ctrl.productos.busqueda"
+                md-search-text-change="ctrl.productos.buscar(ctrl.productos.busqueda)" 
+                md-items="item in ctrl.productos.filtrar(ctrl.productos.busqueda)" 
+                md-item-text="item.nombre"
+				md-dropdown-items="10"
+                md-delay="1000"
+                placeholder="Nombre de Producto")
+                md-item-template
+                    span {{item.nombre}}
+            md-autocomplete(
+                flex
+                ng-if="ctrl.versiones.status"
+                md-selected-item="ctrl.versiones.item"
+                md-selected-item-change="ctrl.versiones.seleccion(item)"
+                md-search-text="ctrl.versiones.busqueda"
+                md-search-text-change="ctrl.versiones.buscar(ctrl.versiones.busqueda)" 
+                md-items="item in ctrl.versiones.filtrar(ctrl.versiones.busqueda)" 
+                md-item-text="item.nombre"
+				md-dropdown-items="10"
+                md-delay="1000"
+                placeholder="Nombre de Versión")
+                md-item-template
+                    span {{item.nombre}}
+            md-button(type="submit"  md-whiteframe="1" )
+                md-icon search
+            md-button(ng-click="ctrl.productos.crear()"  md-whiteframe="1" )
+                md-icon add
+            md-button(ng-click="ctrl.productos.limpiar()" md-whiteframe="1" )
+                md-icon delete
+        .busqueda
+            .modulo(ng-repeat="modulo in ctrl.modulos" flex)
+                md-autocomplete(
+                    md-selected-item="modulo.item"
+                    md-selected-item-change="modulo.seleccion(item)"
+                    md-dropdown-items="10"
+                    md-search-text="modulo.busqueda"
+                    md-search-text-change="modulo.buscar(modulo.busqueda)" 
+                    md-items="item in modulo.filtrar(modulo.busqueda)" 
+                    md-item-text="item.nombre"
+                    md-require-match="true"
+                    placeholder="{{modulo.nombre}}")
+                    md-item-template
+                        md-icon(md-colors="{ color : {  0 :  'red' , 1 : 'green', null : 'red' } [ item.status ] }" ng-if="item.status") lens
+                        span {{item.nombre}}    
+        md-card
+            md-table-container
+                table(md-table md-row-select multiple)
+                    thead(md-head)
+                        tr(md-row)
+                            th(md-column) Portada
+                            th(md-column) Status
+                            th(md-column) #V
+                            th(md-column) #A
+                            th(md-column) Nombre
+                            //- th(md-column) Marca
+                            //- th(md-column) Categoria
+                            //- th(md-column) Gama
+                            th(md-column ng-if="ctrl.versiones.status") Versiones
+                            th(md-column) Acciones
+                    tbody(md-body)
+                        md-progress-linear(md-mode="indeterminate" ng-if="!ctrl.productos.items" ng-disabled="ctrl.productos.items")
+                        tr(md-row md-select="dato" md-select-id="name" md-auto-select ng-repeat="item in ctrl.productos.items")
+                            td(md-cell)
+                                md-button.portada-button(ng-click="item.portada()" aria-label)
+                                    portada(id="item.id")
+                            td(md-cell)
+                                md-icon(md-colors="{ color : {  0 :  'red' , 1 : 'green', 2 : 'cyan', 3: 'amber',  4: 'orange', 5: 'pink' } [ item.status ] }") lens
+                            td(md-cell) {{ item.cantidadversiones }}
+                            td(md-cell) {{ item.cantidadambientes }}
+                            td(md-cell)
+                                .nombre
+                                    span {{ item.nombre }}
+                                    span {{ item.marca.nombre }}
+                                    span {{ item.categoria.nombre }}
+                                    span {{ item.gama.nombre }}
+                            //- td(md-cell) {{ item.marca.nombre }}
+                            //- td(md-cell) {{ item.categoria.nombre }}
+                            //- td(md-cell) {{ item.gama.nombre }}
+                            td(md-cell ng-if="ctrl.versiones.status")
+                                md-list
+                                    md-list-item(ng-repeat="version in item.versiones")
+                                        
+                                        .version
+                                            span
+                                                md-icon(md-colors="{ color : {  0 :  'red' , 1 : 'green', 2 : 'cyan', 3: 'amber',  4: 'orange', 5: 'pink' } [ version.status ] }") lens
+                                            span
+                                                .titulo {{version.nombre}}
+                                                .marca  {{version.linea}}
+                                                .opciones
+                                                    .opcion(ng-repeat="opcion in version.opciones") {{opcion.nombre}}
+                                                .colores
+                                                    .color(ng-repeat="color in version.colores" style="background-color : {{color.hex}}") {{color.nombre}}
+                                            span $ {{version.precio}}
+                                            span {{version.existencia}} exist.
+                                        .md-secondary
+                                            md-button(ng-click="version.abrir($event, item.id)")
+                                                md-icon info
+                            td(md-cell)
+                                md-fab-toolbar(md-open="false" count="0"  md-direction="left" flex)
+                                    md-fab-trigger
+                                        md-button
+                                            md-icon more_vert
+                                    md-toolbar
+                                        md-fab-actions(layout="row")
+                                            md-button(ng-click="item.ir()")
+                                                md-icon edit
+                                            md-button(ng-click="item.editar()")
+                                                md-icon info
+            .paginacion-container                                
+                md-input-container
+                    label limite
+                    input(ng-model="ctrl.productos.filtros.limite" type="number" min="10" max="50")
+                cl-paging(cl-pages="ctrl.productos.filtros.paginas" cl-steps="6" cl-page-changed="ctrl.productos.obtener()" cl-align="start start" cl-current-page="ctrl.productos.filtros.pagina")

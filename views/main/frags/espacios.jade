@@ -1,0 +1,12 @@
+.ambientes
+    .ambientes-content
+        h1 Espacios
+        .cuartos-container
+            .cuartos
+                .cuarto(ng-repeat="cuarto in ctrl.cuartos")
+                    md-checkbox(ng-model="cuarto.check") {{ cuarto.nombre }}
+        md-grid-list(md-gutter="5px" md-row-height="50px" md-cols="10")
+            md-grid-tile(md-rowspan="3" md-colspan="2" ng-repeat="espacio in ctrl.ambientes.items" ui-sref="espacio({id : espacio.id})")
+                md-progress-circular(md-mode="indeterminate" md-diameter="20px" ng-disabled="espacio.imagen" ng-if="!espacio.imagen")
+                .espacio(style="background-image : url({{ espacio.imagen.link }})" ng-if="espacio.imagen")
+        cl-paging(cl-pages="ctrl.ambientes.filtros.paginas" cl-steps="6" cl-page-changed="ctrl.ambientes.obtener()" cl-align="start start" cl-current-page="ctrl.ambientes.filtros.pagina")

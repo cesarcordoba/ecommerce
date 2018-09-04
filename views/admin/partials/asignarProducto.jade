@@ -1,0 +1,44 @@
+md-dialog
+    //- md-toolbar
+    //-     .md-toolbar-tools
+    //-         h1 hola
+    md-card-content
+        h2 ¿No esta contento con {{ item.nombre }}?
+        p Tenemos varias opciones para tratar con ella
+    .botones
+    md-tabs
+        md-tab
+            md-tab-label Asignar versión a otro producto
+            md-tab-body
+                form.md-padding(ng-submit="ctrl.asignar()")
+                    md-autocomplete(
+                        flex
+                        md-selected-item="ctrl.productos.item"
+                        md-selected-item-change="ctrl.productos.seleccion(item)"
+                        md-search-text="ctrl.productos.busqueda"
+                        md-search-text-change="ctrl.productos.buscar(ctrl.productos.busqueda)" 
+                        md-items="item in ctrl.productos.filtrar(ctrl.productos.busqueda)" 
+                        md-item-text="item.nombre"
+                        placeholder="Nombre")
+                        md-item-template
+                            strong ( {{item.marca.nombre}} ) 
+                            span {{ item.nombre }} 
+                    p Busca el producto que crees pertenece a estar versión
+                    md-button(type="submit") Aceptar
+        md-tab
+            md-tab-label Crea un nuevo producto
+            md-tab-body
+                form.padding(layout="column" ng-submit="ctrl.crear()")
+                    p Se creara un nuevo producto con esta versión dentro
+                    md-input-container(flex)
+                        label Nombre
+                        input(ng-model="item.nombre")
+                    md-button(type="submit") Aceptar
+        md-tab
+            md-tab-label Eliminar
+            md-tab-body
+                p Este producto tienen {{item.sucursales}} enlazadas, estas seguro que quieres eliminarlo
+                md-button(ng-click="ctrl.eliminar()") Eliminar
+
+        
+        

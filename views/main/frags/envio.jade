@@ -1,0 +1,44 @@
+.envio-container
+	.envio-content(style=" display:  flex; flex-direction:  column; justify-content:  center; align-items:  center;")
+		.encabezado
+			.titulo
+				h1 Elige las opciones de envio
+			.direccion
+				p Enviar a Ruiz Cortinez #2 Fraccionamiento costa verde Boca del Rio, Veracruz 94290, Teléfono celular: 990392
+		.contenedor(layout="row" style="width: 70%; height: 50%;")
+			.productos(style="width: 50%;")
+				md-list
+					md-virtual-repeat-container#vertical-container(style="height: 100%")
+						md-list-item.repeated-item(flex ng-repeat="producto in ctrl.envios.productos[0]")
+							.producto(layout="row")
+								.imagen(style="width: 150px; height: 150px;")
+									md-icon photo
+								.info-interior
+									.texto(layout="row")
+										.izquierda
+											p ${{producto.precio}}
+											md-input-container
+												label Cantidad
+												input(ng-model="ctrl.cantidad" type="number" step="1" aria-label="cantidad" min="1" pattern="^[0-9]+")
+										.derecha
+											md-button Ver Producto
+											.div(layout="row")
+												p Eliminar
+												md-button(ng-click="ctrl.envios.eliminar($index)")
+													md-icon close
+									.descripcion
+										p {{producto.descripcion}}
+							md-divider
+
+						
+			.envios(style="width: 50%; padding: 10px;")
+				.arriba
+					h1 Elige una velocidad de envio
+					.descripcion
+						p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum libero perspiciatis facilis labore nemo eaque reiciendis maxime necessitatibus impedit vitae voluptas, sit nihil tenetur quos magnam deleniti earum, dolore, doloremque.
+				.abajo
+					md-radio-group(ng-model="ctrl.tipoEnvio")
+						md-radio-button(value="Rapida") Rapida
+						md-radio-button(value="Muy Rapida") Muy Rapida 
+						md-radio-button(value="Express") Express
+		md-button(ng-click="ctrl.envios.enviarDatos(ctrl.tipoEnvio)") continuar		

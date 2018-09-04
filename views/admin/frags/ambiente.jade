@@ -1,0 +1,108 @@
+.ambiente-container
+	section
+		md-card(layout="row" layout-align="space-between center")
+			md-button(ui-sref="ambiente({id : ctrl.anterior.id })")
+				md-icon keyboard_arrow_left
+				span(ng-repeat="producto in ctrl.anterior.productos") {{ producto.nombre }}
+			md-button(ui-sref="ambiente({id : ctrl.siguiente.id})")
+				span(ng-repeat="producto in ctrl.siguiente.productos") {{ producto.nombre }}
+				md-icon keyboard_arrow_right
+	section.ambiente(layout="row")
+		.espacio(flex)
+			md-card
+				form(layout="row")
+					md-input-container(flex)
+						label Nombre
+						input(ng-model="ctrl.ambiente.nombre")
+					md-input-container(flex)
+						label Cuartos
+						md-select(ng-model="ctrl.ambiente.IdCuarto")
+							md-option(ng-repeat="cuarto in ctrl.cuartos" ng-value="cuarto.id") {{cuarto.nombre}}
+					md-button(ng-click="ctrl.ambiente.actualizar()" md-colors="{background : 'green'}")
+						md-icon save
+					md-button(ng-click="ctrl.ambiente.espacio.editar = !ctrl.ambiente.espacio.editar")
+						md-icon image
+					md-button(ng-click="ctrl.ambiente.espacio.print()") Print
+			.imagen-container
+				md-card
+					form(ng-submit="ctrl.ambiente.espacio.crear()")
+						.spinner
+							md-progress-circular(md-mode="indeterminate" ng-disabled="ctrl.ambiente.espacio" ng-if="!ctrl.ambiente.espacio" md-diameter="50")
+						.imagen-content
+							.tamano {{ ctrl.ambiente.espacio.size | number : 0 }} KB
+							.imagen(ng-hide="ctrl.ambiente.espacio.editar")
+								canvas#background(height="600" width="1000")
+								canvas#canvas(height="600" width="1000")
+							//- img(src="{{ctrl.ambiente.imagen}}" ng-if="ctrl.ambiente")
+						.image-container(ng-show="ctrl.ambiente.espacio.editar")
+							.dropify-container(ng-show="!ctrl.ambiente.espacio.input")
+								input.dropify(ng-model="ctrl.ambiente.espacio.input" type="file" base-sixty-four-input maxsize="6120" data-max-file-size="10000K" accept="image/*" style="padding:0px;")
+							.croppie-container(ng-show="ctrl.ambiente.espacio.input")
+								ng-croppie(
+									ng-if="ctrl.ambiente.espacio"
+									src='ctrl.ambiente.espacio.input'
+									ng-model='ctrl.ambiente.espacio.output'
+									update='ctrl.ambiente.espacio.update'
+									boundry="ctrl.ambiente.espacio.boundry"
+									viewport="ctrl.ambiente.espacio.viewport"
+									mousezoom="true" 
+									zoom="true")
+						md-button(type="submit" ng-show="ctrl.ambiente.espacio.input")
+							md-icon(ng-if="!ctrl.ambiente.espacio.status") done
+							md-progress-circular(md-mode="indeterminate" ng-disabled="!ctrl.ambiente.espacio.status" ng-if="ctrl.ambiente.espacio.status" md-diameter="20")		
+		.productos(flex="40")
+			md-card
+				md-subheader Productos
+				md-list
+					.busqueda
+						md-autocomplete(
+							flex
+							md-selected-item="ctrl.productos.item"
+							md-selected-item-change="ctrl.productos.seleccion()"
+							md-search-text="ctrl.productos.busqueda"
+							md-search-text-change="ctrl.productos.buscar()" 
+							md-items="item in ctrl.productos.filtrar()" 
+							md-item-text="item.nombre"
+							md-delay="1000"
+							md-no-cache="false"
+							md-require-match="true"
+							md-dropdown-items="10"
+							placeholder="Busca por nombre")
+							md-item-template
+								.item
+									portada(id="item.id" style="width : 100px")
+									span {{item.id}} {{item.nombre}}
+							md-not-found Lo sentimos, ningún producto con ese nombre encontrado.
+						md-button(md-whiteframe="1" ng-click="ctrl.productos.ligar()")
+							md-icon add
+					md-list-item(ng-repeat="producto in ctrl.ambiente.productos")
+						portada(id="producto.id" style="width : 40px")
+						p {{ producto.nombre }}
+						.md-secondary
+							md-button(ng-click="producto.status ? producto.actualizar($event) : producto.editar()" md-colors="producto.status ? {background : 'green'} : {background : 'red'}"  aria-label="status")
+								md-icon(ng-if="producto.status && !producto.procesando") location_searching
+								md-icon(ng-if="!producto.status && !producto.procesando") gps_fixed
+								md-progress-circular(md-mode="indeterminate" ng-disabled="" ng-if="producto.procesando")
+							md-button(ng-click="producto.eliminar($index)")
+								md-icon clear
+							md-button(ng-click="producto.ir()")
+								md-icon edit
+			md-card.alternativas
+				md-subheader Otros ambientes relacionados
+				md-list
+					md-list-item(ng-repeat="ambiente in ctrl.ambientes.items")
+						.md-list-item-text
+							span {{ambiente.id}}
+							.productos
+								.producto(ng-repeat="producto in ambiente.productos")
+									portada(id="producto.id")
+									p {{producto.nombre}}
+						.md-secondary
+							md-button(ui-sref="ambiente({id : ambiente.id })")
+								img(src="{{ambiente.espacio.imagen}}")
+						
+	section.eliminar
+		md-card
+			md-button(md-colors="{background : 'red'}" ng-click="ctrl.ambiente.eliminar()")
+				md-icon delete
+	

@@ -1,0 +1,58 @@
+.carrito-container
+	.carrito-content(layout="row")
+		.seccion-izquierda(style="width: 70%; padding: 15px")
+			.titulo
+				h1 Carrito de compras
+			md-divider
+			.producto
+				p Producto
+			.productos(layout="row" ng-repeat="producto in ctrl.carrito.objetos")
+				.contenedor-info(layout="row")
+					.imagen(style="width: 200px; height: 200px")
+						md-icon photo
+					.descripcion
+						p {{producto.descripcion}}
+						.disponibilidad
+							md-button Disponible
+							md-button No disponible por el momento
+						.eliminar
+							md-button(ng-click="producto.eliminar()") Eliminar
+				.precios(style="width: 15%")
+					p Precio
+					.precio
+						h3(style="color: red") $ {{producto.precio}}
+				.cantidades(style="width: 10%")
+					p Cantidad
+					.cantidad
+						md-input-container
+							input(ng-model="ctrl.cantidad" type="number" step="1" aria-label="cantidad" min="1" pattern="^[0-9]+")
+			md-divider
+				.subtotal(layout="row" style="display: flex; justify-content: flex-end")
+					h3 Subtotal(1 producto):
+					h3(style="color: red") $ {{ctrl.subtotal}}
+			.productos-relacionados
+				h1 Productos relacionados
+				.contenedor-relacionados(layout="row")
+					.imagen(style="width: 200px; height: 200px")
+						md-icon photo
+					.descripcion
+						p "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quia, autem laboriosam totam et amet deleniti quisquam eius quae, blanditiis ad natus omnis nam placeat exercitationem repellat. Perferendis, soluta, quaerat."
+						.disponibilidad
+							md-button Disponible
+							md-button Mover al carrito
+		.seccion-derecha(style="width: 30%; padding: 20px")
+			.subtotal-derecha(style="display: flex; justify-content: center; align-items: center; height: 100px" layout="column")
+				h3 Subtotal(1 producto):
+				h3(style="color: red") ${{ctrl.subtotal}}
+			.pago
+				md-button(ng-click="ctrl.carrito.mandar(ctrl.carrito.objetos)") Proceder el pago
+			.articulos
+				h3 Articulos que los clientes han comprado recientemente:
+				.articulo(layout="row")
+					.imagen(style="width: 150px; height: 150px")
+						md-icon photo
+					.texto
+						p Granito
+						p(style="color: red") $200.00
+						md-button agregar al carrito
+

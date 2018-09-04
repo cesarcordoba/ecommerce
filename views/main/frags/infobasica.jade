@@ -1,0 +1,26 @@
+.infoBasica(layout="row" layout-align="center center" style="height: 100vh; width : 80vw")
+	.infoBasica-container(flex="50")
+		md-card
+			.infoBasica-content(layout="row")
+				.menu
+					.imagen(style="height: 150px; width: auto; display: flex; justify-content: center; align-items: center;")
+						md-icon account_circle
+					md-list
+						md-list-item
+							md-button Vista general de la cuenta
+						md-list-item
+							md-button Editar perfil
+						md-list-item
+							md-button Cambiar contraseña
+						md-list-item
+							md-button Compras
+				.informacion
+					h1 Perfil
+					h3 Nombre de usuario
+					p {{ctrl.usuario.nombre}}
+					h3 Email
+					p {{ctrl.usuario.correo}}
+					h3 Fecha de nacimiento
+					p 12/10/1980
+					h3 Código postal
+					p 91789

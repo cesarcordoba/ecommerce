@@ -1,0 +1,122 @@
+md-dialog.filtro
+    md-toolbar(style="background-color: white !important; color: black !important;")
+        .md-toolbar-tools
+            h4 Filtros
+            span(flex)
+            md-button(ng-click="hide()")
+                md-icon close
+    .filtro-content
+        .md-padding
+            h4 Titulo
+            div(layout="row")
+                md-autocomplete(flex
+                    md-selected-item="ctrl.nombreSeleccionado" 
+                    md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                    md-search-text="ctrl.busquedaNombre" 
+                    md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                    md-items="item in nombres" 
+                    md-item-text="item.nombre" 
+                    md-min-length="0" 
+                    placeholder="Titulo")
+                    md-item-template
+                        span {{item.nombre}}
+        .md-padding
+            h4 Autor
+            div(layout="row")
+                md-autocomplete(flex
+                    md-selected-item="ctrl.nombreSeleccionado" 
+                    md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                    md-search-text="ctrl.busquedaNombre" 
+                    md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                    md-items="item in nombres" 
+                    md-item-text="item.nombre" 
+                    md-min-length="0" 
+                    placeholder="Nombre")
+                    md-item-template
+                        span {{item.nombre}}
+                md-autocomplete(flex
+                    md-selected-item="ctrl.nombreSeleccionado" 
+                    md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                    md-search-text="ctrl.busquedaNombre" 
+                    md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                    md-items="item in nombres" 
+                    md-item-text="item.nombre" 
+                    md-min-length="0" 
+                    placeholder="Apellido")
+                    md-item-template
+                        span {{item.nombre}}
+                        
+        .md-padding
+            h4 Filtros tematicos Jerarquicos
+            div(layout="row")
+                md-autocomplete(flex
+                    md-selected-item="ctrl.nombreSeleccionado" 
+                    md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                    md-search-text="ctrl.busquedaNombre" 
+                    md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                    md-items="item in nombres" 
+                    md-item-text="item.nombre" 
+                    md-min-length="0" 
+                    placeholder="Primer nivel")
+                    md-item-template
+                        span {{item.nombre}}
+                md-autocomplete(flex
+                    md-selected-item="ctrl.nombreSeleccionado" 
+                    md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                    md-search-text="ctrl.busquedaNombre" 
+                    md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                    md-items="item in nombres" 
+                    md-item-text="item.nombre" 
+                    md-min-length="0" 
+                    placeholder="Segundo nivel")
+                    md-item-template
+                        span {{item.nombre}}
+                md-autocomplete(flex
+                    md-selected-item="ctrl.nombreSeleccionado" 
+                    md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                    md-search-text="ctrl.busquedaNombre" 
+                    md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                    md-items="item in nombres" 
+                    md-item-text="item.nombre" 
+                    md-min-length="0" 
+                    placeholder="Tercer nivel")
+                    md-item-template
+                        span {{item.nombre}}
+        .md-padding
+            h4 Coleccion
+            div(layout="row")
+                md-autocomplete(flex
+                    md-selected-item="ctrl.nombreSeleccionado" 
+                    md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                    md-search-text="ctrl.busquedaNombre" 
+                    md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                    md-items="item in nombres" 
+                    md-item-text="item.nombre" 
+                    md-min-length="0" 
+                    placeholder="Selecciona una colección")
+                    md-item-template
+                        span {{item.nombre}}
+        .md-padding
+            h4 Otros Filtros
+            div(layout="row")
+                md-input-container(flex)
+                    label Pais
+                    md-select(ng-model="x")
+                        md-opcion(ng-repeat="x in [1,1,1,1]") {{x}}
+                md-input-container(flex)
+                    label Año
+                    md-select(ng-model="x")
+                        md-opcion(ng-repeat="x in [1,1,1,1]") {{x}}
+                md-input-container(flex)
+                    label Formato
+                    md-select(ng-model="x")
+                        md-opcion(ng-repeat="x in [1,1,1,1]") {{x}}
+                md-input-container(flex)
+                    label Genero
+                    md-select(ng-model="x")
+                        md-opcion(ng-repeat="x in [1,1,1,1]") {{x}}
+                        
+                
+    .opciones(layout="row" layout-align="end center")
+        md-button.cancelar(ng-click="hide()") Cancelar
+        md-button.aplicar Aplicar filtros

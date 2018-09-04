@@ -1,0 +1,10 @@
+.producto(layout="row" layout-align="center center" )
+    .producto-content(flex="80")
+        h1 {{ctrl.producto.nombre}}
+        md-tabs
+            md-tab(ng-repeat="version in ctrl.producto.versiones")
+                md-tab-label {{version.nombre}}
+                md-tab-body
+                    md-input-container
+                        label Precio
+                        input(ng-model="precio")

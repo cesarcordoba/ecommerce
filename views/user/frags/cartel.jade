@@ -1,0 +1,347 @@
+.cartel
+    md-card
+        md-card-content(layout="row")
+            md-input-container(flex)
+                label Titulo
+                input
+            md-input-container(flex="30")
+                label Proceso
+                md-select(ng-model="proceso")
+                    md-option Catalogo
+                    md-option Comprobado
+                    md-option Listo
+    section(layout="row")
+        .info(flex layout="column")
+            md-card
+                md-card-content.apartados(layout="column")
+                    div(layout="row")
+                        md-autocomplete(flex="80"
+                            md-selected-item="ctrl.nombreSeleccionado" 
+                            md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                            md-search-text="ctrl.busquedaNombre" 
+                            md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                            md-items="item in nombres" 
+                            md-item-text="item.nombre" 
+                            md-min-length="0" 
+                            placeholder="Autor")
+                            md-item-template
+                                span {{item.nombre}}
+                        md-input-container(flex)
+                            label Tipo
+                            md-select(ng-model="agente")
+                                md-option(ng-repeat="agente in agentes") {{agente.nombre}}
+                        md-input-container(flex)
+                            label Genero
+                            md-select(ng-model="genero")
+                                md-option(ng-repeat="genero in generos") {{genero.nombre}}
+                    md-list
+                        md-subheader Lista de agentes
+                        md-list-item(ng-repeat="agente in agentesdelcartel")
+                            .md-list-item-text
+                                p {{agente.nombre}}
+                                
+                        md-table-container
+                            table(md-table md-row-select multiple)
+                                thead(md-head)
+                                    tr(md-row)
+                                        th(md-column md-numeric md-order-by="contacto.createdAt")
+                                            md-icon date_range
+                                            strong Fecha
+                                        th(md-column md-numeric)
+                                            md-icon person
+                                            strong Nombre
+                                        th(md-column md-numeric)
+                                            md-icon mail
+                                            | E-mail
+                                        th(md-column md-numeric)
+                                            md-icon border_color
+                                            | Mensaje
+                                        th(md-column md-numeric)
+                                            md-icon border_color
+                                            | Acción
+                                tbody(md-body)
+                                    tr(md-row md-select="dato" md-select-id="name" md-auto-select)
+                                        td(md-cell) algo
+                                        td(md-cell) algo
+                                        td(md-cell) algo
+                                        td(md-cell) algo
+                                        td(md-cell) algo
+                    
+                    
+            md-card
+                md-card-content
+                    .apartados(layout="row")
+                        md-autocomplete(flex
+                            md-selected-item="ctrl.nombreSeleccionado" 
+                            md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                            md-search-text="ctrl.busquedaNombre" 
+                            md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                            md-items="item in nombres" 
+                            md-item-text="item.nombre" 
+                            md-min-length="0" 
+                            placeholder="Pais")
+                            md-item-template
+                                span {{item.nombre}}
+                        md-autocomplete(flex
+                            md-selected-item="ctrl.nombreSeleccionado" 
+                            md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                            md-search-text="ctrl.busquedaNombre" 
+                            md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                            md-items="item in nombres" 
+                            md-item-text="item.nombre" 
+                            md-min-length="0" 
+                            placeholder="año")
+                            md-item-template
+                                span {{item.nombre}}
+                        md-autocomplete(flex="60"
+                            md-selected-item="ctrl.nombreSeleccionado" 
+                            md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                            md-search-text="ctrl.busquedaNombre" 
+                            md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                            md-items="item in nombres" 
+                            md-item-text="item.nombre" 
+                            md-min-length="0" 
+                            placeholder="Referencia de fecha")
+                            md-item-template
+                                span {{item.nombre}}    
+                    .apartados(layout="row")
+                        md-autocomplete(flex
+                            md-selected-item="ctrl.nombreSeleccionado" 
+                            md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                            md-search-text="ctrl.busquedaNombre" 
+                            md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                            md-items="item in nombres" 
+                            md-item-text="item.nombre" 
+                            md-min-length="0" 
+                            placeholder="Formato")
+                            md-item-template
+                                span {{item.nombre}}
+                        md-autocomplete(flex
+                            md-selected-item="ctrl.nombreSeleccionado" 
+                            md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                            md-search-text="ctrl.busquedaNombre" 
+                            md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                            md-items="item in nombres" 
+                            md-item-text="item.nombre" 
+                            md-min-length="0" 
+                            placeholder="Dimensiones")
+                            md-item-template
+                                span {{item.nombre}}
+                        md-autocomplete(flex
+                            md-selected-item="ctrl.nombreSeleccionado" 
+                            md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                            md-search-text="ctrl.busquedaNombre" 
+                            md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                            md-items="item in nombres" 
+                            md-item-text="item.nombre" 
+                            md-min-length="0" 
+                            placeholder="Tecnica")
+                            md-item-template
+                                span {{item.nombre}}
+                    .apartados(layout="row")
+                        md-autocomplete(flex
+                            md-selected-item="ctrl.nombreSeleccionado" 
+                            md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                            md-search-text="ctrl.busquedaNombre" 
+                            md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                            md-items="item in nombres" 
+                            md-item-text="item.nombre" 
+                            md-min-length="0" 
+                            placeholder="Condicion")
+                            md-item-template
+                                span {{item.nombre}}
+                        md-autocomplete(flex
+                            md-selected-item="ctrl.nombreSeleccionado" 
+                            md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                            md-search-text="ctrl.busquedaNombre" 
+                            md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                            md-items="item in nombres" 
+                            md-item-text="item.nombre" 
+                            md-min-length="0" 
+                            placeholder="Seleccionado")
+                            md-item-template
+                                span {{item.nombre}}
+                    .apartados(layout="row")
+                        md-autocomplete(flex
+                            md-selected-item="ctrl.nombreSeleccionado" 
+                            md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                            md-search-text="ctrl.busquedaNombre" 
+                            md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                            md-items="item in nombres" 
+                            md-item-text="item.nombre" 
+                            md-min-length="0" 
+                            placeholder="Distinción")
+                            md-item-template
+                                span {{item.nombre}}
+                        md-autocomplete(flex
+                            md-selected-item="ctrl.nombreSeleccionado" 
+                            md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                            md-search-text="ctrl.busquedaNombre" 
+                            md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                            md-items="item in nombres" 
+                            md-item-text="item.nombre" 
+                            md-min-length="0" 
+                            placeholder="Publicación")
+                            md-item-template
+                                span {{item.nombre}}
+                        md-autocomplete(flex
+                            md-selected-item="ctrl.nombreSeleccionado" 
+                            md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                            md-search-text="ctrl.busquedaNombre" 
+                            md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                            md-items="item in nombres" 
+                            md-item-text="item.nombre" 
+                            md-min-length="0" 
+                            placeholder="Serie")
+                            md-item-template
+                                span {{item.nombre}}
+                    .apartados(layout="row")
+                        md-autocomplete(flex
+                            md-selected-item="ctrl.nombreSeleccionado" 
+                            md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                            md-search-text="ctrl.busquedaNombre" 
+                            md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                            md-items="item in nombres" 
+                            md-item-text="item.nombre" 
+                            md-min-length="0" 
+                            placeholder="Colección")
+                            md-item-template
+                                span {{item.nombre}}
+                    .apartados(layout="row")
+                        md-autocomplete(flex
+                            md-selected-item="ctrl.nombreSeleccionado" 
+                            md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                            md-search-text="ctrl.busquedaNombre" 
+                            md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                            md-items="item in nombres" 
+                            md-item-text="item.nombre" 
+                            md-min-length="0" 
+                            placeholder="Mueble")
+                            md-item-template
+                                span {{item.nombre}}
+                        md-autocomplete(flex
+                            md-selected-item="ctrl.nombreSeleccionado" 
+                            md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                            md-search-text="ctrl.busquedaNombre" 
+                            md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                            md-items="item in nombres" 
+                            md-item-text="item.nombre" 
+                            md-min-length="0" 
+                            placeholder="Cajón")
+                            md-item-template
+                                span {{item.nombre}}
+                        md-autocomplete(flex
+                            md-selected-item="ctrl.nombreSeleccionado" 
+                            md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                            md-search-text="ctrl.busquedaNombre" 
+                            md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                            md-items="item in nombres" 
+                            md-item-text="item.nombre" 
+                            md-min-length="0" 
+                            placeholder="Ejemplares")
+                            md-item-template
+                                span {{item.nombre}}
+                        md-input-container
+                            label Documento digital
+                            md-select(ng-model="documentodigital")
+                                md-option(ng-value="si") Si
+                                md-option(ng-value="no") No
+        md-card(flex="30")
+            md-subheader Imagenes
+            md-card-content
+                .image-container
+                    .dropify-container(ng-init="Dropify()" flex ng-hide="inputImage")
+                        input.dropify(type="file" data-default-file="Imagen de la imagenes" ng-model="imagen.imagen" base-sixty-four-input maxsize="5120" data-max-file-size="1000K" accept="image/*" style="padding:0px;")
+                    .croppie-container(flex ng-show="inputImage")
+                        ng-croppie(src="inputImage"
+                            ng-model='imagen.imagen'
+                            update='onUpdate'
+                            boundry="{ w: 300, h: 300 }"
+                             viewport="{w: 150, h: 100}"
+                            mousezoom="true" 
+                            zoom="true" 
+                            orientation="90"
+                            type="square")
+    md-card
+        md-subheader Aspectos tematicos
+        md-card-content
+            div(layout="column")
+                div(layout="row")
+                    md-autocomplete(flex
+                        md-selected-item="ctrl.nombreSeleccionado" 
+                        md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                        md-search-text="ctrl.busquedaNombre" 
+                        md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                        md-items="item in nombres" 
+                        md-item-text="item.nombre" 
+                        md-min-length="0" 
+                        placeholder="Primer nivel")
+                        md-item-template
+                            span {{item.nombre}}
+                    md-autocomplete(flex
+                        md-selected-item="ctrl.nombreSeleccionado" 
+                        md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                        md-search-text="ctrl.busquedaNombre" 
+                        md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                        md-items="item in nombres" 
+                        md-item-text="item.nombre" 
+                        md-min-length="0" 
+                        placeholder="Segundo nivel")
+                        md-item-template
+                            span {{item.nombre}}
+                    md-autocomplete(flex
+                        md-selected-item="ctrl.nombreSeleccionado" 
+                        md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                        md-search-text="ctrl.busquedaNombre" 
+                        md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                        md-items="item in nombres" 
+                        md-item-text="item.nombre" 
+                        md-min-length="0" 
+                        placeholder="Tercer nivel")
+                        md-item-template
+                            span {{item.nombre}}
+                    md-autocomplete(flex
+                        md-selected-item="ctrl.nombreSeleccionado" 
+                        md-search-text-change="ctrl.BuscarNombreChange(ctrl.busquedaNombre)" 
+                        md-search-text="ctrl.busquedaNombre" 
+                        md-selected-item-change="ctrl.nombreSeleccionadoCambio(item)" 
+                        md-items="item in nombres" 
+                        md-item-text="item.nombre" 
+                        md-min-length="0" 
+                        placeholder="Referencia del tercer nivel")
+                        md-item-template
+                            span {{item.nombre}}
+                    md-button.md-raised(md-colors="{background : 'green'}")
+                        md-icon done
+                md-table-container
+                    table(md-table md-row-select multiple)
+                        thead(md-head)
+                            tr(md-row)
+                                th(md-column md-numeric md-order-by="contacto.createdAt") Primer nivel
+                                th(md-column) Segundo nivel
+                                th(md-column) Tercera nivel
+                                th(md-column) Referencia de tercer nivel
+                        tbody(md-body)
+                            tr(md-row md-select="dato" md-select-id="name" md-auto-select)
+                                td(md-cell) algo
+                                td(md-cell) algo
+                                td(md-cell) algo
+                                td(md-cell) algo
+    md-card
+        md-subheader Comentarios
+        md-card-content
+            text-angular(ng-model="nivel.descripcion")
+        .md-padding(layout="row" style="width:100%")
+            md-input-container(flex)
+                label Catalogado por
+                md-select(ng-model="catalogo")
+                    md-option
+            md-input-container(flex)
+                label Comprobado por
+                md-select(ng-model="comprobado")
+                    md-option
+    md-card.opciones
+        md-card-content(layout="row" layout-align="end center")
+            md-button.cancelar(ng-click="cancelar()") Cancelar
+            md-button.aplicar(ng-click="crear()") Aplicar Cambios
+                

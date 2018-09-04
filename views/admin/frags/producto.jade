@@ -1,0 +1,292 @@
+.producto
+	.producto-container
+		section
+			md-card(layout="row" layout-align="space-between center")
+				md-button(ui-sref="producto({id : ctrl.anterior.id})")
+					md-icon keyboard_arrow_left
+					span {{ctrl.anterior.nombre}}
+				md-button(ui-sref="producto({id : ctrl.siguiente.id})")
+					span {{ctrl.siguiente.nombre}}
+					md-icon keyboard_arrow_right
+		section
+			md-card
+				.nombre(layout="row")
+					md-input-container(flex)
+						input(ng-model="ctrl.producto.nombre" aria-label="nombreproducto")
+					md-slider-container
+						span Status
+						md-slider(ng-model="ctrl.producto.status" md-discrete min="0" max="6" aria-label)
+					md-button(ng-click="ctrl.info($event)" style="height : 20px; width : 20px; min-width : 36px")
+						md-icon info
+			md-card(layout="row")
+				.imagenes-container(flex)
+					.botones-container(layout="row")
+						md-button(ng-click="ctrl.imagen.editar = ctrl.imagen.editar === false ? true : ctrl.imagen.limpiar()")
+							md-icon(ng-show="ctrl.imagen.editar") clear
+							md-icon(ng-show="!ctrl.imagen.editar") edit
+						md-button(ng-click="ctrl.imagen.crearPortada()" ng-show="ctrl.imagen.editar") Portada
+						md-button(ng-click="ctrl.imagen.crearImagen()" ng-show="ctrl.imagen.editar") Imagen
+					md-divider
+					form(ng-show="ctrl.imagen.editar")
+						.image-container
+							.dropify-container(ng-show="!ctrl.imagen.input")
+								input.dropify(type="file" ng-model="imagen"  base-sixty-four-input maxsize="5120" data-max-file-size="10000K" accept="image/*" style="padding:0px;")
+							.croppie-container(ng-show="ctrl.imagen.input")
+								ng-croppie(src="ctrl.imagen.input"
+									ng-model='ctrl.imagen.output'
+									update='ctrl.imagen.update'
+									boundry="{ w : 400 , h : 400}"
+									viewport="{ w : 350 , h : 350}"
+									orientation="false"
+									mousezoom="true" 
+									zoom="true")
+					.imagenes
+						md-grid-list(md-cols="3" md-row-height="1:1" md-gutter="12px")
+							md-grid-tile.portada( md-rowspan="1" md-colspan="1" ng-if="ctrl.imagen.portada")
+								.imagen
+									.botones
+										md-button.md-fab.md-mini(ng-click="ctrl.imagen.eliminarPortada()")
+											md-icon clear
+									img(src="{{ctrl.imagen.portada.link}}" ng-if="ctrl.imagen.portada")
+									md-grid-tile-footer
+										p {{ ctrl.imagen.portada.size }} KB
+							md-grid-tile( md-rowspan="1" md-colspan="1" ng-repeat="imagen in ctrl.imagen.imagenes")
+								.imagen
+									.botones
+										md-button.md-fab.md-mini(ng-click="ctrl.imagen.eliminarImagen(imagen.id, $index)")
+											md-icon clear
+									imagen(id="imagen.id" )
+									//- img(src="{{imagen.link}}")
+									md-grid-tile-footer
+										p {{imagen.size}} KB	
+				md-divider
+				.informacion-container(flex)
+					.informacion
+						.opciones(layout="row" layout-align="end center")
+							md-button(ng-click="ctrl.producto.editar()")
+								md-icon save
+						md-divider
+						.categorias
+							md-autocomplete(
+								md-selected-item="ctrl.categorias.item"
+								md-selected-item-change="ctrl.categorias.seleccion(item)"
+								md-dropdown-items="10"
+								md-search-text="ctrl.categorias.busqueda"
+								md-search-text-change="ctrl.categorias.buscar(ctrl.categorias.busqueda)" 
+								md-items="item in ctrl.categorias.filtrar(ctrl.categorias.busqueda)" 
+								md-item-text="item.nombre"
+								md-require-match="true"
+								placeholder="Categoria")
+								md-item-template
+									span {{item.nombre}}
+						md-expansion-panel-group(md-component-id="panelGroup")
+							md-expansion-panel(md-component-id="panelOne")
+								md-expansion-panel-collapsed
+									md-expansion-panel-header
+										md-expansion-panel-icon
+										.md-title Atributos
+										//- .md-summary
+								md-expansion-panel-expanded
+									md-expansion-panel-header
+										.md-title Marca, Linea y Gama
+										//- .md-summary(layout="row" layout-align="end center")
+									md-expansion-panel-content
+										.modulo-container
+											.modulo(ng-repeat="modulo in ctrl.modulos.items")
+												.autocomplete
+													span(md-whiteframe="1") {{modulo.nombre}}
+													md-autocomplete(
+														md-selected-item="modulo.item"
+														md-selected-item-change="modulo.seleccion(item)"
+														md-dropdown-items="10"
+														md-search-text="modulo.busqueda"
+														md-search-text-change="modulo.buscar(modulo.busqueda)" 
+														md-items="item in modulo.filtrar(modulo.busqueda)" 
+														md-item-text="item.nombre"
+														placeholder="{{modulo.nombre}}")
+														md-item-template
+															span {{item.nombre}}
+														md-not-found No se encontraron resultados con {{modulo.busqueda}}
+															md-button(ng-click="modulo.crear(modulo.busqueda)" md-colors="{background : 'green'}")
+																md-icon add
+												.slider
+													md-virtual-repeat-container(id="horizontal-container" md-orient-horizontal)
+														div(md-virtual-repeat="item in modulo.ejemplos")
+															md-button(ui-sref="producto({id : item.id})")
+																md-tooltip {{item.nombre}}
+																portada( id="item.id" )
+									md-expansion-panel-footer
+										md-button(ng-click="$panel.collapse()")
+											md-icon keyboard_arrow_up
+							md-expansion-panel(md-component-id="observaciones")
+								md-expansion-panel-collapsed
+									md-expansion-panel-header
+										md-expansion-panel-icon
+										.md-title Observaciones
+										//- .md-summary
+								md-expansion-panel-expanded
+									md-expansion-panel-header
+										.md-title Observaciones
+										.md-summary
+											md-button(ng-click="ctrl.observaciones.status = !ctrl.observaciones.status")
+												md-icon add
+												span Crear Observacion
+									md-expansion-panel-content
+										.observaciones
+											form(ng-submit="ctrl.observaciones.crear()" ng-if="ctrl.observaciones.status")
+												md-input-container
+													label Contenido
+													textarea(ng-model="ctrl.observaciones.item.contenido")
+												md-button(type="submit")
+													md-icon add
+											md-list
+												md-list-item.md-2-line(ng-repeat="observacion in ctrl.observaciones.items")
+													.md-list-item-text
+														h4 {{observacion.contenido}}
+														strong {{observacion.createdAt  | date:"MM/dd/yyyy 'at' h:mma" }}
+													.md-secondary
+														md-button(ng-click="ctrl.observaciones.eliminar(observacion.id, $index)")
+															md-icon clear
+									md-expansion-panel-footer
+										md-button(ng-click="$panel.collapse()")
+											md-icon keyboard_arrow_up
+							md-expansion-panel(md-component-id="ambientes")
+								md-expansion-panel-collapsed
+									md-expansion-panel-header
+										md-expansion-panel-icon
+										.md-title Ambientes
+										//- .md-summary
+								md-expansion-panel-expanded
+									md-expansion-panel-header
+										.md-title Ambientes
+										.md-summary
+											md-button(ng-click="ctrl.producto.crearAmbiente()")
+												md-icon add
+												span Crear Ambiente
+									md-expansion-panel-content
+										.ambientes
+											.ambiente(ng-repeat="ambiente in ctrl.producto.ambientes" ng-click="ambiente.ir()")
+												img(ng-src="{{ambiente.espacio.imagen}}")
+									md-expansion-panel-footer
+										md-button(ng-click="$panel.collapse()")
+											md-icon keyboard_arrow_up
+		section.versiones#versiones
+			md-card
+				.botones
+					span
+					.botones-content
+						md-button(ng-click="ctrl.versiones.crear()")
+							md-icon add
+							span crear versión
+						md-button(ng-click="ctrl.versiones.modificar()") Modificar versiones
+				md-divide
+				//- md-virtual-repeat-container(id="horizontal-container" md-orient-horizontal)
+				//- 	md-nav-bar(md-selected-nav-item="ctrl.versiones.seleccionado")
+				//- 		md-nav-item(md-nav-click="version.obtener()" name="{{$index}}" md-virtual-repeat="version in ctrl.versiones.items") {{version.id}} - {{version.nombre}}
+
+				md-tabs(md-dynamic-height md-border-bottom md-selected="ctrl.versiones.seleccionado")
+					md-tab(ng-repeat="version in ctrl.versiones.items" md-on-select="version.obtener();"  )
+						md-tab-label {{version.id}} - {{version.nombre}}
+						md-tab-body
+							h4 Información general de la versión
+							form.info(layout="row" ng-submit="version.editar()")
+								span ID {{version.id}}
+								md-switch(ng-model="version.status" aria-label="status" ng-true-value="1" ng-false-value="0")
+								md-input-container(flex)
+									label Nombre
+									input(ng-model="version.nombre")
+								md-input-container(flex)
+									label Linea
+									input(ng-model="version.linea" disabled)
+								md-input-container(flex="10")
+									label Precio
+									input(ng-model="version.precio" disabled)
+								md-input-container(flex="10")
+									label Existencia
+									input(ng-model="version.existencia" disabled)
+								md-button(type="submit")
+									md-icon save
+								md-button(ng-click="version.actualizar()")
+									md-icon loop
+								md-button(ng-click="version.error()")
+									md-icon more_vert
+							md-divider
+							.opciones(layout="row")
+								.colores(flex)
+									h4 Colores de la versión
+									md-list
+										form(ng-submit="version.color.ligar()" layout="row")
+											md-input-container
+												label Agrega un nuevo color
+												md-select(ng-model="version.color.item")
+													md-option(ng-repeat="color in ctrl.colores" ng-value="color") {{color.nombre}}
+											md-button(type="submit" md-colors="{background : 'green'}")
+												md-icon add
+										md-list-item(ng-repeat="color in version.colores")
+											.md-list-item-text
+												span(layout="row")
+													div(style="height : 20px; width: 20px; margin-right : 20px; background-color: {{color.hex }}; border: 1px solid black; ")
+													span {{color.nombre}}
+											.md-secondary
+												md-button(ng-click="version.color.desligar(color, $index)")
+													md-icon clear
+									
+								md-divider
+								.atributos(flex)
+									h4 Atributos de la versión
+									form.atributos.atributos(layout="row" ng-submit="version.actualizaropciones()")
+										.atributos-content
+											md-input-container(ng-repeat="atributo in ctrl.atributos" flex)
+												label {{atributo.nombre}}
+												md-select(ng-model="atributo.opcion")
+													md-option(ng-repeat="opcion in atributo.opciones" ng-value="opcion.id") {{opcion.nombre}}
+										md-button(type="submit")
+											md-icon done
+							md-divider
+							.sucursales
+								h4 {{version.cantidadsucursales}} Sucursales
+								md-table-container
+									table(md-table md-row-select multiple)
+										thead(md-head)
+											tr(md-row)
+												th(md-column) Clave
+												th(md-column) Inventario
+												th(md-column) Precios
+												th(md-column) Existencias
+												//- th(md-column) Descuentos
+										tbody(md-body)
+											tr(md-row md-select="dato" md-select-id="name" md-auto-select ng-repeat="sucursal in version.sucursales.items")
+												td(md-cell) {{sucursal.nombre}}
+												td(md-cell) {{sucursal.inventarios.id}}
+												td(md-cell)
+													md-chips(ng-model="sucursal.inventario.precios.items"
+														md-transform-chip="sucursal.inventario.precios.transformar($chip)"
+														md-on-remove="sucursal.inventario.precios.remover($chip, $index)"
+														md-require-match="true")
+														md-chip-template
+															span
+																strong {{$chip.cantidad}}
+												td(md-cell)
+													md-chips(ng-model="sucursal.inventario.existencias.items"
+														md-transform-chip="sucursal.inventario.existencias.transformar($chip)"
+														md-on-remove="sucursal.inventario.existencias.remover($chip, $index)"
+														md-require-match="true")
+														md-chip-template
+															span
+																strong {{$chip.cantidad}}
+												//- td(md-cell)
+												//- 	md-chips(ng-model="sucursal.inventario.descuentos.items"
+												//- 		md-transform-chip="sucursal.inventario.descuentos.transformar($chip)"
+												//- 		md-on-remove="sucursal.inventario.descuentos.remover($chip, $index)"
+												//- 		md-require-match="true")
+												//- 		md-chip-template
+												//- 			span
+												//- 				strong {{$chip.cantidad}}
+						
+		
+		section
+			md-card(layout="row")
+				md-button(ng-click="ctrl.producto.eliminar()" flex md-colors="{background : 'red'}") Eliminar Producto
+	
+	
+			

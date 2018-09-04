@@ -1,0 +1,52 @@
+.categorias(layout="row" layout-align="center center")
+    .categorias-content(flex="90")
+        //- azules
+        
+        .niveles
+            .nivel(ng-repeat="nivel in ctrl.niveles.items")
+                .busqueda
+                    md-autocomplete(
+                        flex
+                        md-selected-item="nivel.item"
+                        md-selected-item-change="nivel.seleccion(item)"
+                        md-search-text="nivel.busqueda"
+                        md-search-text-change="nivel.buscar(nivel.busqueda)" 
+                        md-items="item in nivel.filtrar(nivel.busqueda)" 
+                        md-item-text="item.nombre"
+                        placeholder="Nombre")
+                        md-item-template
+                            span {{item.nombre}}
+                    md-button(ng-click="nivel.crear()"  md-whiteframe="1" )
+                        md-icon add
+                    md-button(ng-click="nivel.cerrar($index)"  md-whiteframe="1" )
+                        md-icon clear
+                md-card
+                    md-subheader
+                        strong {{nivel.padre.nivel}} {{nivel.padre.nombre}}
+                    md-table-container
+                        table(md-table md-row-select multiple)
+                            thead(md-head)
+                                tr(md-row)
+                                    th(md-column md-numeric) Nombre
+                                    th(md-column)
+                            tbody(md-body)
+                                tr(md-row md-select="dato" md-select-id="name" md-auto-select ng-repeat="categoria in nivel.items")
+                                    td(md-cell) {{categoria.nivel}} - {{categoria.nombre}}
+                                    td(md-cell)
+                                        md-fab-toolbar(md-open="false" count="0"  md-direction="left" flex)
+                                            md-fab-trigger
+                                                md-button
+                                                    md-icon more_vert
+                                            md-toolbar
+                                                md-fab-actions(layout="row")
+                                                    md-button(ng-click="categoria.crear()")
+                                                        md-icon add
+                                                    md-button(ng-click="categoria.cambiarNivel()")
+                                                        md-icon filter_none
+                                                    md-button(ng-click="categoria.ir()")
+                                                        md-icon edit
+                                        md-button(ng-click="categoria.subcategoria()")
+                                            md-icon keyboard_arrow_right
+                    cl-paging(cl-pages="nivel.filtros.paginas" cl-steps="6" cl-page-changed="nivel.obtener()" cl-align="start start" cl-current-page="nivel.filtros.pagina")
+                
+                

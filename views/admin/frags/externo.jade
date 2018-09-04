@@ -1,0 +1,53 @@
+.externo(layout="row")
+    md-card(flex="20")
+        md-input-container
+            lable
+            md-select(ng-model="ctrl.base" ng-change="ctrl.generartablas()")
+                md-option(ng-value="opt" ng-repeat="opt in ctrl.basededatos") {{opt.nombre}}
+        .botones(layout="row")
+            md-input-container(flex)
+                label
+                input(ng-model="search.nombre")
+            md-button(ng-click="sortBy('nombre')") N
+            md-button(ng-click="sortBy('cantidad')") C
+        md-virtual-repeat-container
+            md-list
+                md-list-item.md-2-line(md-virtual-repeat="tabla in ctrl.tablas | filter:search | orderBy:propertyName:reverse" ng-click="ctrl.mandar(tabla)" md-item-size="20" md-colors="tabla === ctrl.tabla ? { background : 'green'} : {background : 'white'}")
+                    .md-list-item-text
+                        p {{tabla.nombre}}
+                    .md-secondary
+                        p {{tabla.cantidad}}
+    .tabla(flex)
+        .tabla-container
+            .searching(layout="row")
+                md-input-container(flex)
+                    md-select(ng-model="searching.atributo")
+                        md-option(ng-value="atributo" ng-repeat="atributo in ctrl.atributos") {{atributo}}
+                md-input-container(flex)
+                    label
+                    input(ng-model="searching[searching.atributo]")
+                md-button(md-colors="{ background : 'green' }" ng-click="ctrl.obtener()")
+                    md-icon send
+                md-button(ng-click="print()")
+            p(ng-if="!ctrl.atributos") No hay datos para mostrar
+            md-progress-linear(md-mode="indeterminate" ng-disabled="!obteniendo" ng-if="obteniendo")
+            md-table-container
+                table(md-table md-row-select multiple)
+                    thead(md-head)
+                        tr(md-row)
+                            th(md-column md-numeric ng-repeat="atributo in ctrl.atributos") {{atributo}}
+                    tbody(md-body)
+                        tr(md-row md-select="dato" md-select-id="name" md-auto-select ng-repeat="row in ctrl.rows ")
+                            td(md-cell ng-repeat="atributo in ctrl.atributos")
+                                md-button(ng-click="ctrl.buscar(row, atributo)") {{row[atributo]}}
+                            //- td(md-cell)
+                            //-     md-fab-toolbar(md-open="false" count="0"  md-direction="left")
+                            //-         md-fab-trigger
+                            //-             md-button
+                            //-                 md-icon more_vert
+                            //-         md-toolbar
+                            //-             md-fab-actions(layout="row")
+                            //-                 md-button(ng-click="item.ir()")
+                            //-                     md-icon edit
+                            //-                     span Editar
+        cl-paging(cl-pages="ctrl.paginacion.paginas" cl-steps="6" cl-page-changed="ctrl.obtener()" cl-align="start start" cl-current-page="ctrl.paginacion.pagina")
