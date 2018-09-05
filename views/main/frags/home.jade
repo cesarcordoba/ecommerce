@@ -1,3 +1,41 @@
+.home-container
+    .home-content
+        .subnav
+            md-button(ng-click="ctrl.menu.abrir()") MARCAS		
+            md-button(ng-click="ctrl.menu.abrir()") HERRAMIENTAS
+            md-button(ng-click="ctrl.menu.abrir()") CONSTRUCCION
+            md-button(ng-click="ctrl.menu.abrir()") HOGAR
+            md-button(ng-click="ctrl.menu.abrir()") FERRETERIA
+            
+        .sliderSub-content
+            .promocion-slider-container
+                .promocion-slider-content(ng-repeat='promocion in ctrl.promociones.items')
+                    .promocion
+                        h1 {{promocion.promo}}
+                        .botones
+                            md-button comprar
+                            md-button ver detalles
+        .promociones-container
+            .promociones-content
+                .linea-promos
+                .titulo
+                    img(src="img/ferremar_logo_icono.png")
+                    h1 Promociones
+                .promo-container
+                    .promo-content
+                        .imagen-promo
+                        .informacion-promo
+                            .descripcion
+                                .texto
+                                    p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora sint quae, perspiciatis aut dolorum reiciendis, odio doloremque nulla iusto adipisci voluptatem maiores velit provident, animi architecto incidunt quos itaque magni!
+                            .cuadrado
+                    .promo-content
+                        .imagen-promo
+                        .informacion-promo
+                            .descripcion
+                                .texto
+                                    p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora sint quae, perspiciatis aut dolorum reiciendis, odio doloremque nulla iusto adipisci voluptatem maiores velit provident, animi architecto incidunt quos itaque magni!
+                            .cuadrado
 //- .home
 //- 	img(src="img/slider1.png" style="width: 100%; height : auto")
 //- 	.home-container

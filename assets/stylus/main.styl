@@ -16,6 +16,11 @@ animation(animation, duration = 1s, delay = 0s)
 
 naranja = #ff6400
 negro = #343434
+
+main
+	position relative
+	min-height 100vh
+	overflow-x hidden
 .nav
 	display flex
 	justify-content center
@@ -27,8 +32,8 @@ negro = #343434
 		align-items center
 		width 60%
 		.logo
-			width 70px
-			height 70px
+			width 80px
+			height 80px
 			margin-top 15px
 			cursor pointer
 			&:focus
@@ -46,13 +51,15 @@ negro = #343434
 				color naranja
 			md-autocomplete
 				margin-left 10px
+				input:not(.md-input)
+					font-size 19px
 		.botones
 			display flex
 			flex-direction row
 			justify-content center
 			align-items center
 			.sesion
-				width 65px
+				width 68px
 				height 40px
 				margin-right 15px
 				margin-left 10px
@@ -60,7 +67,7 @@ negro = #343434
 				&:focus
 					outline 0px
 				p
-					font-size 11px
+					font-size 12px
 					text-align justify
 			.linea
 				height 30px
@@ -92,14 +99,15 @@ footer
 	.contenedor-abajo
 		display flex
 		flex-direction  row
-		justify-content space-around
+		justify-content space-between
 		align-items center
 		.copyrigth
 			display flex
 			flex-direction column
+			margin-left 30px
 			p
 				color white
-				font-size 10px
+				font-size 11px
 				margin 5px
 			.aviso
 				display flex
@@ -112,7 +120,7 @@ footer
 					margin 0 !important
 					margin-top 5px
 					span
-						font-size 10px
+						font-size 11px
 						color white
 						text-transform capitalize
 				.linea-abajo
@@ -134,7 +142,7 @@ footer
 				p
 					margin 0px
 					color white
-					font-size 10px
+					font-size 12px
 					font-weight bolder
 		.imagen
 			background-color white
@@ -142,3 +150,146 @@ footer
 			display flex
 			justify-content center
 			align-items center
+
+//CSS DEL HOME
+.home-container
+	.home-content
+		.subnav
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			height 54px
+			background-color  naranja
+			.md-button
+				span
+					color white
+					font-size 14px
+					font-weight bolder
+		.sliderSub-content
+			position relative
+			background-color negro
+			height 450px
+			.promocion-slider-container
+				display flex
+				flex-direction row
+				.promocion-slider-content
+					display flex
+					flex-direction column
+					justify-content center
+					align-items center
+					&:focus
+						outline 0px
+					.promocion
+						display flex
+						flex-direction column
+						justify-content center
+						align-items center
+						width 80%
+						height 100%
+						h1
+							color white
+							font size 50px
+						.botones
+							display flex
+							flex-direction row
+							justify-content space-between
+							align-items center
+							width 24%
+							.md-button
+								width 133px
+								min-height inherit
+								min-width inherit
+								line-height 28px
+								background-color naranja
+								span
+									font-size 14px
+									color white
+									font-weight bolder
+									text-transform capitalize
+			.slick-dots
+				bottom 11px !important
+			.slick-dots li.slick-active button:before
+				color naranja !important
+				opacity inherit !important
+			.slick-dots li button:before
+				opacity inherit !important
+				color white !important
+		.promociones-container
+			position relative
+			min-height 100vh
+			.promociones-content
+				position relative
+				margin 3vh 10vw
+				min-height 80vh
+				width 80vw
+				.linea-promos
+					width 100%
+					opacity 0.3
+					border 0.5px solid gray
+				.titulo
+					margin-top 10px
+					display flex
+					flex-direction row
+					justify-content flex-start
+					align-items center
+					h1
+						font-size 50px
+						color naranja
+						font-weight 400
+						margin 0
+						margin-left 2px
+				.promo-container
+					display flex
+					flex-direction row
+					.promo-content
+						display flex
+						flex-direction column
+						.imagen-promo
+							background-color gray
+							height 10%
+						.informacion-promo
+							display flex
+							flex-direction row
+							justify-content space-between
+							align-items center
+							.descripcion
+								display flex
+								justify-content center
+								align-items center
+								border 0.5px solid gray
+								.texto
+									p
+										font-size 12px
+										width 80%
+							.cuadrado
+								background-color naranja
+								width 150px
+								height 100px
+
+// CSS DEL DIALOGO EN EL SUBNAV
+md-backdrop.md-opaque
+	background-color inherit !important
+	opacity 0
+.md-dialog-container
+	-webkit-align-items inherit !important
+	align-items inherit !important
+	top 13.5vh !important
+md-dialog
+	height 30vh
+	box-shadow inherit !important
+	background-color inherit !important
+	.menu-dialogo
+		display flex
+		flex-direction column
+		.triangulito-container
+			.triangulo
+				width 0
+				height 0
+				border-right 9px solid transparent
+				border-top 9px solid transparent
+				border-left 9px solid transparent
+				border-bottom 16px solid white
+		.datos
+			background-color white
+			height 100%
