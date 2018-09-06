@@ -1,12 +1,5 @@
 .home-container
-    .home-content
-        .subnav
-            md-button(ng-click="ctrl.menu.abrir()") MARCAS		
-            md-button(ng-click="ctrl.menu.abrir()") HERRAMIENTAS
-            md-button(ng-click="ctrl.menu.abrir()") CONSTRUCCION
-            md-button(ng-click="ctrl.menu.abrir()") HOGAR
-            md-button(ng-click="ctrl.menu.abrir()") FERRETERIA
-            
+    .home-content            
         .sliderSub-content
             .promocion-slider-container
                 .promocion-slider-content(ng-repeat='promocion in ctrl.promociones.items')
@@ -27,54 +20,83 @@
                         .informacion-promo
                             .descripcion
                                 .texto
-                                    p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora sint quae, perspiciatis aut dolorum reiciendis, odio doloremque nulla iusto adipisci voluptatem maiores velit provident, animi architecto incidunt quos itaque magni!
+                                    p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora sint quae, perspiciatis aut dolorum reiciendis
                             .cuadrado
                     .promo-content
                         .imagen-promo
                         .informacion-promo
                             .descripcion
                                 .texto
-                                    p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora sint quae, perspiciatis aut dolorum reiciendis, odio doloremque nulla iusto adipisci voluptatem maiores velit provident, animi architecto incidunt quos itaque magni!
+                                    p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora sint quae, perspiciatis aut dolorum reiciendis
                             .cuadrado
-//- .home
-//- 	img(src="img/slider1.png" style="width: 100%; height : auto")
-//- 	.home-container
-//- 		.home-content
-//- 			.modulos
-//- 				.modulo
-//- 					.nombre
-//- 						.nombre-content
-//- 							p Ofertas Gigantes
-//- 							md-button ver más
-//- 						.lineas
-//- 							.linea(ng-repeat="n in [1,2,3,4]")
-//- 					.item-container(id="4")
-//- 						.item(ng-repeat="item in ctrl.ofertas.items")
-//- 							producto(producto="item")
-//- 							//- .bandera
-//- 							//- 	img(src="img/tag.png")
-//- 							//- .imagen
-//- 							//- 	portada(id="item.id")
-//- 							//- .producto
-//- 							//- 	p {{ item.nombre }}
-//- 							//- 	.boton
-//- 							//- 		md-button(ui-sref="producto({ id : item.id })") ver detalle
-//- 				.modulo( ng-repeat="modulo in ctrl.modulos")
-//- 					.nombre
-//- 						.nombre-content
-//- 							p {{modulo.nombre}}
-//- 							md-button ver más
-//- 						.lineas
-//- 							.linea(ng-repeat="n in [1,2,3,4]")
-//- 					.item-container(id="{{modulo.key}}")
-//- 						.item(ng-repeat="item in modulo.items")
-//- 							.imagen(style=" background-image : url( {{item.item.portada.link}} )" ng-if="item.item")
-//- 								.categoria
-//- 									p {{item.nombre}}
-//- 
-//- 							p {{item.item.producto.nombre}}
-//- 							.boton
-//- 								md-button ver detalle
-//- 			.side(flex)
-//- 				div(style="width: 100%; height : 200px; background-color : black; margin : 20px")
-//- 				div(style="width: 100%; height : 600px; background-color : black; margin : 20px")
+        .categorias-container
+            .categorias-content
+                .linea-categorias
+                .titulo
+                    h1 Categorias
+                .sliderCategorias-content
+                    .categorias-slider-container
+                        .categorias-slider-content(ng-repeat='categoria in ctrl.categorias.items')
+                            .categoria
+                                .imagen-categoria
+                                    h1 {{categoria.nombre}}
+                                .ver-mas
+                                    md-button ver más +
+        .mas-vendidos-container
+            .mas-vendidos-content
+                .linea-mas-vendidos
+                .titulo
+                    h1 Más Vendidos
+                .grid-vendidos-container
+                    .grid-vendidos-arriba
+                        .vendidos-content(style="margin-right: 15px")
+                            .imagen-vendidos
+                                img(src="img/ferremar_logo_icono.png")
+                            .botones-vendidos
+                                .info-content
+                                    .descripcion
+                                        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum iste vel reprehenderit, reiciendis laboriosam it.
+                                    .boton-vermas
+                                        md-button ver más >
+                                .carrito-vendidos
+                                    md-button
+                                        img(src="img/ferremar_carrito.png")
+                        .vendidos-content(style="margin-left: 15px")
+                            .imagen-vendidos
+                                img(src="img/ferremar_logo_icono.png")
+                            .botones-vendidos
+                                .info-content
+                                    .descripcion
+                                        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum iste vel reprehenderit, reiciendis laboriosam it.
+                                    .boton-vermas
+                                        md-button ver más >
+                                .carrito-vendidos
+                                    md-button
+                                        img(src="img/ferremar_carrito.png")
+                    .grid-vendidos-abajo
+                        .vendidos-content(style="margin-right: 15px")
+                            .imagen-vendidos
+                                img(src="img/ferremar_logo_icono.png")
+                            .botones-vendidos
+                                .info-content
+                                    .descripcion
+                                        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum iste vel reprehenderit, reiciendis laboriosam it.
+                                    .boton-vermas
+                                        md-button ver más >
+                                .carrito-vendidos
+                                    md-button
+                                        img(src="img/ferremar_carrito.png")
+                        .vendidos-content(style="margin-left: 15px")
+                            .imagen-vendidos
+                                img(src="img/ferremar_logo_icono.png")
+                            .botones-vendidos
+                                .info-content
+                                    .descripcion
+                                        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum iste vel reprehenderit, reiciendis laboriosam it.
+                                    .boton-vermas
+                                        md-button ver más >
+                                .carrito-vendidos
+                                    md-button
+                                        img(src="img/ferremar_carrito.png")
+                    
+                

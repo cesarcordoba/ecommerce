@@ -56,7 +56,7 @@ app.config([
         .state('compras.envio', template('envio', '/envio'))
         .state('compras.pago', template('pago', '/pago'))
         .state('compras.confirmacion', template('confirmacion', '/confirmacion'))
-        
+
         // .state('home', template('/', '/main/home', 'homeCtrl', 'ozMainHome'))
     }
 ]);

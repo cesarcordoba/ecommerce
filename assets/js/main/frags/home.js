@@ -59,6 +59,51 @@ app.controller('homeCtrl', function(Categoria, $scope, $rootScope, $mdDialog, $w
 
 	self.promociones = new promociones_();
 
+	class categorias_{
+		constructor(){
+			this.items = [],
+			this.obtener()
+		}
+
+		obtener(){
+			let categorias = [
+				{nombre: 'materiales electricos'},
+				{nombre: 'aceros'},
+				{nombre: 'pisos'},
+				{nombre: 'azulejos'},
+				{nombre: 'tinacos'},
+				{nombre: 'cisternas'},
+				{nombre: 'pvc'},
+				{nombre: 'herramientas'},
+				{nombre: 'paneles'},
+				{nombre: 'mangueras'},
+				{nombre: 'puertas y ventanas'},
+				{nombre: 'tornilleria'},
+				{nombre: 'bombas'},
+				{nombre: 'lamina'},
+				{nombre: 'fierro comercial'},
+				{nombre: 'griferia'},
+				{nombre: 'muebles de baño'},
+				{nombre: 'materiales de construccion'}
+			]
+			this.items = categorias;
+			function cargarSlick(){
+
+				$(".categorias-slider-container").slick({
+					infinite: true,
+					speed: 300,
+					slidesToShow: 5,
+					adaptiveHeight: true,
+					infinite: true,
+					arrows: true
+				})
+			}
+			setTimeout(cargarSlick, 30)
+		}
+	}
+
+	self.categorias = new categorias_();
+
 	// class ofertas_ {
 	// 	constructor(arg) {
 	// 		this.filtros = {

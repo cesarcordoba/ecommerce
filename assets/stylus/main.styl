@@ -94,6 +94,18 @@ main
 				align-items center
 				h3
 					color white
+.subnav
+	display flex
+	flex-direction row
+	justify-content center
+	align-items center
+	height 54px
+	background-color  naranja
+	.md-button
+		span
+			color white
+			font-size 14px
+			font-weight bolder
 footer
 	background-color naranja
 	.contenedor-abajo
@@ -154,18 +166,6 @@ footer
 //CSS DEL HOME
 .home-container
 	.home-content
-		.subnav
-			display flex
-			flex-direction row
-			justify-content center
-			align-items center
-			height 54px
-			background-color  naranja
-			.md-button
-				span
-					color white
-					font-size 14px
-					font-weight bolder
 		.sliderSub-content
 			position relative
 			background-color negro
@@ -217,11 +217,9 @@ footer
 				color white !important
 		.promociones-container
 			position relative
-			min-height 100vh
 			.promociones-content
 				position relative
 				margin 3vh 10vw
-				min-height 80vh
 				width 80vw
 				.linea-promos
 					width 100%
@@ -258,10 +256,14 @@ footer
 							justify-content space-between
 							align-items center
 							.descripcion
+								height 80px
+								width 1445px
 								display flex
 								justify-content center
 								align-items center
 								border 0.5px solid gray
+								margin-top 2vh
+								margin-right 5px
 								.texto
 									width 75%
 									margin-right 60px
@@ -272,7 +274,180 @@ footer
 								background-color naranja
 								width 310px
 								height 80px
+								margin-top 2vh
+								margin-left 5px
 
+		.categorias-container
+			margin-top 4vh
+			position relative
+			.categorias-content
+				position relative
+				margin 3vh 10vw
+				width 80vw
+				display flex
+				justify-content center
+				align-items center
+				flex-direction column
+				.linea-categorias
+					width 100%
+					opacity 0.3
+					border 0.5px solid gray
+				.titulo
+					margin 2vh
+					width 100%
+					h1
+						font-size 50px
+						color negro
+						font-weight 600
+						margin 0
+				.sliderCategorias-content
+					position relative
+					height 240px
+					width 77%
+					.categorias-slider-container
+						display flex
+						flex-direction row
+						.categorias-slider-content
+							display flex
+							flex-direction column
+							justify-content center
+							align-items center
+							&:focus
+								outline 0px
+							.categoria
+								width 90%
+								height 100%
+								.imagen-categoria
+									display flex
+									height 200px
+									justify-content center
+									align-items center
+									border 1px solid naranja
+									h1
+										font-size 14px
+										text-align center
+								.ver-mas
+									width 100%
+									.md-button
+										width 100%
+										margin inherit !important
+										min-height inherit
+										min-width inherit
+										line-height 29px
+										background-color naranja
+										border-radius inherit !important
+										span
+											font-size 14px
+											color white
+											text-transform capitalize
+											font-weight bolder
+						.slick-prev:before, .slick-next:before
+							color naranja !important
+							font-size 36px
+							font-family inherit !important
+							font-weight bolder
+							opacity 1 !important
+
+						.slick-prev:before
+							content "<" !important
+						.slick-next:before
+							content ">" !important
+		.mas-vendidos-container
+			position relative
+			.mas-vendidos-content
+				position relative
+				margin 3vh 10vw
+				width 80vw
+				.linea-mas-vendidos
+					width 100%
+					opacity 0.3
+					border 0.5px solid gray
+				.titulo
+					margin 2vh
+					width 100%
+					h1
+						font-size 50px
+						color negro
+						font-weight 600
+						margin 0
+				.grid-vendidos-container
+					display flex
+					flex-direction column
+					.grid-vendidos-arriba
+						margin-bottom 15px
+					.grid-vendidos-abajo
+						margin-top 15px
+					.grid-vendidos-arriba, .grid-vendidos-abajo
+						display flex
+						flex-direction row
+						height 25%
+						&>*
+							transition(300ms , 0)
+						.vendidos-content
+							background-color gray
+							width 100%
+							cursor pointer
+							overflow hidden
+							position relative
+							&:focus
+								outline 0px
+							&:hover
+								transform scale(1.048)
+							.imagen-vendidos
+								display flex
+								flex-direction column
+								justify-content center
+								align-items center
+								background-color gray
+								width 100%
+								height 100%
+							.botones-vendidos
+								position absolute
+								bottom 1px
+								width 100%
+								height 66px
+								display flex
+								flex-direction row
+								justify-content space-between
+								align-items center
+								background-color negro
+								.info-content
+									display flex
+									flex-direction row
+									justify-content flex-start
+									align-items center
+									.descripcion
+										margin-left 24px
+										width 60%
+										p
+											font-size 12px
+											color white
+									.boton-vermas
+										.md-button
+											min-height inherit
+											min-width inherit
+											line-height 28px
+											span
+												color white
+												font-size 14px
+												text-transform capitalize
+												font-weight bolder
+
+								.carrito-vendidos
+									width 15%
+									.md-button
+										width 100%
+										height 100%
+										min-height inherit
+										min-width inherit
+										line-height 28px
+										background-color naranja
+										display flex
+										justify-content center
+										align-items center
+										img
+											margin-right 8px
+											height 33px
 // CSS DEL DIALOGO EN EL SUBNAV
 md-backdrop.md-opaque
 	background-color inherit !important
