@@ -1,7 +1,7 @@
 .producto-content
-	.bandera(ng-if="ctrl.producto.promociones.length > 0")
-		img(src="img/tag.png")
+	//.bandera(ng-if="ctrl.producto.promociones.length > 0")
 	//portada(id="ctrl.producto.id" conector="ctrl.conexion()")
+	.portada
 	.titulo {{ctrl.producto.nombre}}
 	.spinner(ng-if="ctrl.producto.focus && !ctrl.producto.versiones" )
 		md-progress-circular(md-mode="indeterminate" ng-disabled="!ctrl.producto.versiones" md-diameter="50")
@@ -15,9 +15,9 @@
 							span {{opcion.nombre}}
 							md-tooltip
 								span(ng-repeat="atributo in ctrl.atributos" ng-if="atributo.id === opcion.IdAtributo") {{atributo.nombre}} 
-					.colores
-						md-button.color(ng-repeat="color in version.colores" style=" background-color : {{ color.hex }} ")
-							md-tooltip {{color.nombre}}
+					//- .colores
+					//- 	md-button.color(ng-repeat="color in version.colores" style=" background-color : {{ color.hex }} ")
+					//- 		md-tooltip {{color.nombre}}
 				.existencia
 					strong {{ version.existencia }}  
 					span   disponibles
@@ -27,4 +27,5 @@
 					.descuento(ng-if="version.descuento") $ {{ version.precio - (( version.descuento / 100 ) *  version.precio) | number:0 }}
 				md-progress-circular(md-mode="indeterminate" ng-if="!version.precio" md-diameter="15")
 	.boton
-		md-button(ui-sref="producto({ id : ctrl.producto.id })") Ver detalle
+		//md-button(ui-sref="producto({ id : ctrl.producto.id })") agregar al carrito
+		md-button agregar al carrito
