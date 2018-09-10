@@ -13,59 +13,105 @@ md-progress-linear(md-mode="indeterminate" ng-if="!ctrl.producto" ng-disabled="c
 						portada(id="ctrl.producto.id" ng-if="ctrl.producto")
 					.imagen(ng-repeat="imagen in ctrl.producto.imagenes")
 						imagen(id="imagen.id" )
-			
+
 			.informacion
 				.informacion-content
 					.titulo
 						h1 {{ctrl.producto.nombre}}
 						strong {{ctrl.producto.marca.nombre}}
-					.gama(ng-if="ctrl.producto.gama.productos.length > 1")
-						strong Otros productos
-						.productos
-							md-button.producto(ui-sref="producto({id : producto.id})" ng-repeat="producto in ctrl.producto.gama.productos" ng-class="producto.status = { 'border' : '1px solid black'}")
-								md-tooltip {{producto.nombre}}
-								portada(id="producto.id")
 					md-list
-						md-list-item.md-2-line(ng-repeat="version in ctrl.producto.versiones")
+						md-list-item(ng-repeat="version in ctrl.producto.versiones")
 							.version
-								.md-list-item-text
-									//- span {{version.nombre}}
-									.opciones
-										.opcion(ng-repeat="opcion in version.opciones")
-											span {{ opcion.nombre }}
-										.color(ng-repeat="color in version.colores" style="background-color: {{  color.hex }}")
-								.precio-container(ng-class="{false : 'normal', true : 'oferta'}[version.descuento]")
-									.precio $ {{ version.precio }}
-									.descuento $ {{ version.precio }}
-								.agregarCarrito
-								md-button(ng-click="ctrl.producto.agregaACarrito(version)")
-									md-icon shopping_cart
-							.oferta(ng-if="version.ofertas.length > 0" )
-								.entrantes
-									strong En la compra de
-									p(ng-repeat="entrante in version.ofertas.entrantes")  {{ entrante.entrantes.cantidad }} paquetes 
-								.salientes
-									strong Obtén de regalo
-									p(ng-repeat="saliente in version.ofertas.salientes")
-										span(ng-repeat="saliente in saliente" ng-if="saliente.IdProducto !== ctrl.producto.id") {{ saliente.nombre }} {{ saliente.salientes.cantidad }}
-								
-					
-				.botones
-					md-button
-						md-icon favorite
-					md-button
-						md-icon share
-													
-			.interaccion
-				strong Ver producto aplicado
-				.ambientes
-					.ambiente(ng-repeat="ambiente in ctrl.ambientes.items" )
-						md-progress-circular(md-mode="indeterminate" ng-disabled="ambiente.espacio" ng-if="!ambiente.espacio" md-diameter="50")
-						img(src="{{ambiente.espacio.link}}" ng-if="ambiente.espacio")
-						md-button(ui-sref="espacio({id : ambiente.id})") Ver
-		section.alternativas
-			h1 Otros productos similares
-			md-grid-list(md-cols="12" md-row-height="100px" md-gutter="50px")
-				md-grid-tile(ng-repeat="alternativa in ctrl.alternativas.items"  md-rowspan="3" md-colspan="2" ng-click="producto.ir()")
-					.alternativa
-						producto(producto="alternativa")
+								.nombre-version
+									span {{version.nombre}}
+								.precio
+									h3 $ {{version.precio}}
+								.botones
+									.cantidad
+										.mas
+											md-icon add
+										.valor
+											p 10
+										.menos
+											md-icon remove
+									.agregarCarrito
+										img(src="img/ferremar_carrito.png")
+										h1 Agregar al carrito
+.linea-container
+	.linea-separador-producto
+	
+section.alternativas
+	.slideralternativas-content
+		.alternativas-slider-container
+			.alternativas-slider-content(ng-repeat="alternativa in ctrl.alternativas.items")
+				.alternativa
+					producto(producto="alternativa")
+	//- md-grid-list(md-cols="12" md-row-height="100px" md-gutter="50px")
+	//- 	md-grid-tile(ng-repeat="alternativa in ctrl.alternativas.items"  md-rowspan="3" md-colspan="2" ng-click="producto.ir()")
+	//- 		.alternativa
+	//- 			producto(producto="alternativa")
+
+//- md-progress-linear(md-mode="indeterminate" ng-if="!ctrl.producto" ng-disabled="ctrl.producto")
+//- .producto-container(layout="row" layout-align="center center")
+//- 	.producto(flex="80")
+//- 		section.producto-content
+//- 			.imagenes
+//- 				#slider
+//- 					.portada
+//- 						portada(id="ctrl.producto.id" conector="ctrl.producto.resize(id)" ng-if="ctrl.producto")
+//- 					.imagen(ng-repeat="imagen in ctrl.producto.imagenes" )
+//- 						imagen(id="imagen.id" conector="ctrl.producto.resize(id)")
+//- 				#central
+//- 					.portada
+//- 						portada(id="ctrl.producto.id" ng-if="ctrl.producto")
+//- 					.imagen(ng-repeat="imagen in ctrl.producto.imagenes")
+//- 						imagen(id="imagen.id" )
+//- 
+//- 			.informacion
+//- 				.informacion-content
+//- 					.titulo
+//- 						h1 {{ctrl.producto.nombre}}
+//- 						strong {{ctrl.producto.marca.nombre}}
+//- 					.gama(ng-if="ctrl.producto.gama.productos.length > 1")
+//- 						strong Otros productos
+//- 						.productos
+//- 							md-button.producto(ui-sref="producto({id : producto.id})" ng-repeat="producto in ctrl.producto.gama.productos" ng-class="producto.status = { 'border' : '1px solid black'}")
+//- 								md-tooltip {{producto.nombre}}
+//- 								portada(id="producto.id")
+//- 					md-list
+//- 						md-list-item.md-2-line(ng-repeat="version in ctrl.producto.versiones")
+//- 							.version
+//- 								.md-list-item-text
+//- 									//- span {{version.nombre}}
+//- 									.opciones
+//- 										.opcion(ng-repeat="opcion in version.opciones")
+//- 											span {{ opcion.nombre }}
+//- 										.color(ng-repeat="color in version.colores" style="background-color: {{  color.hex }}")
+//- 								.precio-container(ng-class="{false : 'normal', true : 'oferta'}[version.descuento]")
+//- 									.precio $ {{ version.precio }}
+//- 									.descuento $ {{ version.precio }}
+//- 								.agregarCarrito
+//- 								md-button(ng-click="ctrl.producto.agregaACarrito(version)")
+//- 									md-icon shopping_cart
+//- 							.oferta(ng-if="version.ofertas.length > 0" )
+//- 								.entrantes
+//- 									strong En la compra de
+//- 									p(ng-repeat="entrante in version.ofertas.entrantes")  {{ entrante.entrantes.cantidad }} paquetes 
+//- 								.salientes
+//- 									strong Obtén de regalo
+//- 									p(ng-repeat="saliente in version.ofertas.salientes")
+//- 										span(ng-repeat="saliente in saliente" ng-if="saliente.IdProducto !== ctrl.producto.id") {{ saliente.nombre }} {{ saliente.salientes.cantidad }}
+//- 
+//- 
+//- 				.botones
+//- 					md-button
+//- 						md-icon favorite
+//- 					md-button
+//- 						md-icon share
+//- 
+//- 		section.alternativas
+//- 			h1 Otros productos similares
+//- 			md-grid-list(md-cols="12" md-row-height="100px" md-gutter="50px")
+//- 				md-grid-tile(ng-repeat="alternativa in ctrl.alternativas.items"  md-rowspan="3" md-colspan="2" ng-click="producto.ir()")
+//- 					.alternativa
+//- 						producto(producto="alternativa")

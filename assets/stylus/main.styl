@@ -700,15 +700,11 @@ footer
 							border-right .7px solid naranja
 							pointer-events none
 							width 10px
-
-			.ad
-				img
-					width 100%
 			.grid-content
 				margin 30px
 				margin-bottom 100px
 				md-grid-list
-					width 100%
+					width 150%
 					md-grid-tile
 						transition(250ms, 0)
 						overflow hidden
@@ -740,28 +736,30 @@ footer
 								background-color naranja
 producto
 	.producto-content
-		border 1px solid rgba(0, 49, 67, .1)
-		// .bandera
-		// 	width 100px
-		// 	height 100px
-		// 	position absolute
-		// 	z-index 5
-		// 	img
-		// 		width 100%
-		// 		height 100%
-		// &:hover
-		// 	box-shadow 0 -1px 0 #e5e5e5, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.24)
-		// 	img
-		// 		transform scale(.9)
-		portada
-			.portada
-				img
-					width 100%
-		.titulo
-			font-family Poopins
-			font-size 13px
-			line-height 13px
-			margin 3px 5px
+		border 1px solid rgba(0, 49, 67, 1)
+		.portada-producto
+			img
+				width 100%
+		.titulo-producto
+			h1
+				font-family Poopins
+				font-size 12px
+				line-height 13px
+				margin 3px 5px
+		.info-basica
+			display flex
+			flex-direction column
+			justify-content center
+			align-items center
+			.informacion
+				display flex
+				flex-direction column
+				.nombre
+					h4
+						font-size 10px
+				.precio
+					h1
+						font-size 10px
 		.versiones
 			padding 0 10px
 			.version
@@ -846,19 +844,225 @@ producto
 				span
 					font-size 12px
 					text-transform lowercase
+.producto
+	.slick-slider
+		.slick-arrow
+			height 40px
+			width 40px
+	section
+		&.producto-content
+			display flex
+			flex-direction row
+			margin-top 100px
+			justify-content space-around
+			.imagenes
+				border 1px solid black
+				width 500px
+				height 400px
+				min-width 500px
+				display flex
+				flex-direction row
+				.portada, .imagen
+					cursor pointer
+					&:focus
+						outline 0px
+					&:hover
+						img
+							transform scale(.9)
+					img
+						transition(500ms , 0)
 
+				#central
+					width calc(100% - 100px)
+					height 200px
 
+					.slick-slide, .portada, .imagen
+						display flex
+						justify-content center
+						img
+							height 100%
+							width auto
 
+				#slider
+					width 80px !important
+					margin-top 5px
+					.slick-dots
+						padding 0px
+						bottom 0px
+						li button:before
+							content none
+					.slick-slide, .portada, .imagen
+						max-height 80px
 
+			.informacion
+				width 45%
+				display flex
+				flex-direction row
+				.informacion-content
+					width 100%
+					.titulo
+						margin-bottom 20px
+						h1
+							margin 0px
+							color gray
+							font-size 25px
+							 font-weight 100
+					md-list
+						max-width 400px
+						md-list-item
+							height inherit
+							min-height inherit
+							padding 10px 0px
+							display flex
+							flex-direction column
+							border 1px solid rgba(0 , 0 , 0, .1)
+							border-left 0px
+							border-right 0px
+							&:first-child
+								border-top inherit
+							&:last-child
+								border-bottom inherit
+							&:before
+								min-height inherit
+							.version
+								width 100%
+								display flex
+								flex-direction column
+								.nombre-version
+									span
+										width 100%
+										font-size 12px
+										font-weight 800
+								.precio
+									display flex
+									justify-content flex-start
+									h3
+										color naranja
+										font-weight bolder
+										font-size 30px
+										margin 0
+										margin-top 10px
+								.botones
+									margin-top 25px
+									display flex
+									flex-direction row
+									align-items center
+									justify-content flex-start
+									.cantidad
+										display flex
+										flex-direction row
+										justify-content center
+										align-items center
+										background-color negro
+										height 35px
+										margin-right 12px
+										.mas
+											display flex
+											justify-content center
+											align-items center
+											border-right .3px solid black
+											cursor pointer
+											&:focus
+												outline 0px
+											md-icon
+												display flex
+												justify-content center
+												align-items center
+												color white
+												font-size 15px !important
 
+										.valor
+											width 24px
+											display flex
+											justify-content center
+											align-items center
+											p
+												color white
+												margin 0
+												font-size 16px
+												font-weight 600
+										.menos
+											display flex
+											justify-content center
+											align-items center
+											border-left .3px solid black
+											cursor pointer
+											&:focus
+												outline 0px
+											md-icon
+												display flex
+												justify-content center
+												align-items center
+												color white
+												font-size 15px !important
 
+									.agregarCarrito
+										display flex
+										flex-direction row
+										justify-content center
+										align-items center
+										background-color naranja
+										width 230px
+										height 35px
+										cursor pointer
+										&:focus
+											outline 0px
+										img
+											width 23px
+											height 23px
+										h1
+											margin 0
+											font-size 16px
+											font-weight bolder
+											color white
+											margin-left 5px
+section.alternativas
+	position relative
+	margin 3vh 10vw
+	width 80vw
+	display flex
+	justify-content center
+	align-items center
+	flex-direction column
+	.slideralternativas-content
+		position relative
+		height 240px
+		width 77%
+		.alternativas-slider-container
+			display flex
+			flex-direction row
+			.alternativas-slider-content
+				display flex
+				flex-direction column
+				justify-content center
+				align-items center
+				&:focus
+					outline 0px
+				.alternativa
+					position relative
+			.slick-prev:before, .slick-next:before
+				color naranja !important
+				font-size 36px
+				font-family inherit !important
+				font-weight bolder
+				opacity 1 !important
 
-
-
-
-
-
-
+			.slick-prev:before
+				content "<" !important
+			.slick-next:before
+				content ">" !important
+.linea-container
+	margin-top 50px
+	width 100%
+	display flex
+	justify-content center
+	align-items center
+	.linea-separador-producto
+		width 95%
+		opacity 0.3
+		border 1px solid gray
+		margin-top 10px
+		background-color gray
 
 // CSS DEL DIALOGO EN EL SUBNAV
 md-backdrop.md-opaque

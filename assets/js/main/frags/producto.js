@@ -43,6 +43,7 @@ angular.module('myapp')
 		versiones(){
             Producto.versionesdisponibles(this.id)
             .then(response => this.versiones = response.data.map(n => new version_(n)))
+
         }
         slider(){
 
@@ -203,14 +204,26 @@ angular.module('myapp')
 
 			Producto.filtro(this.filtros)
 			.then(response => {
-
 				this.items = response.data.items ? response.data.items  : null
 				this.filtros.paginas = response.data.paginas
-
-
+                console.log(self.alternativas.items)
 			})
 			.then(() => $scope.$digest())
+            .then(() => this.slider())
+
+
 		}
+
+        slider(){
+            $(".alternativas-slider-container").slick({
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                infinite: true,
+                arrows: true
+            })
+        }
 	}
 
 

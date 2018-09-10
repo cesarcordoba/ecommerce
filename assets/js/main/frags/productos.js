@@ -333,11 +333,24 @@ app.controller('productosCtrl', function($scope, $localStorage, $state, $mdExpan
             if(index === self.productos.filtros.limite){
                 self.productos.items.forEach(n => n.conexion())
                 $scope.$digest()
+
             }
+            console.log(self.productos.items)
         }
     }
 
+    function sliderVersiones(){
 
+        console.log('si estas aqui')
+        $(".versiones-slider-container").slick({
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            adaptiveHeight: true,
+            infinite: true,
+            arrows: true
+        })
+    }
     Atributo.obtener()
     .then(response => self.atributos = response.data)
     .then(response => $scope.$digest())

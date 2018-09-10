@@ -257,7 +257,7 @@
 										tbody(md-body)
 											tr(md-row md-select="dato" md-select-id="name" md-auto-select ng-repeat="sucursal in version.sucursales.items")
 												td(md-cell) {{sucursal.nombre}}
-												td(md-cell) {{sucursal.inventarios.id}}
+												td(md-cell) {{sucursal.inventarios.clave}}
 												td(md-cell)
 													md-chips(ng-model="sucursal.inventario.precios.items"
 														md-transform-chip="sucursal.inventario.precios.transformar($chip)"
@@ -274,16 +274,7 @@
 														md-chip-template
 															span
 																strong {{$chip.cantidad}}
-												//- td(md-cell)
-												//- 	md-chips(ng-model="sucursal.inventario.descuentos.items"
-												//- 		md-transform-chip="sucursal.inventario.descuentos.transformar($chip)"
-												//- 		md-on-remove="sucursal.inventario.descuentos.remover($chip, $index)"
-												//- 		md-require-match="true")
-												//- 		md-chip-template
-												//- 			span
-												//- 				strong {{$chip.cantidad}}
-						
-		
+			
 		section
 			md-card(layout="row")
 				md-button(ng-click="ctrl.producto.eliminar()" flex md-colors="{background : 'red'}") Eliminar Producto
