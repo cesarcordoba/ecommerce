@@ -218,7 +218,7 @@ angular.module('myapp')
             $(".alternativas-slider-container").slick({
                 infinite: true,
                 speed: 300,
-                slidesToShow: 1,
+                slidesToShow: 2,
                 adaptiveHeight: true,
                 infinite: true,
                 arrows: true

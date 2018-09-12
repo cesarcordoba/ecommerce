@@ -1,4 +1,10 @@
 md-progress-linear(md-mode="indeterminate" ng-if="!ctrl.producto" ng-disabled="ctrl.producto")
+.barra-nombres-container
+	.barra-nombres-content
+		md-button
+			img(src="img/ferremar_home.png")
+		p > Productos
+		p > Broca
 .producto-container(layout="row" layout-align="center center")
 	.producto(flex="80")
 		section.producto-content
@@ -10,33 +16,51 @@ md-progress-linear(md-mode="indeterminate" ng-if="!ctrl.producto" ng-disabled="c
 						imagen(id="imagen.id" conector="ctrl.producto.resize(id)")
 				#central
 					.portada
-						portada(id="ctrl.producto.id" ng-if="ctrl.producto")
+						//portada(id="ctrl.producto.id" ng-if="ctrl.producto")
+						img(src="img/broca.png")
 					.imagen(ng-repeat="imagen in ctrl.producto.imagenes")
-						imagen(id="imagen.id" )
-
+						img(src="img/broca.png")
+						//imagen(id="imagen.id" )
+				#botones-versiones
+					.version(ng-repeat="version in ctrl.producto.versiones" ng-if="ctrl.producto.versiones")
+						md-button ${{ version.precio }}
+					.version
+						md-button 19x19"
+					.version
+						md-button 08x09"
+					.version
+						md-button 50x10"
+					.version
+						md-button 10x15"
+				
 			.informacion
 				.informacion-content
-					.titulo
-						h1 {{ctrl.producto.nombre}}
-						strong {{ctrl.producto.marca.nombre}}
-					md-list
-						md-list-item(ng-repeat="version in ctrl.producto.versiones")
-							.version
-								.nombre-version
-									span {{version.nombre}}
-								.precio
-									h3 $ {{version.precio}}
-								.botones
-									.cantidad
-										.mas
-											md-icon add
-										.valor
-											p 10
-										.menos
-											md-icon remove
-									.agregarCarrito
-										img(src="img/ferremar_carrito.png")
-										h1 Agregar al carrito
+					.arriba
+						.marca
+							h1 DEWALT
+						.codigo
+							p SKU#987463
+						.modelo
+							p MODELO: DEWALT 789456
+					.abajo
+						.nombre-version
+							h1 {{ctrl.producto.nombre}}
+							//strong {{ctrl.producto.marca.nombre}}
+						.version
+							.precio
+								//h3 $ {{version.precio}}
+								h3 $200
+							.botones
+								.cantidad
+									.mas
+										md-icon add
+									.valor
+										p 10
+									.menos
+										md-icon remove
+								.agregarCarrito
+									img(src="img/ferremar_carrito.png")
+									h1 Agregar al carrito
 .linea-container
 	.linea-separador-producto
 	

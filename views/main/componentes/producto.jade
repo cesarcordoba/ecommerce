@@ -3,15 +3,29 @@
 	.titulo-producto
 		h1{{ctrl.producto.nombre}}
 	.info-basica
-		.version(ng-repeat="version in ctrl.producto.versiones" ng-if="ctrl.producto.versiones")
-			h4 {{version.nombre}}
-			.precio(ng-if="version.precio")
-				h1 $ {{ version.precio }}
 		.informacion
 			.nombre
-				h4 {{version.nombre}}
-			.precio(ng-if="version.precio")
-				h1 $ {{ version.precio }}
+				h4 CUCHARA P/ALBAÑILT/FILADEL10CT-10 CUCHARA P/ALBAÑILT/FILADEL10CT-10
+			.precio
+				h1 $200.°°
+		.version-container
+			//.version(ng-repeat="version in ctrl.producto.versiones" ng-if="ctrl.producto.versiones")
+			//	md-button ${{ version.precio }}
+			.version
+				md-button 54x20cm
+			.version
+				md-button 15x40cm
+			.version
+				md-button 16x39cm
+			.version
+				md-button 15x40cm
+			.version
+				md-button 35x90cm
+			.version
+				md-button 85x05cm
+			.version
+				md-button 75x15cm
+				
 		.boton
 			md-button(ui-sref="producto({ id : ctrl.producto.id })") agregar al carrito
 			

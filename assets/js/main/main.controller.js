@@ -1,9 +1,9 @@
-app.controller('mainCtrl', function ($scope, $state,  $mdPanel, $rootScope, $http, mdDialog, Auth, Producto, Categoria) {
+app.controller('mainCtrl', function ($scope, $state,  $mdPanel, $mdDialog, $rootScope, $http, mdDialog, Auth, Producto, Categoria) {
 
     const self = this
 
     $rootScope.logueado = false;
-    
+
     var buscar = (array, id) => array.filter(n => n.IdCategoria === id).map(n => {
             let objectos =  buscar(array, n.id)
             return [ Object.assign(n, {cantidad : objectos.length})  , objectos ]
@@ -102,6 +102,32 @@ app.controller('mainCtrl', function ($scope, $state,  $mdPanel, $rootScope, $htt
 
     }
 
-    
+    class menu_{
+		constructor(){}
+
+		abrir(){
+			$mdDialog.show({
+                templateUrl: '/dialogs/menu-opciones',
+                parent: angular.element(document.body),
+                bindToController: true,
+                preserveScope: true,
+                clickOutsideToClose: true,
+                fullscreen: $scope.customFullscreen,
+                controller: function($scope, $mdDialog,$state) {
+                    // $scope.submit = function(tarjeta) {
+					//
+                    //     console.log(tarjeta)
+                    // }
+                    $scope.close = function() {
+                        $mdDialog.hide(false);
+                    }
+                }
+            })
+		}
+	}
+
+	self.menu = new menu_();
+
+
 
 });

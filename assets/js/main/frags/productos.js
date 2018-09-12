@@ -230,7 +230,7 @@ app.controller('productosCtrl', function($scope, $localStorage, $state, $mdExpan
             this.filtros = !_.isUndefined(arg) ? arg : this.filtro()
             this.col = {  xs : 10, sm : 8, md : 10, lg : 12, xl : 14}
             this.gutter = '0px'
-            this.height = { xl : '10px', lg : '10px', md : '10px', xs : '10px', sm : '10px' }
+            this.height = { xl : '30px', lg : '30px', md : '30px', xs : '30px', sm : '30px' }
             if(arg && arg.nombre)
                 this.busqueda = arg.nombre
         }

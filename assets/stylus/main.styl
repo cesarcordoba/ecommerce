@@ -154,7 +154,7 @@ footer
 				p
 					margin 0px
 					color white
-					font-size 12px
+					font-size 14px
 					font-weight bolder
 		.imagen
 			background-color white
@@ -704,7 +704,7 @@ footer
 				margin 30px
 				margin-bottom 100px
 				md-grid-list
-					width 150%
+					width 120%
 					md-grid-tile
 						transition(250ms, 0)
 						overflow hidden
@@ -713,39 +713,62 @@ footer
 							padding 10px
 							width 100%
 							height 100%
-			cl-paging
-				width 100%
-				display flex
-				justify-content center
-					.paginacion
-						width 80%
-						display flex
-						justify-content center
-						.md-button
-							max-width 40px
+		cl-paging
+			width 100%
+			display flex
+			justify-content flex-end
+			.paginacion
+				.md-button
+					display flex
+					justify-content center
+					justify-content center
+					max-width 40px
+					md-icon
+						color white
+					&.page
+						background-color negro
+						span
 							color white
-							md-icon
-								color white
-							&.previous, &.next
-								background-color naranja
-							&.first, &.last
-								background-color naranja !important
-							&.active
-								background-color negro !important
-							&.page
-								background-color naranja
+							font-size 14px
+							font-weight bolder
+					&.first, &.last
+						background-color naranja !important
+
+.barra-nombres-container
+	height 56px
+	width 100%
+	background-color negro
+	.barra-nombres-content
+		height 56px
+		margin 0vh 10vw
+		display flex
+		flex-direction row
+		align-items center
+		p
+			color white
+
+		.md-button
+			min-height inherit
+			min-width inherit
+			width 36px
+			height 30px
+			img
+				height 25px
 producto
 	.producto-content
 		border 1px solid rgba(0, 49, 67, 1)
 		.portada-producto
-			img
-				width 100%
+			background-color negro
+			height 220px
+			width 100%
 		.titulo-producto
+			margin-top 5px
+			width 90%
+			margin-left 15px
 			h1
 				font-family Poopins
 				font-size 12px
-				line-height 13px
-				margin 3px 5px
+				line-height 15px
 		.info-basica
 			display flex
 			flex-direction column
@@ -754,96 +777,62 @@ producto
 			.informacion
 				display flex
 				flex-direction column
+				justify-content flex-start
+				padding 15px
 				.nombre
 					h4
-						font-size 10px
+						font-size 11px
+						font-weight bolder
 				.precio
 					h1
-						font-size 10px
-		.versiones
-			padding 0 10px
+						font-size 22px
+		.version-container
+			display grid
+			grid-template-columns repeat(3, 1fr)
+			grid-row-gap 8px
+			width 90%
+			margin-bottom 10px
 			.version
-				display flex
-				flex-direction row
-				margin 3px 0
-				min-height 30px
-				.version-content
-					display flex
-					flex-direction column
-					width 100%
-					.detalles
-						display flex
-						width 100%
-						flex-direction row
-						.md-button
-							margin 0px
-							padding 0px
-							line-height 20px
-							height 20px
-							margin 0 2px
-						.opciones
-							.md-button.opcion
-								font-size 12px
-								font-family Calibri
-								font-weight 800
-								min-width 15px
-								min-height 15px
-								height 15px
-								border-radius 0px
-						// .colores
-						// 	.md-button.color
-						// 		border 1px solid rgba(0,0,0 .1)
-						// 		min-width 15px
-						// 		min-height 15px
-						// 		height 15px !important
-						// 		border-radius 4px
-					.existencia
-						width 100%
-						display flex
-
-						strong
-							margin-left 2px
-							font-size 9px
+				.md-button
+					min-height inherit
+					min-width inherit
+					line-height inherit
+					margin 0 !important
+					transition(100ms , 0)
+					span
+						font-size 13px
+						font-weight bolder
+						text-transform lowercase
+					&:hover
+						background-color negro
 						span
-							font-size 7px
-							line-height 12px
-				.precio-container
-					width 100%
-					display flex
-					justify-content flex-end
-					&>div
-						width 100%
-						text-align end
-					&.oferta
-						.precio
-							text-decoration line-through
-							font-size 11px
-							color azul1
-						.descuento
-							font-size 15px
-							color rojo1
-					&.normal
-						.precio
-							color azul1
-						.descuento
-							display none
+							color white
+
+
+
 		.boton
 			display flex
 			justify-content center
 			align-items center
 			margin-bottom 7px
+			width 90%
 			.md-button
 				background-color naranja
 				color white
 				margin 0px
 				min-height 20px
-				height 20px
+				height 27px
 				min-width inherit
-				width 88%
 				line-height 20px
+				width 100%
+				border-radius inherit !important
+				display flex
+				justify-content center
+				align-items center
 				span
-					font-size 12px
+					font-size 13px
 					text-transform lowercase
+					font-weight bolder
 .producto
 	.slick-slider
 		.slick-arrow
@@ -857,25 +846,26 @@ producto
 			justify-content space-around
 			.imagenes
 				border 1px solid black
-				width 500px
-				height 400px
+				width 620px
+				height 450px
 				min-width 500px
 				display flex
 				flex-direction row
+				position relative
+				background-color white
 				.portada, .imagen
 					cursor pointer
 					&:focus
 						outline 0px
 					&:hover
 						img
-							transform scale(.9)
+							transform scale(1.1)
 					img
-						transition(500ms , 0)
+						transition(400ms , 0)
 
 				#central
-					width calc(100% - 100px)
-					height 200px
-
+					width calc(100% - 150px)
+					height auto
 					.slick-slide, .portada, .imagen
 						display flex
 						justify-content center
@@ -894,128 +884,147 @@ producto
 					.slick-slide, .portada, .imagen
 						max-height 80px
 
+				#botones-versiones
+					padding 5px
+					.version
+						.md-button
+							background-color negro
+							border-radius inherit !important
+							transition(150ms , 0)
+							span
+								color white
+								font-size 13px
+								font-weight bolder
+								text-transform lowercase
+							&:hover
+								background-color naranja
+
+
 			.informacion
 				width 45%
 				display flex
 				flex-direction row
 				.informacion-content
 					width 100%
-					.titulo
-						margin-bottom 20px
-						h1
-							margin 0px
-							color gray
-							font-size 25px
-							 font-weight 100
-					md-list
-						max-width 400px
-						md-list-item
-							height inherit
-							min-height inherit
-							padding 10px 0px
+					.arriba
+						display flex
+						flex-direction row
+						justify-content flex-start
+						.marca
+							margin-right 10px
+							h1
+								font-size 15px
+								font-weight bolder
+						.codigo
+							margin-right 10px
+							p
+								font-size 13px
+								color gray
+								font-weight bolder
+						.modelo
+							p
+								font-size 13px
+								color gray
+								font-weight bolder
+					.abajo
+						.nombre-version
+							margin-top 10px
+							width 65%
+							margin-bottom 20px
+							h1
+								margin 0px
+								color negro
+								font-size 35px
+								font-weight 100
+
+						.version
+							width 100%
 							display flex
 							flex-direction column
-							border 1px solid rgba(0 , 0 , 0, .1)
-							border-left 0px
-							border-right 0px
-							&:first-child
-								border-top inherit
-							&:last-child
-								border-bottom inherit
-							&:before
-								min-height inherit
-							.version
-								width 100%
+							.precio
 								display flex
-								flex-direction column
-								.nombre-version
-									span
-										width 100%
-										font-size 12px
-										font-weight 800
-								.precio
-									display flex
-									justify-content flex-start
-									h3
-										color naranja
-										font-weight bolder
-										font-size 30px
-										margin 0
-										margin-top 10px
-								.botones
-									margin-top 25px
+								justify-content flex-start
+								h3
+									color naranja
+									font-weight bolder
+									font-size 40px
+									margin 0
+									margin-top 10px
+							.botones
+								margin-top 25px
+								display flex
+								flex-direction row
+								align-items center
+								justify-content flex-start
+								.cantidad
 									display flex
 									flex-direction row
+									justify-content center
 									align-items center
-									justify-content flex-start
-									.cantidad
+									background-color negro
+									height 40px
+									width 85px
+									margin-right 12px
+									.mas
 										display flex
-										flex-direction row
 										justify-content center
 										align-items center
-										background-color negro
-										height 35px
-										margin-right 12px
-										.mas
-											display flex
-											justify-content center
-											align-items center
-											border-right .3px solid black
-											cursor pointer
-											&:focus
-												outline 0px
-											md-icon
-												display flex
-												justify-content center
-												align-items center
-												color white
-												font-size 15px !important
-
-										.valor
-											width 24px
-											display flex
-											justify-content center
-											align-items center
-											p
-												color white
-												margin 0
-												font-size 16px
-												font-weight 600
-										.menos
-											display flex
-											justify-content center
-											align-items center
-											border-left .3px solid black
-											cursor pointer
-											&:focus
-												outline 0px
-											md-icon
-												display flex
-												justify-content center
-												align-items center
-												color white
-												font-size 15px !important
-
-									.agregarCarrito
-										display flex
-										flex-direction row
-										justify-content center
-										align-items center
-										background-color naranja
-										width 230px
-										height 35px
+										border-right .3px solid black
 										cursor pointer
 										&:focus
 											outline 0px
-										img
-											width 23px
-											height 23px
-										h1
-											margin 0
-											font-size 16px
-											font-weight bolder
+										md-icon
+											display flex
+											justify-content center
+											align-items center
 											color white
-											margin-left 5px
+											font-size 20px !important
+
+									.valor
+										width 30px
+										display flex
+										justify-content center
+										align-items center
+										p
+											color white
+											margin 0
+											font-size 18px
+											font-weight 600
+									.menos
+										display flex
+										justify-content center
+										align-items center
+										border-left .3px solid black
+										cursor pointer
+										&:focus
+											outline 0px
+										md-icon
+											display flex
+											justify-content center
+											align-items center
+											color white
+											font-size 20px !important
+
+								.agregarCarrito
+									display flex
+									flex-direction row
+									justify-content center
+									align-items center
+									background-color naranja
+									width 330px
+									height 40px
+									cursor pointer
+									&:focus
+										outline 0px
+									img
+										width 23px
+										height 23px
+									h1
+										margin 0
+										font-size 16px
+										font-weight bolder
+										color white
+										margin-left 5px
 section.alternativas
 	position relative
 	margin 3vh 10vw
@@ -1026,7 +1035,7 @@ section.alternativas
 	flex-direction column
 	.slideralternativas-content
 		position relative
-		height 240px
+		height 400px
 		width 77%
 		.alternativas-slider-container
 			display flex

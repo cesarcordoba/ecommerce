@@ -4,31 +4,7 @@ app.controller('homeCtrl', function(Categoria, $scope, $rootScope, $mdDialog, $w
 
 	const self = this
 
-	class menu_{
-		constructor(){}
-
-		abrir(){
-			$mdDialog.show({
-                templateUrl: '/dialogs/menu-opciones',
-                parent: angular.element(document.body),
-                bindToController: true,
-                preserveScope: true,
-                clickOutsideToClose: true,
-                fullscreen: $scope.customFullscreen,
-                controller: function($scope, $mdDialog,$state) {
-                    // $scope.submit = function(tarjeta) {
-					//
-                    //     console.log(tarjeta)
-                    // }
-                    $scope.close = function() {
-                        $mdDialog.hide(false);
-                    }
-                }
-            })
-		}
-	}
-
-	self.menu = new menu_();
+	
 
 	class promociones_{
 		constructor(){
