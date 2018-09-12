@@ -761,16 +761,23 @@ footer
 				height 25px
 producto
 	.producto-content
+		background-color white
 		border 1px solid rgba(0, 49, 67, 1)
-		.portada-producto
-			background-color negro
-			height 220px
-			width 100%
+		portada
+			.portada
+				height 220px
+				width 98%
+				display flex
+				justify-content center
+				img
+					margin-top 2px
+					height 100%
 		.titulo-producto
 			margin-top 5px
 			width 90%
 			margin-left 15px
 			h1
+				margin 0
 				font-family Poopins
 				font-size 12px
 				line-height 15px
@@ -786,10 +793,12 @@ producto
 				padding 15px
 				.nombre
 					h4
+						margin 0
 						font-size 11px
 						font-weight bolder
 				.precio
 					h1
+						margin 0
 						font-size 22px
 		.version-container
 			display grid
@@ -869,7 +878,7 @@ producto
 						transition(400ms , 0)
 
 				#central
-					width calc(100% - 150px)
+					width calc(100% - 200px)
 					height auto
 					.slick-slide, .portada, .imagen
 						display flex
@@ -890,7 +899,6 @@ producto
 						max-height 80px
 
 				#botones-versiones
-					padding 5px
 					.version
 						.md-button
 							background-color negro
@@ -1041,7 +1049,7 @@ section.alternativas
 	.slideralternativas-content
 		position relative
 		height 450px
-		width 77%
+		width 75%
 		.alternativas-slider-container
 			display flex
 			flex-direction row
@@ -1083,11 +1091,9 @@ section.caracteristicas
 	justify-content center
 	align-items center
 	width 100%
-	border 1px solid
 	height 300px
 	.caracteristicas-content
 		width 80%
-		border 1px solid red
 		height 100%
 		display flex
 		flex-direction column
@@ -1148,69 +1154,39 @@ section.caracteristicas
 				border 1px solid gray
 				margin-top 5px
 				background-color gray
-			
+
 		.seccion-abajo
-			margin-top 70px			
 			width 100%
 			height 40px
 			display flex
 			flex-direction row
 			justify-content space-between
-			align-items center
-			.tabla-derecha
-				width 48% 
-				background-color negro
-				.div
-					p
-						color white
-				.div-2
-					p 
-						font-size 12px
-				.div
-					p
-						color white
-				.div-2
-					p 
-						font-size 12px
-				.div
-					p
-						color white
-				.div-2
-					p 
-						font-size 12px
-				.div
-					p
-						color white
-				.div-2
-					p 
-						font-size 12px
-			.tabla-izquierda
+			.tabla-derecha, .tabla-izquierda
+				margin-top 15px
 				width 48%
-				background-color negro
-				.div
-					p
-						color white
-				.div-2
-					p 
-						font-size 12px
-				.div
-					p
-						color white
-				.div-2
-					p 
-						font-size 12px
-				.div
-					p
-						color white
-				.div-2
-					p 
-						font-size 12px
-				.div
-					p
-						color white
-				.div-2
-					p 
-						font-size 12px
+				height 100%
+				.peso, .dimensiones, .numeros, .color
+					display flex
+					flex-direction row
+
+					.div
+						width 50%
+						border-top .1px solid gray
+						background-color negro
+						p
+							color white
+							margin 5px
+							font-size 12px
+					.div-2
+						width 50%
+						border-top .1px solid gray
+						border-right .1px solid gray
+
+						p
+							font-size 12px
+							margin 10px
+					.div-2#ultimo
+						border-bottom .1px solid gray
 // CSS DEL DIALOGO EN EL SUBNAV
 md-backdrop.md-opaque
 	background-color inherit !important

@@ -933,12 +933,18 @@ footer .contenedor-abajo .imagen {
   height: 25px;
 }
 producto .producto-content {
+  background-color: #fff;
   border: 1px solid #003143;
 }
-producto .producto-content .portada-producto {
-  background-color: #343434;
+producto .producto-content portada .portada {
   height: 220px;
-  width: 100%;
+  width: 98%;
+  display: flex;
+  justify-content: center;
+}
+producto .producto-content portada .portada img {
+  margin-top: 2px;
+  height: 100%;
 }
 producto .producto-content .titulo-producto {
   margin-top: 5px;
@@ -946,6 +952,7 @@ producto .producto-content .titulo-producto {
   margin-left: 15px;
 }
 producto .producto-content .titulo-producto h1 {
+  margin: 0;
   font-family: Poopins;
   font-size: 12px;
   line-height: 15px;
@@ -963,10 +970,12 @@ producto .producto-content .info-basica .informacion {
   padding: 15px;
 }
 producto .producto-content .info-basica .informacion .nombre h4 {
+  margin: 0;
   font-size: 11px;
   font-weight: bolder;
 }
 producto .producto-content .info-basica .informacion .precio h1 {
+  margin: 0;
   font-size: 22px;
 }
 producto .producto-content .version-container {
@@ -1063,7 +1072,7 @@ producto .producto-content .boton .md-button span {
   transition-delay: 0 ease-in-out;
 }
 .producto section.producto-content .imagenes #central {
-  width: calc(100% - 150px);
+  width: calc(100% - 200px);
   height: auto;
 }
 .producto section.producto-content .imagenes #central .slick-slide,
@@ -1093,9 +1102,6 @@ producto .producto-content .boton .md-button span {
 .producto section.producto-content .imagenes #slider .portada,
 .producto section.producto-content .imagenes #slider .imagen {
   max-height: 80px;
-}
-.producto section.producto-content .imagenes #botones-versiones {
-  padding: 5px;
 }
 .producto section.producto-content .imagenes #botones-versiones .version .md-button {
   background-color: #343434;
@@ -1273,7 +1279,7 @@ section.alternativas {
 section.alternativas .slideralternativas-content {
   position: relative;
   height: 450px;
-  width: 77%;
+  width: 75%;
 }
 section.alternativas .slideralternativas-content .alternativas-slider-container {
   display: flex;
@@ -1324,12 +1330,10 @@ section.caracteristicas {
   justify-content: center;
   align-items: center;
   width: 100%;
-  border: 1px solid;
   height: 300px;
 }
 section.caracteristicas .caracteristicas-content {
   width: 80%;
-  border: 1px solid #f00;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -1403,69 +1407,85 @@ section.caracteristicas .caracteristicas-content .linea-container-alternativas .
   background-color: #808080;
 }
 section.caracteristicas .caracteristicas-content .seccion-abajo {
-  margin-top: 70px;
   width: 100%;
   height: 40px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
 }
-section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha {
-  width: 48%;
-  background-color: #343434;
-}
-section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .div p {
-  color: #fff;
-}
-section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .div-2 p {
-  font-size: 12px;
-}
-section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .div p {
-  color: #fff;
-}
-section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .div-2 p {
-  font-size: 12px;
-}
-section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .div p {
-  color: #fff;
-}
-section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .div-2 p {
-  font-size: 12px;
-}
-section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .div p {
-  color: #fff;
-}
-section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .div-2 p {
-  font-size: 12px;
-}
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha,
 section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda {
+  margin-top: 15px;
   width: 48%;
+  height: 100%;
+}
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .peso,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .peso,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .dimensiones,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .dimensiones,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .numeros,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .numeros,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .color,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .color {
+  display: flex;
+  flex-direction: row;
+}
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .peso .div,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .peso .div,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .dimensiones .div,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .dimensiones .div,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .numeros .div,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .numeros .div,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .color .div,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .color .div {
+  width: 50%;
+  border-top: 0.1px solid #808080;
   background-color: #343434;
 }
-section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .div p {
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .peso .div p,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .peso .div p,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .dimensiones .div p,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .dimensiones .div p,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .numeros .div p,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .numeros .div p,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .color .div p,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .color .div p {
   color: #fff;
-}
-section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .div-2 p {
+  margin: 5px;
   font-size: 12px;
 }
-section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .div p {
-  color: #fff;
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .peso .div-2,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .peso .div-2,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .dimensiones .div-2,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .dimensiones .div-2,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .numeros .div-2,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .numeros .div-2,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .color .div-2,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .color .div-2 {
+  width: 50%;
+  border-top: 0.1px solid #808080;
+  border-right: 0.1px solid #808080;
 }
-section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .div-2 p {
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .peso .div-2 p,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .peso .div-2 p,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .dimensiones .div-2 p,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .dimensiones .div-2 p,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .numeros .div-2 p,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .numeros .div-2 p,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .color .div-2 p,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .color .div-2 p {
   font-size: 12px;
+  margin: 10px;
 }
-section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .div p {
-  color: #fff;
-}
-section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .div-2 p {
-  font-size: 12px;
-}
-section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .div p {
-  color: #fff;
-}
-section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .div-2 p {
-  font-size: 12px;
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .peso .div-2#ultimo,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .peso .div-2#ultimo,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .dimensiones .div-2#ultimo,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .dimensiones .div-2#ultimo,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .numeros .div-2#ultimo,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .numeros .div-2#ultimo,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-derecha .color .div-2#ultimo,
+section.caracteristicas .caracteristicas-content .seccion-abajo .tabla-izquierda .color .div-2#ultimo {
+  border-bottom: 0.1px solid #808080;
 }
 md-backdrop.md-opaque {
   background-color: inherit !important;

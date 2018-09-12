@@ -232,6 +232,16 @@ angular.module('myapp')
     .then(response => self.alternativas = new alternativas_(response))
     .then(() => $scope.$digest())
 
-    console.log(self)
+
+    class contador_{
+        constructor(){
+            this.cantidad = 1
+        }
+        cuenta(tipo){
+            if(this.cantidad != 0 || tipo === 'mas')
+                tipo === 'mas' ? this.cantidad ++ : this.cantidad --
+        }
+    }
+    self.contador = new contador_();
 
 });
