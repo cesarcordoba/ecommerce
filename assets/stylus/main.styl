@@ -703,6 +703,11 @@ footer
 			.grid-content
 				margin 30px
 				margin-bottom 100px
+				.grid-productos
+					display grid
+					grid-template-columns repeat(4, 230px)
+					grid-row-gap 10px
+					grid-column-gap 10px
 				md-grid-list
 					width 120%
 					md-grid-tile
@@ -1035,7 +1040,7 @@ section.alternativas
 	flex-direction column
 	.slideralternativas-content
 		position relative
-		height 400px
+		height 450px
 		width 77%
 		.alternativas-slider-container
 			display flex
@@ -1073,6 +1078,139 @@ section.alternativas
 		margin-top 10px
 		background-color gray
 
+section.caracteristicas
+	display flex
+	justify-content center
+	align-items center
+	width 100%
+	border 1px solid
+	height 300px
+	.caracteristicas-content
+		width 80%
+		border 1px solid red
+		height 100%
+		display flex
+		flex-direction column
+		.seccion-arriba
+			width 100%
+			height 40px
+			display flex
+			flex-direction row
+			justify-content space-between
+			align-items center
+			.derecha
+				display flex
+				flex-direction row
+				justify-content space-between
+				align-items center
+				width 48%
+				.titulo
+					height 100%
+					width 91%
+					background-color naranja
+					h1
+						margin-left 10px
+						color white
+						font-size 16px
+						font-weight bolder
+				.cuadro
+					height 100%
+					background-color negro
+					width 40px
+			.izquierda
+				width 48%
+				display flex
+				flex-direction row
+				justify-content space-between
+				align-items center
+				.titulo
+					height 100%
+					width 91%
+					background-color negro
+					h1
+						margin-left 10px
+						color white
+						font-size 16px
+						font-weight bolder
+				.cuadro
+					height 100%
+					background-color naranja
+					width 40px
+		.linea-container-alternativas
+			width 100%
+			display flex
+			justify-content center
+			align-items center
+			margin-top 10px
+			.linea-separador-alternativas
+				width 95%
+				opacity 0.3
+				border 1px solid gray
+				margin-top 5px
+				background-color gray
+			
+		.seccion-abajo
+			margin-top 70px			
+			width 100%
+			height 40px
+			display flex
+			flex-direction row
+			justify-content space-between
+			align-items center
+			.tabla-derecha
+				width 48% 
+				background-color negro
+				.div
+					p
+						color white
+				.div-2
+					p 
+						font-size 12px
+				.div
+					p
+						color white
+				.div-2
+					p 
+						font-size 12px
+				.div
+					p
+						color white
+				.div-2
+					p 
+						font-size 12px
+				.div
+					p
+						color white
+				.div-2
+					p 
+						font-size 12px
+			.tabla-izquierda
+				width 48%
+				background-color negro
+				.div
+					p
+						color white
+				.div-2
+					p 
+						font-size 12px
+				.div
+					p
+						color white
+				.div-2
+					p 
+						font-size 12px
+				.div
+					p
+						color white
+				.div-2
+					p 
+						font-size 12px
+				.div
+					p
+						color white
+				.div-2
+					p 
+						font-size 12px
 // CSS DEL DIALOGO EN EL SUBNAV
 md-backdrop.md-opaque
 	background-color inherit !important

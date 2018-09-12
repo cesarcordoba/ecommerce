@@ -28,10 +28,6 @@ md-progress-linear(md-mode="indeterminate" ng-if="!ctrl.producto" ng-disabled="c
 						md-button 19x19"
 					.version
 						md-button 08x09"
-					.version
-						md-button 50x10"
-					.version
-						md-button 10x15"
 				
 			.informacion
 				.informacion-content
@@ -70,6 +66,60 @@ section.alternativas
 			.alternativas-slider-content(ng-repeat="alternativa in ctrl.alternativas.items")
 				.alternativa
 					producto(producto="alternativa")
+section.caracteristicas
+	.caracteristicas-content
+		.seccion-arriba
+			.derecha
+				.titulo
+					h1 Especificaciones técnicas
+				.cuadro
+			.izquierda
+				.titulo
+					h1 Información adicional
+				.cuadro
+		.linea-container-alternativas
+			.linea-separador-alternativas
+		.seccion-abajo
+			.tabla-derecha
+				.div
+					p Peso del producto
+				.div-2
+					p 132g
+
+				.div
+					p Dimensiones del producto
+				.div-2
+					p 15x79x1.3 cm
+
+				.div
+					p Número de modelo del producto
+				.div-2
+					p 775-55143
+
+				.div
+					p Color
+				.div-2
+					p negro
+			.tabla-izquierda
+				.div
+					p Peso del producto
+				.div-2
+					p 132g
+
+				.div
+					p Dimensiones del producto
+				.div-2
+					p 15x79x1.3 cm
+
+				.div
+					p Número de modelo del producto
+				.div-2
+					p 775-55143
+
+				.div
+					p Color
+				.div-2
+					p negro
 	//- md-grid-list(md-cols="12" md-row-height="100px" md-gutter="50px")
 	//- 	md-grid-tile(ng-repeat="alternativa in ctrl.alternativas.items"  md-rowspan="3" md-colspan="2" ng-click="producto.ir()")
 	//- 		.alternativa

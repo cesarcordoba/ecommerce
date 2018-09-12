@@ -67,7 +67,10 @@
 			md-progress-linear(md-mode="indeterminate" ng-if="!ctrl.productos.items" ng-disabled="ctrl.productos.items")
 			.grid-content
 				md-progress-linear(md-mode="indeterminate" ng-disabled="ctrl.productos.items.length > 0" ng-if="ctrl.productos.items.length === 0")
-				md-grid-list(md-cols-xs="{{ctrl.productos.col.xs}}" md-cols-sm="{{ctrl.productos.col.sm}}" md-cols-md="{{ctrl.productos.col.md}}" md-cols-lg="{{ctrl.productos.col.lg}}" md-cols-xl="{{ctrl.productos.col.xl}}" md-row-height-xs="{{ctrl.productos.height.xs}}" md-row-height-sm="{{ctrl.productos.height.sm}}" md-row-height-md="{{ctrl.productos.height.md}}" md-row-height-lg="{{ctrl.productos.height.lg}}" md-row-height-xl="{{ctrl.productos.height.xl}}"  md-gutter="{{ ctrl.productos.gutter }}" ng-if="ctrl.productos.items")
+				.grid-productos
+					.producto-container(ng-repeat="producto in ctrl.productos.items")
+							producto(producto="producto" conector="resize(id, $index)")
+				//-md-grid-list(md-cols-xs="{{ctrl.productos.col.xs}}" md-cols-sm="{{ctrl.productos.col.sm}}" md-cols-md="{{ctrl.productos.col.md}}" md-cols-lg="{{ctrl.productos.col.lg}}" md-cols-xl="{{ctrl.productos.col.xl}}" md-row-height-xs="{{ctrl.productos.height.xs}}" md-row-height-sm="{{ctrl.productos.height.sm}}" md-row-height-md="{{ctrl.productos.height.md}}" md-row-height-lg="{{ctrl.productos.height.lg}}" md-row-height-xl="{{ctrl.productos.height.xl}}"  md-gutter="{{ ctrl.productos.gutter }}" ng-if="ctrl.productos.items")
 					md-grid-tile(md-colspan="{{producto.forma.width}}" md-rowspan="{{producto.forma.height}}" ng-repeat="producto in ctrl.productos.items" ng-init="hover = false"    ng-class="hover ? 'conHover' : 'sinHover'")
 						.producto-container
 							producto(producto="producto" conector="resize(id, $index)")
