@@ -184,11 +184,20 @@ app.component('producto',{
                             this.versiones = x.map(n => new version_(n, promo)))
                     .then(response =>{
 
-                        console.log(response)
+                        this.versiones.forEach((n, key) => {
+
+                            n.active = key === 0 ? true : false
+
+                        })
+                        this.versionSeleccionada(response[0])
                         self.conector({ id : response.length })})
                     .then(() => proceso('versiones'))
                     .then(() => $scope.$digest())
 
+            }
+            versionSeleccionada(version){
+                self.actual = version
+                this.versiones.forEach(n => n === version ? n.active = true : n.active = false)
             }
         }
 

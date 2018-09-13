@@ -21,6 +21,7 @@ main
 	position relative
 	min-height 100vh
 	overflow-x hidden
+	background-color white
 .nav
 	display flex
 	justify-content center
@@ -817,10 +818,13 @@ producto
 						font-size 13px
 						font-weight bolder
 						text-transform lowercase
-					&:hover
+					&:hover, &.active
 						background-color negro
 						span
 							color white
+					.opcion
+						&:focus
+							outline 0px
 
 
 
@@ -903,14 +907,19 @@ producto
 						.md-button
 							background-color negro
 							border-radius inherit !important
+							line-height inherit
 							transition(150ms , 0)
 							span
 								color white
 								font-size 13px
 								font-weight bolder
 								text-transform lowercase
-							&:hover
+								margin 0
+							&:hover, &.active
 								background-color naranja
+							.opcion
+								&:focus
+									outline 0px
 
 
 			.informacion
@@ -1062,6 +1071,7 @@ section.alternativas
 					outline 0px
 				.alternativa
 					position relative
+					width 73%
 			.slick-prev:before, .slick-next:before
 				color naranja !important
 				font-size 36px

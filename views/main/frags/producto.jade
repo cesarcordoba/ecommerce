@@ -21,8 +21,8 @@ md-progress-linear(md-mode="indeterminate" ng-if="!ctrl.producto" ng-disabled="c
 						imagen(id="imagen.id" )
 				#botones-versiones
 					.version(ng-repeat="version in ctrl.producto.versiones" ng-if="ctrl.producto.versiones")
-						.opciones
-							md-button.opcion(ng-repeat="opcion in version.opciones")
+						md-button.opciones(ng-class="{ 'active' : version.active }")
+							.opcion(ng-repeat="opcion in version.opciones" ng-click="ctrl.producto.versionSeleccionada(version)")
 								span {{opcion.nombre}}
 				
 			.informacion
@@ -39,9 +39,10 @@ md-progress-linear(md-mode="indeterminate" ng-if="!ctrl.producto" ng-disabled="c
 							h1 {{ctrl.producto.nombre}}
 							//strong {{ctrl.producto.marca.nombre}}
 						.version
+							.nombre
+								h4 {{ctrl.actual.nombre}}
 							.precio
-								//h3 $ {{version.precio}}
-								h3 $200
+								h3 ${{ctrl.actual.precio}}
 							.botones
 								.cantidad
 									.mas(ng-click="ctrl.contador.cuenta('mas')")

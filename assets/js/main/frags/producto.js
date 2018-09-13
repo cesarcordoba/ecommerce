@@ -1,5 +1,5 @@
 angular.module('myapp')
-.controller('productoCtrl', function($scope, $stateParams, $localStorage, $window,  Marca, Producto, Version, Gama, Ambiente, Oferta ) {
+.controller('productoCtrl', function($scope, $stateParams, $localStorage, $window,  Marca, Producto, Version, Gama, Ambiente, Oferta, Categoria ) {
 
     const
         self = this,
@@ -42,8 +42,18 @@ angular.module('myapp')
 
 		versiones(){
             Producto.versionesdisponibles(this.id)
-            .then(response => this.versiones = response.data.map(n => new version_(n)))
+            .then(response => {
+                this.versiones = response.data.map(n => new version_(n))
+                this.versiones.forEach((n, key) => {
+                    n.active = key === 0 ? true : false
+                })
+                this.versionSeleccionada(this.versiones[0])
+            })
 
+        }
+        versionSeleccionada(version){
+            self.actual = version
+            this.versiones.forEach(n => n === version ? n.active = true : n.active = false )
         }
         slider(){
 
